@@ -1,0 +1,2 @@
+
+SUBDIRS = keytool protoc

@@ -1,0 +1,159 @@
+/*
+ * Copyright (C) 2016 Southern Storm Software, Pty Ltd.
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a
+ * copy of this software and associated documentation files (the "Software"),
+ * to deal in the Software without restriction, including without limitation
+ * the rights to use, copy, modify, merge, publish, distribute, sublicense,
+ * and/or sell copies of the Software, and to permit persons to whom the
+ * Software is furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included
+ * in all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+ * OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+ * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+ * DEALINGS IN THE SOFTWARE.
+ */
+
+/**
+\file mainpage.dox
+\mainpage
+\tableofcontents
+
+Noise-C is a plain C implementation of the
+<a href="http://noiseprotocol.org/">Noise Protocol</a>, intended as a
+reference implementation.  It can also be referred to as "Noisy",
+which is what you get when you say "Noise-C" too fast.  The code is
+distributed under the terms of the MIT license, with the code available from
+<a href="https://github.com/rweather/noise-c">github</a>.
+
+\note This project is still a work in progress.  There is still a lot of
+cleaning up and example writing to do.
+
+The initial target is GNU/Linux systems, because that's what I have,
+but contributions are definitely welcome to make the code work
+on other platforms.  Desktop systems will be targeted first and
+then embedded systems.  "Make It Work And Then Make It Work Better"
+is my motto.
+
+\section algorithms Supported Patterns and Algorithms
+
+\li Specification Level: Revision 30
+\li Prefixes: Noise and NoisePSK
+\li Patterns: N, X, K, NN, NK, NX, XN, XK, XX, KN, KK, KX, IN, IK, IX,
+XXfallback, Xnoidh, NXnoidh, XXnoidh, KXnoidh, IKnoidh, IXnoidh,
+NNhfs, NKhfs, NXhfs, XNhfs, XKhfs, XXhfs, KNhfs, KKhfs, KXhfs, INhfs, IKhfs,
+IXhfs, XXfallback+hfs, NXnoidh+hfs, XXnoidh+hfs, KXnoidh+hfs, IKnoidh+hfs,
+IXnoidh+hfs
+\li Diffie-Hellman: 25519, 448
+\li Post-Quantum: NewHope
+\li Cipher: ChaChaPoly, AESGCM
+\li Hash: BLAKE2s, BLAKE2b, SHA256, SHA512
+\li Other: Support for Hybrid Forward Secrecy
+
+Note that the post-quantum "NewHope" algorithm only works with the "NN"
+handshake pattern because it does not support long-term static keys.
+For more information, see the <a href="https://github.com/noiseprotocol/noise_wiki/wiki/Post-Quantum-Noise-with-New-Hope">Post-Quantum Noise with New Hope</a>
+page on the Noise wiki.
+
+\section major_apis Major API's
+
+\li \ref handshakestate "HandshakeState"
+\li \ref cipherstate "CipherState"
+
+\section supporting_apis Supporting API's
+
+\li \ref symmetricstate "SymmetricState"
+\li \ref hashstate "HashState"
+\li \ref dhstate "DHState"
+\li \ref signstate "SignState"
+\li \ref randstate "RandState"
+\li \ref keyloader "Key/certificate loading and saving"
+\li \ref utils "Utilities"
+
+\section other_info Other information
+
+\li \ref example_echo "Using Noise-C: Client/Server Echo Example"
+\li \ref cert_key_format "Certificate and private key file format"
+
+\section dir_structure Directory structure
+
+\li <tt>include/noise/</tt> - Public API definitions for inclusion
+    into applications.
+\li <tt>src/protocol/</tt> - Source code for the core Noise-C protocol library.
+\li <tt>src/protobufs/</tt> - Source code for the Noise-C protobufs library.
+\li <tt>src/keys/</tt> - Source code for the key and certificate management
+    library.
+\li <tt>src/crypto/</tt> - Public domain and open source reference
+    implementations of the cryptographic primitives.
+\li <tt>src/backend/ref/</tt> - Backends for
+    \ref cipherstate "CipherState", \ref hashstate "HashState",
+    \ref dhstate "DHState", and \ref signstate "SignState" that use the
+    reference cryptographic primitives.
+\li <tt>src/backend/openssl/</tt> - OpenSSL crypto backend
+\li <tt>src/backend/sodium/</tt> - libsodium crypto backend
+\li <tt>tools/protoc/</tt> - Source code for the Noise-C protobufs compiler.
+\li <tt>tools/keytool/</tt> - Command-line key and certificate management tool.
+\li <tt>tests/unit/</tt> - Unit tests to exercise the library's functionality.
+\li <tt>tests/vector/</tt> - Public JSON test vectors and test harness for
+    the Noise protocol.
+\li <tt>tests/vector-gen/</tt> - Generates test vectors in JSON format.
+\li <tt>tests/performance/</tt> - Performance tests for the cryptographic
+    primitives.
+\li <tt>examples/</tt> - Source code for examples.
+\li <tt>doc/</tt> - Overview and example documentation.
+
+\section building Building
+
+The library uses autoconf and automake for the Makefile structure.
+You will need to have these installed to build from the sources in the
+git repository.  Bison and Flex are also requred to build the
+<tt>noise-protoc</tt> protobuf compiler.
+
+To build the library under GNU/Linux and run the tests, type the following:
+
+\code
+$ autoreconf -i
+$ ./configure
+$ make
+$ make check
+\endcode
+
+The following parameters can be supplied to <tt>configure</tt> to select
+other crypto back ends:
+
+\li <tt>--with-libsodium</tt> - Use libsodium to provide crypto primitives,
+falling back to the reference back end where libsodium does not have an
+implementation.
+\li <tt>--with-openssl</tt> - Use the AESGCM implementation from OpenSSL.
+
+Both options can be combined to get the best of both worlds.
+
+\section todo TODO
+
+In no particular order:
+
+\li Examples and overview documentation.
+\li Mechanism to encrypt static keypairs with a passphrase.
+\li Complete the standalone key generation utility for static keypairs.
+\li Compile-time subsetting of the library for applications that only
+    need a subset of the algorithms, and for platforms with limited memory.
+
+Contributions are welcome to help implement any of these.
+
+\section contact Contact
+
+For more information on this library, to report bugs, to contribute,
+or to suggest improvements, please contact the author Rhys Weatherley via
+<a href="mailto:rhys.weatherley@gmail.com">e-mail</a>.
+*/
+
+/**
+\file protocol.h
+\brief Main header file to include the Noise protocol library definitions
+*/
