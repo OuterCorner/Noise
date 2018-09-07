@@ -2,11 +2,11 @@
 //  Noise.h
 //  Noise
 //
-//  Created by Paulo@OC on 07/09/2018.
+//  Created by Paulo Andrade on 07/09/2018.
 //  Copyright © 2018 Outer Corner. All rights reserved.
 //
 
-#import <Cocoa/Cocoa.h>
+#import <Foundation/Foundation.h>
 
 //! Project version number for Noise.
 FOUNDATION_EXPORT double NoiseVersionNumber;
