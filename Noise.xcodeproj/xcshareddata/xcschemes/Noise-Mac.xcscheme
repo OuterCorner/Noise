@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "D77C6E142142E09100A3E0EA"
-               BuildableName = "Noise_Mac.framework"
+               BuildableName = "Noise.framework"
                BlueprintName = "Noise-Mac"
                ReferencedContainer = "container:Noise.xcodeproj">
             </BuildableReference>
@@ -46,7 +46,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "D77C6E142142E09100A3E0EA"
-            BuildableName = "Noise_Mac.framework"
+            BuildableName = "Noise.framework"
             BlueprintName = "Noise-Mac"
             ReferencedContainer = "container:Noise.xcodeproj">
          </BuildableReference>
@@ -64,7 +64,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "D77C6E142142E09100A3E0EA"
-            BuildableName = "Noise_Mac.framework"
+            BuildableName = "Noise.framework"
             BlueprintName = "Noise-Mac"
             ReferencedContainer = "container:Noise.xcodeproj">
          </BuildableReference>
