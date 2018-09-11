@@ -28,7 +28,26 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "D77C7301214821D100A3E0EA"
+               BuildableName = "NoiseTests.xctest"
+               BlueprintName = "NoiseTests"
+               ReferencedContainer = "container:Noise.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "D77C6E142142E09100A3E0EA"
+            BuildableName = "Noise.framework"
+            BlueprintName = "Noise-Mac"
+            ReferencedContainer = "container:Noise.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>
