@@ -118,6 +118,10 @@
 		D77C72FB214819F900A3E0EA /* NFProtocol+Package.h in Headers */ = {isa = PBXBuildFile; fileRef = D77C72F8214819F900A3E0EA /* NFProtocol+Package.h */; };
 		D77C7307214821D100A3E0EA /* Noise.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D77C6E152142E09100A3E0EA /* Noise.framework */; };
 		D77C730E214821F200A3E0EA /* ProtocolTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77C730D214821F200A3E0EA /* ProtocolTests.swift */; };
+		D77C73112148484600A3E0EA /* NFInit.h in Headers */ = {isa = PBXBuildFile; fileRef = D77C730F2148484600A3E0EA /* NFInit.h */; };
+		D77C73122148484600A3E0EA /* NFInit.h in Headers */ = {isa = PBXBuildFile; fileRef = D77C730F2148484600A3E0EA /* NFInit.h */; };
+		D77C73132148484600A3E0EA /* NFInit.m in Sources */ = {isa = PBXBuildFile; fileRef = D77C73102148484600A3E0EA /* NFInit.m */; };
+		D77C73142148484600A3E0EA /* NFInit.m in Sources */ = {isa = PBXBuildFile; fileRef = D77C73102148484600A3E0EA /* NFInit.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -384,6 +388,8 @@
 		D77C7302214821D100A3E0EA /* NoiseTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NoiseTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D77C7306214821D100A3E0EA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D77C730D214821F200A3E0EA /* ProtocolTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtocolTests.swift; sourceTree = "<group>"; };
+		D77C730F2148484600A3E0EA /* NFInit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NFInit.h; sourceTree = "<group>"; };
+		D77C73102148484600A3E0EA /* NFInit.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NFInit.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -459,7 +465,7 @@
 				D77C6E192142E09100A3E0EA /* Info.plist */,
 				D77C72F2214813F800A3E0EA /* NFProtocol.h */,
 				D77C72F3214813F800A3E0EA /* NFProtocol.m */,
-				D77C72F8214819F900A3E0EA /* NFProtocol+Package.h */,
+				D77C73152148486E00A3E0EA /* Package */,
 			);
 			path = Noise;
 			sourceTree = "<group>";
@@ -1021,6 +1027,16 @@
 			path = NoiseTests;
 			sourceTree = "<group>";
 		};
+		D77C73152148486E00A3E0EA /* Package */ = {
+			isa = PBXGroup;
+			children = (
+				D77C72F8214819F900A3E0EA /* NFProtocol+Package.h */,
+				D77C730F2148484600A3E0EA /* NFInit.h */,
+				D77C73102148484600A3E0EA /* NFInit.m */,
+			);
+			name = Package;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -1030,6 +1046,7 @@
 			files = (
 				D77C72F4214813F800A3E0EA /* NFProtocol.h in Headers */,
 				D77C6E1A2142E09100A3E0EA /* Noise.h in Headers */,
+				D77C73112148484600A3E0EA /* NFInit.h in Headers */,
 				D77C72FA214819F900A3E0EA /* NFProtocol+Package.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1040,6 +1057,7 @@
 			files = (
 				D77C72F5214813F800A3E0EA /* NFProtocol.h in Headers */,
 				D77C72FB214819F900A3E0EA /* NFProtocol+Package.h in Headers */,
+				D77C73122148484600A3E0EA /* NFInit.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1221,6 +1239,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D77C72F6214813F800A3E0EA /* NFProtocol.m in Sources */,
+				D77C73132148484600A3E0EA /* NFInit.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1229,6 +1248,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D77C72F7214813F800A3E0EA /* NFProtocol.m in Sources */,
+				D77C73142148484600A3E0EA /* NFInit.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
