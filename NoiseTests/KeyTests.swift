@@ -11,7 +11,7 @@ import Noise
 
 class KeyTests: XCTestCase {
 
-    func testKeyGenerator() {
+    func testPublicKeyGenerator() {
         func testGeneratingKeys(for keyAlgo: NoiseKeyAlgo, length: Int) {
             let key = NoiseKeyGenerator.shared.generateKeyPair(keyAlgo)
             XCTAssertNotNil(key)
@@ -27,6 +27,16 @@ class KeyTests: XCTestCase {
         
         testGeneratingKeys(for: .curve25519, length: 32)
         testGeneratingKeys(for: .curve448, length: 56)
+    }
+    
+    func testSymmetricKeyGenerator() {
+        
+        let key = NoiseKeyGenerator.shared.generateSymmetricKey(32)
+        
+        XCTAssertNotNil(key)
+        XCTAssertEqual(key.keyMaterial.count, 32)
+        XCTAssertEqual(key.keyRole, .symmetric)
+        XCTAssertNil(key.keyAlgo)
     }
 
     func testKeySerialization() throws {

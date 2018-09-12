@@ -32,6 +32,8 @@ NS_SWIFT_NAME(NoiseKeyGenerator)
  */
 - (NFKeyPair *)generateKeyPair:(NFKeyAlgo)keyAlgo;
 
+- (NFKey *)generateSymmetricKey:(NSUInteger)sizeInBytes;
+
 @end
 
 NS_ASSUME_NONNULL_END

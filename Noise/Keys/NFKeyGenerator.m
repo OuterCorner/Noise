@@ -8,7 +8,7 @@
 
 #import "NFKeyGenerator.h"
 #import "NFKey+Package.h"
-
+#import <Security/Security.h>
 #import <noise/protocol.h>
 
 @implementation NFKeyGenerator
@@ -73,6 +73,16 @@
     noise_free(pub_key, pub_key_len);
 
     return keyPair;
+}
+
+- (NFKey *)generateSymmetricKey:(NSUInteger)sizeInBytes
+{
+    uint8_t buffer[sizeInBytes];
+    int ret = SecRandomCopyBytes( kSecRandomDefault, sizeInBytes, (uint8_t *)&buffer);
+    assert(ret == 0);
+    NSData *randomData = [NSData dataWithBytes:buffer length:sizeInBytes];
+    
+    return [NFKey keyWithMaterial:randomData role:NFKeyRoleSymmetric algo:nil];
 }
 
 @end
