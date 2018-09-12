@@ -13,7 +13,17 @@
 
 @implementation NFKeyGenerator
 
-+ (NFKeyPair *)generateKeyPair:(NFKeyAlgo)keyAlgo
++ (NFKeyGenerator *)sharedGenerator
+{
+    static dispatch_once_t onceToken;
+    static NFKeyGenerator *_sharedGenerator;
+    dispatch_once(&onceToken, ^{
+        _sharedGenerator = [[NFKeyGenerator alloc] init];
+    });
+    return _sharedGenerator;
+}
+
+- (NFKeyPair *)generateKeyPair:(NFKeyAlgo)keyAlgo
 {
     NoiseDHState *dh;
     const char *key_type = [keyAlgo UTF8String];
@@ -50,10 +60,10 @@
     if (ok) {
         NFKey *publicKey = [NFKey keyWithMaterial:[NSData dataWithBytes:pub_key length:pub_key_len]
                                              role:NFKeyRolePublic
-                                             type:keyAlgo];
+                                             algo:keyAlgo];
         NFKey *privateKey = [NFKey keyWithMaterial:[NSData dataWithBytes:priv_key length:priv_key_len]
-                                              role:NFKeyRolePublic
-                                              type:keyAlgo];
+                                              role:NFKeyRolePrivate
+                                              algo:keyAlgo];
         keyPair = [[NFKeyPair alloc] initWithPublicKey:publicKey privateKey:privateKey];
     }
     

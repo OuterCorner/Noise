@@ -14,7 +14,7 @@ typedef NS_ENUM(NSUInteger, NFKeyRole) {
     NFKeyRolePrivate
 } NS_SWIFT_NAME(NoiseKeyRole);
 
-typedef NSString *NFKeyAlgo;
+typedef NSString *NFKeyAlgo NS_SWIFT_NAME(NoiseKeyAlgo) NS_STRING_ENUM;
 
 extern NFKeyAlgo const NFKeyAlgoCurve25519;
 extern NFKeyAlgo const NFKeyAlgoCurve448;
@@ -25,7 +25,7 @@ NS_ASSUME_NONNULL_BEGIN
  You can create keys using @see NFKeyGenerator.
  */
 NS_SWIFT_NAME(NoiseKey)
-@interface NFKey : NSObject
+@interface NFKey : NSObject <NSSecureCoding>
 
 @property (strong, readonly) NSData *keyMaterial;
 @property (readonly) NFKeyRole keyRole;

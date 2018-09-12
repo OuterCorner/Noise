@@ -19,12 +19,18 @@ NS_SWIFT_NAME(NoiseKeyGenerator)
 @interface NFKeyGenerator : NSObject
 
 /**
+ The shared key generator.
+ You should not instantiate another generator, but use this one instead.
+ */
+@property (class, readonly, strong) NFKeyGenerator *sharedGenerator;
+
+/**
  Generates a new keypair for a given algorithm.
 
  @param keyAlgo the algorithm to generate keys for
  @return a new keypair or nil if key algo is not supported
  */
-+ (NFKeyPair *)generateKeyPair:(NFKeyAlgo)keyAlgo;
+- (NFKeyPair *)generateKeyPair:(NFKeyAlgo)keyAlgo;
 
 @end
 

@@ -13,6 +13,7 @@
 		D75952B921492FD00043D7ED /* f_arithmetic.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C71E52142F04200A3E0EA /* f_arithmetic.c */; };
 		D75952BB214944E40043D7ED /* p480.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C71B62142F04200A3E0EA /* p480.c */; };
 		D75952BC214944E50043D7ED /* p480.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C71B62142F04200A3E0EA /* p480.c */; };
+		D75952BE214947DA0043D7ED /* KeyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D75952BD214947DA0043D7ED /* KeyTests.swift */; };
 		D77C6E1A2142E09100A3E0EA /* Noise.h in Headers */ = {isa = PBXBuildFile; fileRef = D77C6E182142E09100A3E0EA /* Noise.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D77C725E2142F07800A3E0EA /* names.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C72462142F04200A3E0EA /* names.c */; };
 		D77C725F2142F07800A3E0EA /* rand_os.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C72472142F04200A3E0EA /* rand_os.c */; };
@@ -179,6 +180,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		D75952BD214947DA0043D7ED /* KeyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyTests.swift; sourceTree = "<group>"; };
 		D77C6E152142E09100A3E0EA /* Noise.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Noise.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D77C6E182142E09100A3E0EA /* Noise.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Noise.h; sourceTree = "<group>"; };
 		D77C6E192142E09100A3E0EA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -1050,6 +1052,7 @@
 			isa = PBXGroup;
 			children = (
 				D77C730D214821F200A3E0EA /* ProtocolTests.swift */,
+				D75952BD214947DA0043D7ED /* KeyTests.swift */,
 				D77C7306214821D100A3E0EA /* Info.plist */,
 			);
 			path = NoiseTests;
@@ -1429,6 +1432,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D77C730E214821F200A3E0EA /* ProtocolTests.swift in Sources */,
+				D75952BE214947DA0043D7ED /* KeyTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

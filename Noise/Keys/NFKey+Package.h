@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface NFKey (Package)
 
-+ (instancetype)keyWithMaterial:(NSData *)material role:(NFKeyRole)role type:(nullable NFKeyAlgo)algo;
++ (instancetype)keyWithMaterial:(NSData *)material role:(NFKeyRole)role algo:(nullable NFKeyAlgo)algo;
 
 @end
 

@@ -12,7 +12,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 NS_SWIFT_NAME(NoiseKeyPair)
-@interface NFKeyPair : NSObject
+@interface NFKeyPair : NSObject <NSSecureCoding>
 
 - (instancetype)initWithPublicKey:(NFKey *)publicKey privateKey:(NFKey *)privateKey;
 
