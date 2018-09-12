@@ -44,13 +44,9 @@
     size_t pub_key_len = noise_dhstate_get_public_key_length(dh);
     uint8_t *priv_key = (uint8_t *)malloc(priv_key_len);
     uint8_t *pub_key = (uint8_t *)malloc(pub_key_len);
-    if (!priv_key || !pub_key) {
-        fprintf(stderr, "Out of memory\n");
-        return nil;
-    }
+
     BOOL ok = YES;
-    err = noise_dhstate_get_keypair
-    (dh, priv_key, priv_key_len, pub_key, pub_key_len);
+    err = noise_dhstate_get_keypair(dh, priv_key, priv_key_len, pub_key, pub_key_len);
     if (err != NOISE_ERROR_NONE) {
         noise_perror("get keypair", err);
         ok = NO;

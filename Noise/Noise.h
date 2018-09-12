@@ -20,3 +20,5 @@ FOUNDATION_EXPORT const unsigned char NoiseVersionString[];
 #import <Noise/NFKey.h>
 #import <Noise/NFKeyPair.h>
 #import <Noise/NFKeyGenerator.h>
+#import <Noise/NFSession.h>
+#import <Noise/NFHandshakeState.h>

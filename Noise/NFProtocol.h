@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "NFKey.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -34,6 +35,9 @@ NS_SWIFT_NAME(NoiseProtocol)
 
 /** The DH function name, e.g.: 25519, 448 */
 @property (strong, readonly) NSString *dhFunction;
+
+/** The DH function name, e.g.: 25519, 448 (this is the same as dhFunction) */
+@property (strong, readonly) NFKeyAlgo keyAlgo;
 
 /** The cipher function name, e.g.: AESGCM, ChaChaPoly */
 @property (strong, readonly) NSString *cipherFunction;

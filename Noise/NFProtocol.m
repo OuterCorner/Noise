@@ -12,10 +12,14 @@
     NoiseProtocolId *_protocolId;
 }
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wobjc-designated-initializers"
 - (instancetype)init
 {
-    return [self initWithName:@""]; // will return nil
+    self = nil;
+    return nil;
 }
+#pragma clang diagnostic pop
 
 - (instancetype)initWithName:(NSString *)name
 {
@@ -50,6 +54,11 @@
         NSString *h = [[NSString alloc] initWithBytes:hybridName length:strlen(hybridName) encoding:NSASCIIStringEncoding];
         return [NSString stringWithFormat:@"%@+%@", n, h];
     }
+}
+
+- (NFKeyAlgo)keyAlgo
+{
+    return (NFKeyAlgo)[self dhFunction];
 }
 
 - (NSString *)cipherFunction

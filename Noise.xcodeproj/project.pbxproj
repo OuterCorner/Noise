@@ -14,6 +14,17 @@
 		D75952BB214944E40043D7ED /* p480.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C71B62142F04200A3E0EA /* p480.c */; };
 		D75952BC214944E50043D7ED /* p480.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C71B62142F04200A3E0EA /* p480.c */; };
 		D75952BE214947DA0043D7ED /* KeyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D75952BD214947DA0043D7ED /* KeyTests.swift */; };
+		D75952C1214952B10043D7ED /* NFSession.h in Headers */ = {isa = PBXBuildFile; fileRef = D75952BF214952B10043D7ED /* NFSession.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D75952C2214952B10043D7ED /* NFSession.h in Headers */ = {isa = PBXBuildFile; fileRef = D75952BF214952B10043D7ED /* NFSession.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D75952C3214952B10043D7ED /* NFSession.m in Sources */ = {isa = PBXBuildFile; fileRef = D75952C0214952B10043D7ED /* NFSession.m */; };
+		D75952C4214952B10043D7ED /* NFSession.m in Sources */ = {isa = PBXBuildFile; fileRef = D75952C0214952B10043D7ED /* NFSession.m */; };
+		D75952C92149587C0043D7ED /* NFHandshakeState.h in Headers */ = {isa = PBXBuildFile; fileRef = D75952C72149587C0043D7ED /* NFHandshakeState.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D75952CA2149587C0043D7ED /* NFHandshakeState.h in Headers */ = {isa = PBXBuildFile; fileRef = D75952C72149587C0043D7ED /* NFHandshakeState.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D75952CB2149587C0043D7ED /* NFHandshakeState.m in Sources */ = {isa = PBXBuildFile; fileRef = D75952C82149587C0043D7ED /* NFHandshakeState.m */; };
+		D75952CC2149587C0043D7ED /* NFHandshakeState.m in Sources */ = {isa = PBXBuildFile; fileRef = D75952C82149587C0043D7ED /* NFHandshakeState.m */; };
+		D75952CD214974CF0043D7ED /* cipher-aesgcm.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C72442142F04200A3E0EA /* cipher-aesgcm.c */; };
+		D75952CE214974CF0043D7ED /* cipher-aesgcm.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C72442142F04200A3E0EA /* cipher-aesgcm.c */; };
+		D75952D0214989310043D7ED /* HandshakeStateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D75952CF214989310043D7ED /* HandshakeStateTests.swift */; };
 		D77C6E1A2142E09100A3E0EA /* Noise.h in Headers */ = {isa = PBXBuildFile; fileRef = D77C6E182142E09100A3E0EA /* Noise.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D77C725E2142F07800A3E0EA /* names.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C72462142F04200A3E0EA /* names.c */; };
 		D77C725F2142F07800A3E0EA /* rand_os.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C72472142F04200A3E0EA /* rand_os.c */; };
@@ -181,6 +192,11 @@
 
 /* Begin PBXFileReference section */
 		D75952BD214947DA0043D7ED /* KeyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyTests.swift; sourceTree = "<group>"; };
+		D75952BF214952B10043D7ED /* NFSession.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NFSession.h; sourceTree = "<group>"; };
+		D75952C0214952B10043D7ED /* NFSession.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NFSession.m; sourceTree = "<group>"; };
+		D75952C72149587C0043D7ED /* NFHandshakeState.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NFHandshakeState.h; sourceTree = "<group>"; };
+		D75952C82149587C0043D7ED /* NFHandshakeState.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NFHandshakeState.m; sourceTree = "<group>"; };
+		D75952CF214989310043D7ED /* HandshakeStateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandshakeStateTests.swift; sourceTree = "<group>"; };
 		D77C6E152142E09100A3E0EA /* Noise.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Noise.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D77C6E182142E09100A3E0EA /* Noise.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Noise.h; sourceTree = "<group>"; };
 		D77C6E192142E09100A3E0EA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -461,6 +477,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D75952C6214958540043D7ED /* State */ = {
+			isa = PBXGroup;
+			children = (
+				D75952C72149587C0043D7ED /* NFHandshakeState.h */,
+				D75952C82149587C0043D7ED /* NFHandshakeState.m */,
+			);
+			path = State;
+			sourceTree = "<group>";
+		};
 		D77C6E0B2142E09100A3E0EA = {
 			isa = PBXGroup;
 			children = (
@@ -489,9 +514,12 @@
 			isa = PBXGroup;
 			children = (
 				D77C6E182142E09100A3E0EA /* Noise.h */,
+				D75952BF214952B10043D7ED /* NFSession.h */,
+				D75952C0214952B10043D7ED /* NFSession.m */,
 				D77C72F2214813F800A3E0EA /* NFProtocol.h */,
 				D77C72F3214813F800A3E0EA /* NFProtocol.m */,
 				D77C72F8214819F900A3E0EA /* NFProtocol+Package.h */,
+				D75952C6214958540043D7ED /* State */,
 				D77C731E2148492F00A3E0EA /* Keys */,
 				D77C730F2148484600A3E0EA /* NFUtil.h */,
 				D77C73102148484600A3E0EA /* NFUtil.m */,
@@ -1052,6 +1080,7 @@
 			isa = PBXGroup;
 			children = (
 				D77C730D214821F200A3E0EA /* ProtocolTests.swift */,
+				D75952CF214989310043D7ED /* HandshakeStateTests.swift */,
 				D75952BD214947DA0043D7ED /* KeyTests.swift */,
 				D77C7306214821D100A3E0EA /* Info.plist */,
 			);
@@ -1088,12 +1117,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				D77C73272148495A00A3E0EA /* NFKeyGenerator.h in Headers */,
+				D75952C1214952B10043D7ED /* NFSession.h in Headers */,
 				D77C732D214849EA00A3E0EA /* NFKey+Package.h in Headers */,
 				D77C73192148490800A3E0EA /* NFKey.h in Headers */,
 				D77C72F4214813F800A3E0EA /* NFProtocol.h in Headers */,
 				D77C73212148494500A3E0EA /* NFKeyPair.h in Headers */,
 				D77C6E1A2142E09100A3E0EA /* Noise.h in Headers */,
 				D77C73112148484600A3E0EA /* NFUtil.h in Headers */,
+				D75952C92149587C0043D7ED /* NFHandshakeState.h in Headers */,
 				D77C72FA214819F900A3E0EA /* NFProtocol+Package.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1103,8 +1134,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				D77C732E214849EA00A3E0EA /* NFKey+Package.h in Headers */,
+				D75952C2214952B10043D7ED /* NFSession.h in Headers */,
 				D77C72F5214813F800A3E0EA /* NFProtocol.h in Headers */,
 				D77C72FB214819F900A3E0EA /* NFProtocol+Package.h in Headers */,
+				D75952CA2149587C0043D7ED /* NFHandshakeState.h in Headers */,
 				D77C73282148495A00A3E0EA /* NFKeyGenerator.h in Headers */,
 				D77C73222148494500A3E0EA /* NFKeyPair.h in Headers */,
 				D77C731A2148490800A3E0EA /* NFKey.h in Headers */,
@@ -1293,6 +1326,8 @@
 				D77C72F6214813F800A3E0EA /* NFProtocol.m in Sources */,
 				D77C73132148484600A3E0EA /* NFUtil.m in Sources */,
 				D77C73292148495A00A3E0EA /* NFKeyGenerator.m in Sources */,
+				D75952CB2149587C0043D7ED /* NFHandshakeState.m in Sources */,
+				D75952C3214952B10043D7ED /* NFSession.m in Sources */,
 				D77C73232148494500A3E0EA /* NFKeyPair.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1305,6 +1340,8 @@
 				D77C72F7214813F800A3E0EA /* NFProtocol.m in Sources */,
 				D77C73142148484600A3E0EA /* NFUtil.m in Sources */,
 				D77C732A2148495A00A3E0EA /* NFKeyGenerator.m in Sources */,
+				D75952CC2149587C0043D7ED /* NFHandshakeState.m in Sources */,
+				D75952C4214952B10043D7ED /* NFSession.m in Sources */,
 				D77C73242148494500A3E0EA /* NFKeyPair.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1337,6 +1374,7 @@
 				D77C72C62143135400A3E0EA /* batcher.c in Sources */,
 				D77C72CB2143135400A3E0EA /* reduce.c in Sources */,
 				D77C72712143125800A3E0EA /* curve25519-donna.c in Sources */,
+				D75952CD214974CF0043D7ED /* cipher-aesgcm.c in Sources */,
 				D77C72632142F07800A3E0EA /* randstate.c in Sources */,
 				D77C72722143125800A3E0EA /* poly1305-donna.c in Sources */,
 				D77C7290214312C100A3E0EA /* dh-newhope.c in Sources */,
@@ -1396,6 +1434,7 @@
 				D77C72D12143135400A3E0EA /* batcher.c in Sources */,
 				D77C72D62143135400A3E0EA /* reduce.c in Sources */,
 				D77C72842143129B00A3E0EA /* dhstate.c in Sources */,
+				D75952CE214974CF0043D7ED /* cipher-aesgcm.c in Sources */,
 				D77C72802143129B00A3E0EA /* names.c in Sources */,
 				D77C72812143129B00A3E0EA /* rand_os.c in Sources */,
 				D77C72892143129B00A3E0EA /* hashstate.c in Sources */,
@@ -1431,6 +1470,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D75952D0214989310043D7ED /* HandshakeStateTests.swift in Sources */,
 				D77C730E214821F200A3E0EA /* ProtocolTests.swift in Sources */,
 				D75952BE214947DA0043D7ED /* KeyTests.swift in Sources */,
 			);
