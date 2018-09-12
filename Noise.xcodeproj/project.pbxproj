@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D75952B121492E890043D7ED /* f_arithmetic.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C71BB2142F04200A3E0EA /* f_arithmetic.c */; };
+		D75952B221492E890043D7ED /* f_arithmetic.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C71BB2142F04200A3E0EA /* f_arithmetic.c */; };
+		D75952B821492FCF0043D7ED /* f_arithmetic.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C71E52142F04200A3E0EA /* f_arithmetic.c */; };
+		D75952B921492FD00043D7ED /* f_arithmetic.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C71E52142F04200A3E0EA /* f_arithmetic.c */; };
+		D75952BB214944E40043D7ED /* p480.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C71B62142F04200A3E0EA /* p480.c */; };
+		D75952BC214944E50043D7ED /* p480.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C71B62142F04200A3E0EA /* p480.c */; };
 		D77C6E1A2142E09100A3E0EA /* Noise.h in Headers */ = {isa = PBXBuildFile; fileRef = D77C6E182142E09100A3E0EA /* Noise.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D77C725E2142F07800A3E0EA /* names.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C72462142F04200A3E0EA /* names.c */; };
 		D77C725F2142F07800A3E0EA /* rand_os.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C72472142F04200A3E0EA /* rand_os.c */; };
@@ -108,8 +114,6 @@
 		D77C72E82143F8F700A3E0EA /* curve448.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C722A2142F04200A3E0EA /* curve448.c */; };
 		D77C72E92143F8FD00A3E0EA /* rijndael-alg-fst.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C722D2142F04200A3E0EA /* rijndael-alg-fst.c */; };
 		D77C72EA2143F8FE00A3E0EA /* rijndael-alg-fst.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C722D2142F04200A3E0EA /* rijndael-alg-fst.c */; };
-		D77C72EB2143FB7D00A3E0EA /* scalarmul.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C71B12142F04200A3E0EA /* scalarmul.c */; };
-		D77C72EC2143FB7E00A3E0EA /* scalarmul.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C71B12142F04200A3E0EA /* scalarmul.c */; };
 		D77C72F4214813F800A3E0EA /* NFProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = D77C72F2214813F800A3E0EA /* NFProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D77C72F5214813F800A3E0EA /* NFProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = D77C72F2214813F800A3E0EA /* NFProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D77C72F6214813F800A3E0EA /* NFProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = D77C72F3214813F800A3E0EA /* NFProtocol.m */; };
@@ -122,6 +126,20 @@
 		D77C73122148484600A3E0EA /* NFInit.h in Headers */ = {isa = PBXBuildFile; fileRef = D77C730F2148484600A3E0EA /* NFInit.h */; };
 		D77C73132148484600A3E0EA /* NFInit.m in Sources */ = {isa = PBXBuildFile; fileRef = D77C73102148484600A3E0EA /* NFInit.m */; };
 		D77C73142148484600A3E0EA /* NFInit.m in Sources */ = {isa = PBXBuildFile; fileRef = D77C73102148484600A3E0EA /* NFInit.m */; };
+		D77C73192148490800A3E0EA /* NFKey.h in Headers */ = {isa = PBXBuildFile; fileRef = D77C73172148490800A3E0EA /* NFKey.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D77C731A2148490800A3E0EA /* NFKey.h in Headers */ = {isa = PBXBuildFile; fileRef = D77C73172148490800A3E0EA /* NFKey.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D77C731B2148490800A3E0EA /* NFKey.m in Sources */ = {isa = PBXBuildFile; fileRef = D77C73182148490800A3E0EA /* NFKey.m */; };
+		D77C731C2148490800A3E0EA /* NFKey.m in Sources */ = {isa = PBXBuildFile; fileRef = D77C73182148490800A3E0EA /* NFKey.m */; };
+		D77C73212148494500A3E0EA /* NFKeyPair.h in Headers */ = {isa = PBXBuildFile; fileRef = D77C731F2148494500A3E0EA /* NFKeyPair.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D77C73222148494500A3E0EA /* NFKeyPair.h in Headers */ = {isa = PBXBuildFile; fileRef = D77C731F2148494500A3E0EA /* NFKeyPair.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D77C73232148494500A3E0EA /* NFKeyPair.m in Sources */ = {isa = PBXBuildFile; fileRef = D77C73202148494500A3E0EA /* NFKeyPair.m */; };
+		D77C73242148494500A3E0EA /* NFKeyPair.m in Sources */ = {isa = PBXBuildFile; fileRef = D77C73202148494500A3E0EA /* NFKeyPair.m */; };
+		D77C73272148495A00A3E0EA /* NFKeyGenerator.h in Headers */ = {isa = PBXBuildFile; fileRef = D77C73252148495A00A3E0EA /* NFKeyGenerator.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D77C73282148495A00A3E0EA /* NFKeyGenerator.h in Headers */ = {isa = PBXBuildFile; fileRef = D77C73252148495A00A3E0EA /* NFKeyGenerator.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D77C73292148495A00A3E0EA /* NFKeyGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = D77C73262148495A00A3E0EA /* NFKeyGenerator.m */; };
+		D77C732A2148495A00A3E0EA /* NFKeyGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = D77C73262148495A00A3E0EA /* NFKeyGenerator.m */; };
+		D77C732D214849EA00A3E0EA /* NFKey+Package.h in Headers */ = {isa = PBXBuildFile; fileRef = D77C732B214849EA00A3E0EA /* NFKey+Package.h */; };
+		D77C732E214849EA00A3E0EA /* NFKey+Package.h in Headers */ = {isa = PBXBuildFile; fileRef = D77C732B214849EA00A3E0EA /* NFKey+Package.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -390,6 +408,13 @@
 		D77C730D214821F200A3E0EA /* ProtocolTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtocolTests.swift; sourceTree = "<group>"; };
 		D77C730F2148484600A3E0EA /* NFInit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NFInit.h; sourceTree = "<group>"; };
 		D77C73102148484600A3E0EA /* NFInit.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NFInit.m; sourceTree = "<group>"; };
+		D77C73172148490800A3E0EA /* NFKey.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NFKey.h; sourceTree = "<group>"; };
+		D77C73182148490800A3E0EA /* NFKey.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NFKey.m; sourceTree = "<group>"; };
+		D77C731F2148494500A3E0EA /* NFKeyPair.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NFKeyPair.h; sourceTree = "<group>"; };
+		D77C73202148494500A3E0EA /* NFKeyPair.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NFKeyPair.m; sourceTree = "<group>"; };
+		D77C73252148495A00A3E0EA /* NFKeyGenerator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NFKeyGenerator.h; sourceTree = "<group>"; };
+		D77C73262148495A00A3E0EA /* NFKeyGenerator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NFKeyGenerator.m; sourceTree = "<group>"; };
+		D77C732B214849EA00A3E0EA /* NFKey+Package.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NFKey+Package.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -462,10 +487,13 @@
 			isa = PBXGroup;
 			children = (
 				D77C6E182142E09100A3E0EA /* Noise.h */,
-				D77C6E192142E09100A3E0EA /* Info.plist */,
 				D77C72F2214813F800A3E0EA /* NFProtocol.h */,
 				D77C72F3214813F800A3E0EA /* NFProtocol.m */,
-				D77C73152148486E00A3E0EA /* Package */,
+				D77C72F8214819F900A3E0EA /* NFProtocol+Package.h */,
+				D77C731E2148492F00A3E0EA /* Keys */,
+				D77C730F2148484600A3E0EA /* NFInit.h */,
+				D77C73102148484600A3E0EA /* NFInit.m */,
+				D77C7316214848D400A3E0EA /* Supporting Files */,
 			);
 			path = Noise;
 			sourceTree = "<group>";
@@ -1027,14 +1055,26 @@
 			path = NoiseTests;
 			sourceTree = "<group>";
 		};
-		D77C73152148486E00A3E0EA /* Package */ = {
+		D77C7316214848D400A3E0EA /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				D77C72F8214819F900A3E0EA /* NFProtocol+Package.h */,
-				D77C730F2148484600A3E0EA /* NFInit.h */,
-				D77C73102148484600A3E0EA /* NFInit.m */,
+				D77C6E192142E09100A3E0EA /* Info.plist */,
 			);
-			name = Package;
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D77C731E2148492F00A3E0EA /* Keys */ = {
+			isa = PBXGroup;
+			children = (
+				D77C73172148490800A3E0EA /* NFKey.h */,
+				D77C73182148490800A3E0EA /* NFKey.m */,
+				D77C732B214849EA00A3E0EA /* NFKey+Package.h */,
+				D77C731F2148494500A3E0EA /* NFKeyPair.h */,
+				D77C73202148494500A3E0EA /* NFKeyPair.m */,
+				D77C73252148495A00A3E0EA /* NFKeyGenerator.h */,
+				D77C73262148495A00A3E0EA /* NFKeyGenerator.m */,
+			);
+			path = Keys;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1044,7 +1084,11 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D77C73272148495A00A3E0EA /* NFKeyGenerator.h in Headers */,
+				D77C732D214849EA00A3E0EA /* NFKey+Package.h in Headers */,
+				D77C73192148490800A3E0EA /* NFKey.h in Headers */,
 				D77C72F4214813F800A3E0EA /* NFProtocol.h in Headers */,
+				D77C73212148494500A3E0EA /* NFKeyPair.h in Headers */,
 				D77C6E1A2142E09100A3E0EA /* Noise.h in Headers */,
 				D77C73112148484600A3E0EA /* NFInit.h in Headers */,
 				D77C72FA214819F900A3E0EA /* NFProtocol+Package.h in Headers */,
@@ -1055,8 +1099,12 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D77C732E214849EA00A3E0EA /* NFKey+Package.h in Headers */,
 				D77C72F5214813F800A3E0EA /* NFProtocol.h in Headers */,
 				D77C72FB214819F900A3E0EA /* NFProtocol+Package.h in Headers */,
+				D77C73282148495A00A3E0EA /* NFKeyGenerator.h in Headers */,
+				D77C73222148494500A3E0EA /* NFKeyPair.h in Headers */,
+				D77C731A2148490800A3E0EA /* NFKey.h in Headers */,
 				D77C73122148484600A3E0EA /* NFInit.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1238,8 +1286,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D77C731B2148490800A3E0EA /* NFKey.m in Sources */,
 				D77C72F6214813F800A3E0EA /* NFProtocol.m in Sources */,
 				D77C73132148484600A3E0EA /* NFInit.m in Sources */,
+				D77C73292148495A00A3E0EA /* NFKeyGenerator.m in Sources */,
+				D77C73232148494500A3E0EA /* NFKeyPair.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1247,8 +1298,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D77C731C2148490800A3E0EA /* NFKey.m in Sources */,
 				D77C72F7214813F800A3E0EA /* NFProtocol.m in Sources */,
 				D77C73142148484600A3E0EA /* NFInit.m in Sources */,
+				D77C732A2148495A00A3E0EA /* NFKeyGenerator.m in Sources */,
+				D77C73242148494500A3E0EA /* NFKeyPair.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1269,6 +1323,7 @@
 				D77C72D02143135400A3E0EA /* newhope.c in Sources */,
 				D77C72642142F07800A3E0EA /* handshakestate.c in Sources */,
 				D77C72BD2143133900A3E0EA /* sha512.c in Sources */,
+				D75952B821492FCF0043D7ED /* f_arithmetic.c in Sources */,
 				D77C72662142F07800A3E0EA /* patterns.c in Sources */,
 				D77C7296214312C100A3E0EA /* hash-blake2s.c in Sources */,
 				D77C72BC2143133900A3E0EA /* sha256.c in Sources */,
@@ -1292,12 +1347,13 @@
 				D77C72682142F07800A3E0EA /* cipherstate.c in Sources */,
 				D77C72C42143134600A3E0EA /* chacha.c in Sources */,
 				D77C7295214312C100A3E0EA /* hash-sha512.c in Sources */,
-				D77C72EB2143FB7D00A3E0EA /* scalarmul.c in Sources */,
 				D77C72CD2143135400A3E0EA /* precomp.c in Sources */,
 				D77C72E92143F8FD00A3E0EA /* rijndael-alg-fst.c in Sources */,
+				D75952BB214944E40043D7ED /* p480.c in Sources */,
 				D77C725F2142F07800A3E0EA /* rand_os.c in Sources */,
 				D77C72E52143F8EB00A3E0EA /* ed25519.c in Sources */,
 				D77C72CE2143135400A3E0EA /* randombytes.c in Sources */,
+				D75952B121492E890043D7ED /* f_arithmetic.c in Sources */,
 				D77C7297214312C100A3E0EA /* hash-sha256.c in Sources */,
 				D77C72612142F07800A3E0EA /* util.c in Sources */,
 				D77C72C82143135400A3E0EA /* ntt.c in Sources */,
@@ -1333,6 +1389,7 @@
 				D77C72D42143135400A3E0EA /* poly.c in Sources */,
 				D77C72862143129B00A3E0EA /* handshakestate.c in Sources */,
 				D77C72C22143134000A3E0EA /* blake2b.c in Sources */,
+				D75952B921492FD00043D7ED /* f_arithmetic.c in Sources */,
 				D77C72D12143135400A3E0EA /* batcher.c in Sources */,
 				D77C72D62143135400A3E0EA /* reduce.c in Sources */,
 				D77C72842143129B00A3E0EA /* dhstate.c in Sources */,
@@ -1349,12 +1406,13 @@
 				D77C72852143129B00A3E0EA /* randstate.c in Sources */,
 				D77C72C52143134600A3E0EA /* chacha.c in Sources */,
 				D77C728C2143129B00A3E0EA /* errors.c in Sources */,
-				D77C72EC2143FB7E00A3E0EA /* scalarmul.c in Sources */,
 				D77C72D82143135400A3E0EA /* precomp.c in Sources */,
 				D77C72EA2143F8FE00A3E0EA /* rijndael-alg-fst.c in Sources */,
+				D75952BC214944E50043D7ED /* p480.c in Sources */,
 				D77C729B214312C100A3E0EA /* dh-curve25519.c in Sources */,
 				D77C72E62143F8EC00A3E0EA /* ed25519.c in Sources */,
 				D77C72D92143135400A3E0EA /* randombytes.c in Sources */,
+				D75952B221492E890043D7ED /* f_arithmetic.c in Sources */,
 				D77C728A2143129B00A3E0EA /* cipherstate.c in Sources */,
 				D77C72872143129B00A3E0EA /* internal.c in Sources */,
 				D77C72D32143135400A3E0EA /* ntt.c in Sources */,
@@ -1633,15 +1691,8 @@
 				DEVELOPMENT_TEAM = 32HNEEH56A;
 				EXECUTABLE_PREFIX = lib;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = NO;
-				HEADER_SEARCH_PATHS = (
-					"$(SRCROOT)/Noise-C/include",
-					"$(SRCROOT)/Noise-C/src/crypto/goldilocks/include",
-					"$(SRCROOT)/Noise-C/src/crypto/goldilocks/src/include",
-					/usr/local/opt/openssl/include,
-				);
 				PRODUCT_NAME = noiseprotocol;
 				SKIP_INSTALL = YES;
-				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/Noise-C/src";
 			};
 			name = Debug;
 		};
@@ -1653,15 +1704,8 @@
 				DEVELOPMENT_TEAM = 32HNEEH56A;
 				EXECUTABLE_PREFIX = lib;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = NO;
-				HEADER_SEARCH_PATHS = (
-					"$(SRCROOT)/Noise-C/include",
-					"$(SRCROOT)/Noise-C/src/crypto/goldilocks/include",
-					"$(SRCROOT)/Noise-C/src/crypto/goldilocks/src/include",
-					/usr/local/opt/openssl/include,
-				);
 				PRODUCT_NAME = noiseprotocol;
 				SKIP_INSTALL = YES;
-				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/Noise-C/src";
 			};
 			name = Release;
 		};
@@ -1672,14 +1716,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 32HNEEH56A;
-				HEADER_SEARCH_PATHS = (
-					"$(SRCROOT)/Noise-C/include",
-					"$(SRCROOT)/Noise-C/src/crypto/goldilocks/include",
-					"$(SRCROOT)/Noise-C/src/crypto/goldilocks/src/include",
-					/usr/local/opt/openssl/include,
-				);
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
-				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = noiseprotocol;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -1694,14 +1731,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 32HNEEH56A;
-				HEADER_SEARCH_PATHS = (
-					"$(SRCROOT)/Noise-C/include",
-					"$(SRCROOT)/Noise-C/src/crypto/goldilocks/include",
-					"$(SRCROOT)/Noise-C/src/crypto/goldilocks/src/include",
-					/usr/local/opt/openssl/include,
-				);
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
-				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = noiseprotocol;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;

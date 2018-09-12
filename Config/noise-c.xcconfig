@@ -10,6 +10,11 @@
 // https://help.apple.com/xcode/#/dev745c5c974
 
 USE_SODIUM = 0
-USE_OPENSSL = 0
+USE_OPENSSL = 1
 
 GCC_PREPROCESSOR_DEFINITIONS = USE_SODIUM=$(USE_SODIUM) USE_OPENSSL=$(USE_OPENSSL)
+
+HEADER_SEARCH_PATHS = $(SRCROOT)/Noise-C/include $(SRCROOT)/Noise-C/src/crypto/goldilocks/include $(SRCROOT)/Noise-C/src/crypto/goldilocks/src/include /usr/local/opt/openssl/include
+
+USER_HEADER_SEARCH_PATHS = $(SRCROOT)/Noise-C/src
+
