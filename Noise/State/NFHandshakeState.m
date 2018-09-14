@@ -12,6 +12,14 @@
 #import <noise/protocol.h>
 #import "NFKeyPair.h"
 #import "NFKey+Package.h"
+#import "NFErrors+Package.h"
+
+@interface NFHandshakeState ()
+
+@property (nullable, weak, readwrite) NFSession *session;
+
+@end
+
 
 @implementation NFHandshakeState {
     NoiseHandshakeState *_handshakeState;
@@ -170,5 +178,81 @@
 {
     return noise_handshakestate_needs_remote_public_key(_handshakeState);
 }
+
+
+#pragma mark - Package private methods
+
+- (BOOL)startForSession:(NFSession *)session error:(NSError * _Nullable __autoreleasing *)error
+{
+    int err = noise_handshakestate_start(_handshakeState);
+    if (err != NOISE_ERROR_NONE) {
+        if (error != NULL) {
+            *error = internalErrorFromNoiseError(err);
+        }
+        return NO;
+    }
+    self.session = session;
+    
+    return YES;
+}
+
+- (void)receivedData:(NSData *)data
+{
+    
+}
+
+- (BOOL)needsPerformAction
+{
+    int action = noise_handshakestate_get_action(_handshakeState);
+    return action == NOISE_ACTION_WRITE_MESSAGE;
+}
+
+- (BOOL)performNextAction:(NSError * _Nullable __autoreleasing *)error
+{
+    NFSession *session = [self session];
+    int action = noise_handshakestate_get_action(_handshakeState);
+    
+    if (action == NOISE_ACTION_WRITE_MESSAGE) {
+        NSString *pattern = [self currentActionPattern];
+        NSData *payload = nil;
+        if ([session.delegate respondsToSelector:@selector(session:willSendHandshakeMessagePattern:)]) {
+            payload = [session.delegate session:session
+                willSendHandshakeMessagePattern:pattern];
+        }
+        
+        size_t max_buffer_size = 4096 + [payload length];
+        uint8_t *buffer = (uint8_t *)malloc(max_buffer_size);
+        NoiseBuffer message_buffer;
+        NoiseBuffer payload_buffer;
+        
+        noise_buffer_set_input(payload_buffer, (uint8_t *)[payload bytes], (size_t)[payload length]);
+        noise_buffer_set_output(message_buffer, buffer, max_buffer_size);
+        int err = noise_handshakestate_write_message(_handshakeState, &message_buffer, payload ? &payload_buffer : NULL);
+        if (err != NOISE_ERROR_NONE) {
+            free(buffer);
+            if (error != NULL) {
+                *error = internalErrorFromNoiseError(err);
+            }
+            return NO;
+        }
+
+        NSData *messageData = [[NSData alloc] initWithBytesNoCopy:buffer length:message_buffer.size];
+        
+        [self.session sendData:messageData];
+    }
+    
+    return YES;
+}
+
+#pragma mark - Private
+
+- (NSString *)currentActionPattern
+{
+    char s[1024] = {'\0'};
+    noise_handshakestate_get_action_pattern(_handshakeState, s, 1024);
+    return [[NSString alloc] initWithUTF8String:s];
+}
+
+
 
 @end

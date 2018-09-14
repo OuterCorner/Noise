@@ -60,10 +60,6 @@ NS_SWIFT_NAME(NoiseSession)
 /** An optional delegate for this session */
 @property (nullable, weak) id<NFSessionDelegate> delegate;
 
-/** The queue where delegate methods are called. Defaults to the main queue. */
-@property (strong) NSOperationQueue *delegateQueue;
-
-
 /**
  You should call this method before starting a session to setup all the required data for the
  chosen protocol such as static or pre-shared keys, and other data like the prologue.
@@ -74,6 +70,58 @@ NS_SWIFT_NAME(NoiseSession)
  @throw if session state is not NFSessionStateInitializing
  */
 - (BOOL)setup:(void(^)(id<NFSessionSetup>))block;
+
+
+/**
+ YES when -setup: has been called and all required data has been setup.
+ If this method returns NO, calling start: will always fail.
+ */
+@property (readonly, getter = isReady) BOOL ready;
+
+/**
+ The sendingHandle will contain all transport data.
+ Clients should read from the sending handle and send data via whatver transport necessary.
+ This is nil if the session hasn't been started.
+ Note that to send your plain text you should use @see -sendData: instead.
+ */
+@property (nullable, strong, readonly) NSFileHandle *sendingHandle;
+
+/**
+ Clients should should write to the receiving handle anytime the peer sends data.
+ This is nil if the session hasn't been started.
+ */
+@property (nullable, strong, readonly) NSFileHandle *receivingHandle;
+
+
+/**
+ Starts this session.
+ Clients should start reading and writing to sendingHandle and receivingHandle after this method returns.
+
+ @param error [out] an instance of NSError if an error has occurred
+ @return YES if the session has started successfully, NO otherwise in which case error should contain the reason why.
+ */
+- (BOOL)start:(NSError * _Nullable __autoreleasing *)error;
+
+
+/**
+ Stops this session.
+ */
+- (void)stop;
+
+
+/**
+ The maximum message size. Must be less than 65535.
+ Defaults to 65535
+ */
+@property NSUInteger maxMessageSize;
+
+
+/**
+ This is your endpoint to send application data to the peer.
+ Multiple noise messages are sent if data doesn't fit in one.
+ @param data application data to send
+ */
+- (void)sendData:(NSData *)data;
 
 @end
 
@@ -133,7 +181,17 @@ NS_SWIFT_NAME(NoiseSessionDelegate)
 @optional
 
 /**
+ Sent when the session is about to start.
+ If you need to send something to the server, such as the protocol to be used,
+ This would be a good time.
+ 
+ @param session the session instance
+ */
+- (void)sessionWillStart:(NFSession *)session;
+
+/**
  Sent when the session has started.
+ Session state is now NFSessionStateHandshaking
  
  @param session the session instance
  */

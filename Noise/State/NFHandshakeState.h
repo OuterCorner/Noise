@@ -32,6 +32,9 @@ NS_SWIFT_NAME(NoiseHandshakeState)
 /** The role for this session. */
 @property (readonly) NFSessionRole role;
 
+/** The associated session. */
+@property (nullable, weak, readonly) NFSession *session;
+
 @end
 
 NS_ASSUME_NONNULL_END
