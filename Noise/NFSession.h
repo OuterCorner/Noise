@@ -17,7 +17,7 @@ typedef NS_ENUM(NSUInteger, NFSessionState) {
     NFSessionStateInitializing,
     NFSessionStateHandshaking,
     NFSessionStateEstablished,
-    NFSessionStateClosed,
+    NFSessionStateStopped,
     NFSessionStateError
 } NS_SWIFT_NAME(NoiseSessionState);
 
@@ -238,13 +238,13 @@ NS_SWIFT_NAME(NoiseSessionDelegate)
 
 
 /**
- Notifies the delegate the session was closed either due to an error,
+ Notifies the delegate the session was stopped either due to an error,
  or if the it was explicitely closed.
  
  @param session the session instance
  @param error an optional error object
  */
-- (void)sessionDidClose:(NFSession *)session error:(nullable NSError *)error;
+- (void)sessionDidStop:(NFSession *)session error:(nullable NSError *)error;
 
 @end
 

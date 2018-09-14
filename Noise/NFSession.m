@@ -16,6 +16,8 @@
 
 @property (strong) NFHandshakeState *handshakeState;
 
+@property (readwrite) NFSessionState state;
+
 @property (nullable, strong) NSPipe *inPipe;
 @property (nullable, strong) NSPipe *outPipe;
 
@@ -166,7 +168,10 @@
 
 - (void)stop
 {
-    
+    [self transitionToState:NFSessionStateStopped];
+    if ([self.delegate respondsToSelector:@selector(sessionDidStop:error:)]) {
+        [self.delegate sessionDidStop:self error:nil];
+    }
 }
 
 - (void)sendData:(NSData *)data
@@ -197,7 +202,7 @@
 
 - (void)transitionToState:(NFSessionState)state
 {
-    _state = state;
+    self.state = state;
     
     switch (state) {
         case NFSessionStateInitializing:
@@ -207,7 +212,7 @@
         case NFSessionStateEstablished:
             self.handshakeState = nil;
             break;
-        case NFSessionStateClosed:
+        case NFSessionStateStopped:
         case NFSessionStateError:
             self.handshakeState = nil;
             self.sendingHandle = nil;
@@ -238,8 +243,8 @@
 - (void)abort:(NSError *)error
 {
     [self transitionToState:NFSessionStateError];
-    if ([self.delegate respondsToSelector:@selector(sessionDidClose:error:)]) {
-        [self.delegate sessionDidClose:self error:error];
+    if ([self.delegate respondsToSelector:@selector(sessionDidStop:error:)]) {
+        [self.delegate sessionDidStop:self error:error];
     }
 }
 

@@ -73,6 +73,8 @@ class SessionTests: XCTestCase {
         delegate.expectedHandshakeSendingPatterns = ["e,es"]
         session.delegate = delegate
         
+        keyValueObservingExpectation(for: session, keyPath: "state", expectedValue:  NoiseSessionState.handshaking.rawValue)
+        
         XCTAssertNoThrow(try session.start())
         
         XCTAssertNotNil(session.sendingHandle)
@@ -88,6 +90,12 @@ class SessionTests: XCTestCase {
         }
         
         expectation(for: p, evaluatedWith: session.sendingHandle ?? NSNull(), handler: nil)
+        
+        waitForExpectations(timeout: 1.0, handler: nil)
+        
+        delegate.didStopExpectation = expectation(description: "DidStop")
+        keyValueObservingExpectation(for: session, keyPath: #keyPath(NoiseSession.state), expectedValue: NoiseSessionState.stopped.rawValue)
+        session.stop()
         
         waitForExpectations(timeout: 1.0, handler: nil)
     }
@@ -115,5 +123,10 @@ class NoiseSessionStubDelegate: NSObject, NoiseSessionDelegate {
         }
         
         return nil
+    }
+    
+    var didStopExpectation: XCTestExpectation?
+    func sessionDidStop(_ session: NoiseSession, error: Error?) {
+        didStopExpectation?.fulfill()
     }
 }
