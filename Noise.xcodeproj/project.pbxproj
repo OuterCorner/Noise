@@ -22,6 +22,7 @@
 		D72E1671214C67E200839C9D /* echo-common.c in Sources */ = {isa = PBXBuildFile; fileRef = D72E164C214C662C00839C9D /* echo-common.c */; settings = {COMPILER_FLAGS = "-w"; }; };
 		D72E1672214C67E200839C9D /* echo-client.c in Sources */ = {isa = PBXBuildFile; fileRef = D72E1654214C662C00839C9D /* echo-client.c */; settings = {COMPILER_FLAGS = "-w"; }; };
 		D72E1675214C67EF00839C9D /* libnoiseprotocol.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D77C6E3C2142EEDB00A3E0EA /* libnoiseprotocol.a */; };
+		D72E1677214C692B00839C9D /* EchoClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D72E1676214C692B00839C9D /* EchoClientTests.swift */; };
 		D75952B121492E890043D7ED /* f_arithmetic.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C71BB2142F04200A3E0EA /* f_arithmetic.c */; };
 		D75952B221492E890043D7ED /* f_arithmetic.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C71BB2142F04200A3E0EA /* f_arithmetic.c */; };
 		D75952B821492FCF0043D7ED /* f_arithmetic.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C71E52142F04200A3E0EA /* f_arithmetic.c */; };
@@ -252,6 +253,7 @@
 		D72E1654214C662C00839C9D /* echo-client.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = "echo-client.c"; sourceTree = "<group>"; };
 		D72E165A214C667900839C9D /* echo-server */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "echo-server"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D72E166A214C67D700839C9D /* echo-client */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "echo-client"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D72E1676214C692B00839C9D /* EchoClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EchoClientTests.swift; sourceTree = "<group>"; };
 		D75952BD214947DA0043D7ED /* KeyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyTests.swift; sourceTree = "<group>"; };
 		D75952BF214952B10043D7ED /* NFSession.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NFSession.h; sourceTree = "<group>"; };
 		D75952C0214952B10043D7ED /* NFSession.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NFSession.m; sourceTree = "<group>"; };
@@ -1206,6 +1208,7 @@
 				D75952CF214989310043D7ED /* HandshakeStateTests.swift */,
 				D75952BD214947DA0043D7ED /* KeyTests.swift */,
 				D72E1627214BB9C500839C9D /* SessionTests.swift */,
+				D72E1676214C692B00839C9D /* EchoClientTests.swift */,
 				D77C7306214821D100A3E0EA /* Info.plist */,
 			);
 			path = NoiseTests;
@@ -1665,6 +1668,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D72E1628214BB9C500839C9D /* SessionTests.swift in Sources */,
+				D72E1677214C692B00839C9D /* EchoClientTests.swift in Sources */,
 				D75952D0214989310043D7ED /* HandshakeStateTests.swift in Sources */,
 				D77C730E214821F200A3E0EA /* ProtocolTests.swift in Sources */,
 				D75952BE214947DA0043D7ED /* KeyTests.swift in Sources */,
