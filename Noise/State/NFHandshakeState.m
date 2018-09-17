@@ -198,7 +198,33 @@
 
 - (void)receivedData:(NSData *)data
 {
+    NFSession *session = [self session];
+    int action = noise_handshakestate_get_action(_handshakeState);
+    NSAssert(action == NOISE_ACTION_READ_MESSAGE, @"Received unexpected data during handshake");
     
+    NSString *pattern = [self currentActionPattern];
+
+    NoiseBuffer message_buffer;
+    NoiseBuffer payload_buffer;
+    size_t max_payload_size = NOISE_MAX_PAYLOAD_LEN;
+    uint8_t *buffer = (uint8_t *)malloc(max_payload_size);
+    
+    noise_buffer_set_input(message_buffer, (uint8_t *)[data bytes], [data length]);
+    noise_buffer_set_output(payload_buffer, buffer, max_payload_size);
+    
+    int err = noise_handshakestate_read_message(_handshakeState, &message_buffer, &payload_buffer);
+    if (err != NOISE_ERROR_NONE) {
+        free(buffer);
+        return;
+    }
+    
+    NSData *payload = [NSData dataWithBytes:buffer length:payload_buffer.size];
+    free(buffer);
+    if ([session.delegate respondsToSelector:@selector(session:didReceiveHandshakeMessage:payload:)]) {
+        [session.delegate session:session didReceiveHandshakeMessage:pattern payload:payload];
+    }
+    
+    [self performNextAction:NULL];
 }
 
 - (BOOL)needsPerformAction

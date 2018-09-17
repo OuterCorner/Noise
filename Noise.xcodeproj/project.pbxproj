@@ -23,6 +23,10 @@
 		D72E1672214C67E200839C9D /* echo-client.c in Sources */ = {isa = PBXBuildFile; fileRef = D72E1654214C662C00839C9D /* echo-client.c */; settings = {COMPILER_FLAGS = "-w"; }; };
 		D72E1675214C67EF00839C9D /* libnoiseprotocol.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D77C6E3C2142EEDB00A3E0EA /* libnoiseprotocol.a */; };
 		D72E1677214C692B00839C9D /* EchoClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D72E1676214C692B00839C9D /* EchoClientTests.swift */; };
+		D72E167D214FFFA800839C9D /* echo-server in CopyFiles */ = {isa = PBXBuildFile; fileRef = D72E165A214C667900839C9D /* echo-server */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		D72E167E214FFFA800839C9D /* echo-client in CopyFiles */ = {isa = PBXBuildFile; fileRef = D72E166A214C67D700839C9D /* echo-client */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		D72E167F21500AE800839C9D /* echo-common.c in Sources */ = {isa = PBXBuildFile; fileRef = D72E164C214C662C00839C9D /* echo-common.c */; settings = {COMPILER_FLAGS = "-w"; }; };
+		D72E1685215035EF00839C9D /* keys in Resources */ = {isa = PBXBuildFile; fileRef = D72E1684215035EF00839C9D /* keys */; };
 		D75952B121492E890043D7ED /* f_arithmetic.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C71BB2142F04200A3E0EA /* f_arithmetic.c */; };
 		D75952B221492E890043D7ED /* f_arithmetic.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C71BB2142F04200A3E0EA /* f_arithmetic.c */; };
 		D75952B821492FCF0043D7ED /* f_arithmetic.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C71E52142F04200A3E0EA /* f_arithmetic.c */; };
@@ -185,6 +189,20 @@
 			remoteGlobalIDString = D77C6E3B2142EEDB00A3E0EA;
 			remoteInfo = "noiseprotocol-Mac";
 		};
+		D72E1678214FFF4D00839C9D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D77C6E0C2142E09100A3E0EA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D72E1659214C667900839C9D;
+			remoteInfo = "echo-server";
+		};
+		D72E167A214FFF4D00839C9D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D77C6E0C2142E09100A3E0EA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D72E1669214C67D700839C9D;
+			remoteInfo = "echo-client";
+		};
 		D77C72DC2143161800A3E0EA /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D77C6E0C2142E09100A3E0EA /* Project object */;
@@ -227,6 +245,17 @@
 			);
 			runOnlyForDeploymentPostprocessing = 1;
 		};
+		D72E167C214FFF9700839C9D /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 6;
+			files = (
+				D72E167D214FFFA800839C9D /* echo-server in CopyFiles */,
+				D72E167E214FFFA800839C9D /* echo-client in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D77C72752143127B00A3E0EA /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -254,6 +283,8 @@
 		D72E165A214C667900839C9D /* echo-server */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "echo-server"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D72E166A214C67D700839C9D /* echo-client */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "echo-client"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D72E1676214C692B00839C9D /* EchoClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EchoClientTests.swift; sourceTree = "<group>"; };
+		D72E168321500B7600839C9D /* NoiseTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NoiseTests-Bridging-Header.h"; sourceTree = "<group>"; };
+		D72E1684215035EF00839C9D /* keys */ = {isa = PBXFileReference; lastKnownFileType = folder; path = keys; sourceTree = "<group>"; };
 		D75952BD214947DA0043D7ED /* KeyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyTests.swift; sourceTree = "<group>"; };
 		D75952BF214952B10043D7ED /* NFSession.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NFSession.h; sourceTree = "<group>"; };
 		D75952C0214952B10043D7ED /* NFSession.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NFSession.m; sourceTree = "<group>"; };
@@ -1204,12 +1235,14 @@
 		D77C7303214821D100A3E0EA /* NoiseTests */ = {
 			isa = PBXGroup;
 			children = (
+				D72E1684215035EF00839C9D /* keys */,
 				D77C730D214821F200A3E0EA /* ProtocolTests.swift */,
 				D75952CF214989310043D7ED /* HandshakeStateTests.swift */,
 				D75952BD214947DA0043D7ED /* KeyTests.swift */,
 				D72E1627214BB9C500839C9D /* SessionTests.swift */,
 				D72E1676214C692B00839C9D /* EchoClientTests.swift */,
 				D77C7306214821D100A3E0EA /* Info.plist */,
+				D72E168321500B7600839C9D /* NoiseTests-Bridging-Header.h */,
 			);
 			path = NoiseTests;
 			sourceTree = "<group>";
@@ -1403,10 +1436,13 @@
 				D77C72FE214821D100A3E0EA /* Sources */,
 				D77C72FF214821D100A3E0EA /* Frameworks */,
 				D77C7300214821D100A3E0EA /* Resources */,
+				D72E167C214FFF9700839C9D /* CopyFiles */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				D72E1679214FFF4D00839C9D /* PBXTargetDependency */,
+				D72E167B214FFF4D00839C9D /* PBXTargetDependency */,
 				D77C7309214821D100A3E0EA /* PBXTargetDependency */,
 			);
 			name = NoiseTests;
@@ -1489,6 +1525,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D72E1685215035EF00839C9D /* keys in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1670,6 +1707,7 @@
 				D72E1628214BB9C500839C9D /* SessionTests.swift in Sources */,
 				D72E1677214C692B00839C9D /* EchoClientTests.swift in Sources */,
 				D75952D0214989310043D7ED /* HandshakeStateTests.swift in Sources */,
+				D72E167F21500AE800839C9D /* echo-common.c in Sources */,
 				D77C730E214821F200A3E0EA /* ProtocolTests.swift in Sources */,
 				D75952BE214947DA0043D7ED /* KeyTests.swift in Sources */,
 			);
@@ -1687,6 +1725,16 @@
 			isa = PBXTargetDependency;
 			target = D77C6E3B2142EEDB00A3E0EA /* noiseprotocol-Mac */;
 			targetProxy = D72E1673214C67E900839C9D /* PBXContainerItemProxy */;
+		};
+		D72E1679214FFF4D00839C9D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D72E1659214C667900839C9D /* echo-server */;
+			targetProxy = D72E1678214FFF4D00839C9D /* PBXContainerItemProxy */;
+		};
+		D72E167B214FFF4D00839C9D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D72E1669214C67D700839C9D /* echo-client */;
+			targetProxy = D72E167A214FFF4D00839C9D /* PBXContainerItemProxy */;
 		};
 		D77C72DD2143161800A3E0EA /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -2060,6 +2108,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 32HNEEH56A;
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/Noise-C/include";
 				INFOPLIST_FILE = NoiseTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2069,6 +2118,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.outercorner.NoiseTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OBJC_BRIDGING_HEADER = "NoiseTests/NoiseTests-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 			};
@@ -2081,6 +2131,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 32HNEEH56A;
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/Noise-C/include";
 				INFOPLIST_FILE = NoiseTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2090,6 +2141,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.outercorner.NoiseTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OBJC_BRIDGING_HEADER = "NoiseTests/NoiseTests-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_VERSION = 4.2;
 			};

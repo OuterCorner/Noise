@@ -129,9 +129,6 @@
     
     __weak NFSession *wSelf = self;
     self.inPipe.fileHandleForReading.readabilityHandler = ^(NSFileHandle * _Nonnull handle) {
-        if ([[handle availableData] length] < 2) {
-            return;
-        }
         
         NSData *sizeHeader = [handle readDataOfLength:2];
         if ([sizeHeader length] != 2) {
@@ -144,14 +141,15 @@
         uint8_t *size_header = (uint8_t*)[sizeHeader bytes];
         uint16_t size = (((uint16_t)(size_header[0])) << 8) | ((uint16_t)(size_header[1]));
         
-        NSData *payload = [handle readDataOfLength:(NSUInteger)size];
-        if ([payload length] != size) {
+        NSData *message = [handle readDataOfLength:(NSUInteger)size];
+        if ([message length] != size) {
             dispatch_async(dispatch_get_main_queue(), ^{
                 [wSelf abort:[NSError errorWithDomain:NFErrorDomain code:fileHandleReadFailedError userInfo:nil]];
             });
             return;
         }
         
+        [wSelf receivedData:message];
     };
     
     // change state

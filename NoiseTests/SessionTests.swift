@@ -102,7 +102,7 @@ class SessionTests: XCTestCase {
 
 }
 
-class NoiseSessionStubDelegate: NSObject, NoiseSessionDelegate {
+fileprivate class NoiseSessionStubDelegate: NSObject, NoiseSessionDelegate {
     
     var didStartExpectation: XCTestExpectation?
     func sessionDidStart(_ session: NoiseSession) {
