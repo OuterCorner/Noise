@@ -15,7 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (BOOL)startForSession:(NFSession *)session error:(NSError * _Nullable __autoreleasing *)error;
 
-- (void)receivedData:(NSData *)data;
+- (BOOL)receivedData:(NSData *)data error:(NSError * _Nullable __autoreleasing *)error;
 
 - (BOOL)needsPerformAction;
 - (BOOL)performNextAction:(NSError * _Nullable __autoreleasing *)error;

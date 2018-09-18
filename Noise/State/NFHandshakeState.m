@@ -13,6 +13,8 @@
 #import "NFKeyPair.h"
 #import "NFKey+Package.h"
 #import "NFErrors+Package.h"
+#import "NFCipherState+Package.h"
+#import "NFSession+Package.h"
 
 @interface NFHandshakeState ()
 
@@ -196,7 +198,7 @@
     return YES;
 }
 
-- (void)receivedData:(NSData *)data
+- (BOOL)receivedData:(NSData *)data error:(NSError * _Nullable __autoreleasing *)error
 {
     NFSession *session = [self session];
     int action = noise_handshakestate_get_action(_handshakeState);
@@ -215,7 +217,10 @@
     int err = noise_handshakestate_read_message(_handshakeState, &message_buffer, &payload_buffer);
     if (err != NOISE_ERROR_NONE) {
         free(buffer);
-        return;
+        if (error != NULL) {
+            *error = internalErrorFromNoiseError(err);
+        }
+        return NO;
     }
     
     NSData *payload = [NSData dataWithBytes:buffer length:payload_buffer.size];
@@ -224,7 +229,7 @@
         [session.delegate session:session didReceiveHandshakeMessage:pattern payload:payload];
     }
     
-    [self performNextAction:NULL];
+    return [self performNextAction:error];
 }
 
 - (BOOL)needsPerformAction
@@ -265,6 +270,24 @@
         NSData *messageData = [[NSData alloc] initWithBytesNoCopy:buffer length:message_buffer.size];
         
         [self.session sendData:messageData];
+    }
+    else if (action == NOISE_ACTION_SPLIT) { // handshake finished
+        NoiseCipherState *send_cipher = NULL;
+        NoiseCipherState *recv_cipher = NULL;
+
+        int err = noise_handshakestate_split(_handshakeState, &send_cipher, &recv_cipher);
+        if (err != NOISE_ERROR_NONE) {
+            if (error != NULL) {
+                *error = internalErrorFromNoiseError(err);
+            }
+            return NO;
+        }
+        
+        NFCipherState *sendCipherState = [[NFCipherState alloc] initWithNoiseCCipherState:send_cipher maxMessageSize:session.maxMessageSize];
+        NFCipherState *recvCipherState = [[NFCipherState alloc] initWithNoiseCCipherState:recv_cipher maxMessageSize:session.maxMessageSize];
+        
+        [session establishWithSendingCipher:sendCipherState receivingCipher:recvCipherState];
+        return YES;
     }
     
     return YES;

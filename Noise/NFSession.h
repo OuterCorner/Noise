@@ -21,7 +21,7 @@ typedef NS_ENUM(NSUInteger, NFSessionState) {
     NFSessionStateError
 } NS_SWIFT_NAME(NoiseSessionState);
 
-@class NFProtocol, NFHandshakeState, NFKeyPair, NFKey;
+@class NFProtocol, NFHandshakeState, NFCipherState, NFKeyPair, NFKey;
 @protocol NFSessionDelegate, NFSessionSetup;
 
 NS_ASSUME_NONNULL_BEGIN
@@ -122,6 +122,25 @@ NS_SWIFT_NAME(NoiseSession)
  @param data application data to send
  */
 - (void)sendData:(NSData *)data;
+
+
+
+/**
+ Contains the handshake state while the session is performing the handshake, nil otherwise.
+ @see session:handshakeComplete:
+ */
+@property (strong, readonly) NFHandshakeState *handshakeState;
+
+/**
+ Contains the sending cipher state when the session is established, nil otherwise.
+ */
+@property (strong, readonly) NFCipherState *sendingCipherState;
+
+/**
+ Contains the receiving cipher state when the session is established, nil otherwise.
+ */
+@property (strong, readonly) NFCipherState *receivingCipherState;
+
 
 @end
 

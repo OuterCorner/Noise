@@ -27,6 +27,14 @@
 		D72E167E214FFFA800839C9D /* echo-client in CopyFiles */ = {isa = PBXBuildFile; fileRef = D72E166A214C67D700839C9D /* echo-client */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		D72E167F21500AE800839C9D /* echo-common.c in Sources */ = {isa = PBXBuildFile; fileRef = D72E164C214C662C00839C9D /* echo-common.c */; settings = {COMPILER_FLAGS = "-w"; }; };
 		D72E1685215035EF00839C9D /* keys in Resources */ = {isa = PBXBuildFile; fileRef = D72E1684215035EF00839C9D /* keys */; };
+		D72E168A215155E600839C9D /* NFCipherState.h in Headers */ = {isa = PBXBuildFile; fileRef = D72E1688215155E600839C9D /* NFCipherState.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D72E168B215155E600839C9D /* NFCipherState.h in Headers */ = {isa = PBXBuildFile; fileRef = D72E1688215155E600839C9D /* NFCipherState.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D72E168C215155E600839C9D /* NFCipherState.m in Sources */ = {isa = PBXBuildFile; fileRef = D72E1689215155E600839C9D /* NFCipherState.m */; };
+		D72E168D215155E600839C9D /* NFCipherState.m in Sources */ = {isa = PBXBuildFile; fileRef = D72E1689215155E600839C9D /* NFCipherState.m */; };
+		D72E1690215156E300839C9D /* NFCipherState+Package.h in Headers */ = {isa = PBXBuildFile; fileRef = D72E168E215156E300839C9D /* NFCipherState+Package.h */; };
+		D72E1691215156E300839C9D /* NFCipherState+Package.h in Headers */ = {isa = PBXBuildFile; fileRef = D72E168E215156E300839C9D /* NFCipherState+Package.h */; };
+		D72E169621515C6400839C9D /* NFSession+Package.h in Headers */ = {isa = PBXBuildFile; fileRef = D72E169421515C6400839C9D /* NFSession+Package.h */; };
+		D72E169721515C6400839C9D /* NFSession+Package.h in Headers */ = {isa = PBXBuildFile; fileRef = D72E169421515C6400839C9D /* NFSession+Package.h */; };
 		D75952B121492E890043D7ED /* f_arithmetic.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C71BB2142F04200A3E0EA /* f_arithmetic.c */; };
 		D75952B221492E890043D7ED /* f_arithmetic.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C71BB2142F04200A3E0EA /* f_arithmetic.c */; };
 		D75952B821492FCF0043D7ED /* f_arithmetic.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C71E52142F04200A3E0EA /* f_arithmetic.c */; };
@@ -285,6 +293,10 @@
 		D72E1676214C692B00839C9D /* EchoClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EchoClientTests.swift; sourceTree = "<group>"; };
 		D72E168321500B7600839C9D /* NoiseTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NoiseTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		D72E1684215035EF00839C9D /* keys */ = {isa = PBXFileReference; lastKnownFileType = folder; path = keys; sourceTree = "<group>"; };
+		D72E1688215155E600839C9D /* NFCipherState.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NFCipherState.h; sourceTree = "<group>"; };
+		D72E1689215155E600839C9D /* NFCipherState.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NFCipherState.m; sourceTree = "<group>"; };
+		D72E168E215156E300839C9D /* NFCipherState+Package.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NFCipherState+Package.h"; sourceTree = "<group>"; };
+		D72E169421515C6400839C9D /* NFSession+Package.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NFSession+Package.h"; sourceTree = "<group>"; };
 		D75952BD214947DA0043D7ED /* KeyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyTests.swift; sourceTree = "<group>"; };
 		D75952BF214952B10043D7ED /* NFSession.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NFSession.h; sourceTree = "<group>"; };
 		D75952C0214952B10043D7ED /* NFSession.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NFSession.m; sourceTree = "<group>"; };
@@ -632,6 +644,9 @@
 				D75952C72149587C0043D7ED /* NFHandshakeState.h */,
 				D75952C82149587C0043D7ED /* NFHandshakeState.m */,
 				D72E1629214BF24600839C9D /* NFHandshakeState+Package.h */,
+				D72E1688215155E600839C9D /* NFCipherState.h */,
+				D72E1689215155E600839C9D /* NFCipherState.m */,
+				D72E168E215156E300839C9D /* NFCipherState+Package.h */,
 			);
 			path = State;
 			sourceTree = "<group>";
@@ -668,6 +683,7 @@
 				D77C6E182142E09100A3E0EA /* Noise.h */,
 				D75952BF214952B10043D7ED /* NFSession.h */,
 				D75952C0214952B10043D7ED /* NFSession.m */,
+				D72E169421515C6400839C9D /* NFSession+Package.h */,
 				D77C72F2214813F800A3E0EA /* NFProtocol.h */,
 				D77C72F3214813F800A3E0EA /* NFProtocol.m */,
 				D77C72F8214819F900A3E0EA /* NFProtocol+Package.h */,
@@ -1279,9 +1295,12 @@
 				D77C73272148495A00A3E0EA /* NFKeyGenerator.h in Headers */,
 				D75952C1214952B10043D7ED /* NFSession.h in Headers */,
 				D72E1623214BB84B00839C9D /* NFErrors.h in Headers */,
+				D72E1690215156E300839C9D /* NFCipherState+Package.h in Headers */,
+				D72E168A215155E600839C9D /* NFCipherState.h in Headers */,
 				D77C732D214849EA00A3E0EA /* NFKey+Package.h in Headers */,
 				D77C73192148490800A3E0EA /* NFKey.h in Headers */,
 				D77C72F4214813F800A3E0EA /* NFProtocol.h in Headers */,
+				D72E169621515C6400839C9D /* NFSession+Package.h in Headers */,
 				D77C73212148494500A3E0EA /* NFKeyPair.h in Headers */,
 				D72E162B214BF24600839C9D /* NFHandshakeState+Package.h in Headers */,
 				D77C6E1A2142E09100A3E0EA /* Noise.h in Headers */,
@@ -1301,6 +1320,8 @@
 				D77C72F5214813F800A3E0EA /* NFProtocol.h in Headers */,
 				D72E1624214BB84B00839C9D /* NFErrors.h in Headers */,
 				D72E1632214BFF3500839C9D /* NFErrors+Package.h in Headers */,
+				D72E168B215155E600839C9D /* NFCipherState.h in Headers */,
+				D72E1691215156E300839C9D /* NFCipherState+Package.h in Headers */,
 				D77C72FB214819F900A3E0EA /* NFProtocol+Package.h in Headers */,
 				D75952CA2149587C0043D7ED /* NFHandshakeState.h in Headers */,
 				D77C73282148495A00A3E0EA /* NFKeyGenerator.h in Headers */,
@@ -1308,6 +1329,7 @@
 				D72E162C214BF24600839C9D /* NFHandshakeState+Package.h in Headers */,
 				D77C731A2148490800A3E0EA /* NFKey.h in Headers */,
 				D77C73122148484600A3E0EA /* NFUtil.h in Headers */,
+				D72E169721515C6400839C9D /* NFSession+Package.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1557,6 +1579,7 @@
 				D77C731B2148490800A3E0EA /* NFKey.m in Sources */,
 				D77C72F6214813F800A3E0EA /* NFProtocol.m in Sources */,
 				D77C73132148484600A3E0EA /* NFUtil.m in Sources */,
+				D72E168C215155E600839C9D /* NFCipherState.m in Sources */,
 				D77C73292148495A00A3E0EA /* NFKeyGenerator.m in Sources */,
 				D75952CB2149587C0043D7ED /* NFHandshakeState.m in Sources */,
 				D75952C3214952B10043D7ED /* NFSession.m in Sources */,
@@ -1572,6 +1595,7 @@
 				D77C731C2148490800A3E0EA /* NFKey.m in Sources */,
 				D77C72F7214813F800A3E0EA /* NFProtocol.m in Sources */,
 				D77C73142148484600A3E0EA /* NFUtil.m in Sources */,
+				D72E168D215155E600839C9D /* NFCipherState.m in Sources */,
 				D77C732A2148495A00A3E0EA /* NFKeyGenerator.m in Sources */,
 				D75952CC2149587C0043D7ED /* NFHandshakeState.m in Sources */,
 				D75952C4214952B10043D7ED /* NFSession.m in Sources */,

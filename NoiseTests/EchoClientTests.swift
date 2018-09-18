@@ -12,6 +12,7 @@ import Noise
 class EchoClientTests: XCTestCase, StreamDelegate, NoiseSessionDelegate {
 
     let didReceiveEchoNotification = Notification.Name("didReceiveEchoNotification")
+    let didReceiveSessionEstablishedNotification = Notification.Name("didReceiveSessionEstablishedNotification")
     let serverHost = "localhost"
     let serverPort = 7000
     
@@ -82,21 +83,37 @@ class EchoClientTests: XCTestCase, StreamDelegate, NoiseSessionDelegate {
         }
         
         let establishedExpectation = keyValueObservingExpectation(for: currentSession!, keyPath: "state", expectedValue: NoiseSessionState.established.rawValue)
+        let establishedNotificationExpectation = expectation(forNotification: didReceiveSessionEstablishedNotification, object: self, handler: nil)
+        wait(for: [establishedExpectation, establishedNotificationExpectation], timeout: 2.0)
         
-        wait(for: [establishedExpectation], timeout: 3000.0)
-        
-        let text = "Hello World\n";
+        var text = "Hello World\n";
         currentSession?.send(text.data(using: .utf8)!)
         
-        let echoResponse = expectation(forNotification: didReceiveEchoNotification, object: self) { (note) -> Bool in
+        var echoResponse = expectation(forNotification: didReceiveEchoNotification, object: self) { (note) -> Bool in
             guard let receivedText = note.userInfo?["text"] as? String else {
                 return false
             }
             return text == receivedText
         }
         
-        wait(for: [echoResponse], timeout: 3000.0)
+        wait(for: [echoResponse], timeout: 2.0)
         
+        text = "All Noise messages are less than or equal to 65535 bytes in length.\n";
+        currentSession?.send(text.data(using: .utf8)!)
+        
+        echoResponse = expectation(forNotification: didReceiveEchoNotification, object: self) { (note) -> Bool in
+            guard let receivedText = note.userInfo?["text"] as? String else {
+                return false
+            }
+            return text == receivedText
+        }
+        
+        wait(for: [echoResponse], timeout: 2.0)
+
+        sessionDidStopExpectation = expectation(description: "Session stopped")
+        currentSession!.stop()
+        
+        wait(for: [sessionDidStopExpectation!], timeout: 1.0)
     }
 
     func testXX() {
@@ -119,6 +136,16 @@ class EchoClientTests: XCTestCase, StreamDelegate, NoiseSessionDelegate {
         
         NotificationCenter.default.post(name: didReceiveEchoNotification, object: self, userInfo: ["text": string])
     }
+    
+    func session(_ session: NoiseSession, handshakeComplete handshakeState: NoiseHandshakeState) {
+        NotificationCenter.default.post(name: didReceiveSessionEstablishedNotification, object: self)
+    }
+    
+    var sessionDidStopExpectation: XCTestExpectation?
+    func sessionDidStop(_ session: NoiseSession, error: Error?) {
+        sessionDidStopExpectation?.fulfill()
+    }
+    
     // MARK: - Stream delegate
     
     func stream(_ aStream: Stream, handle eventCode: Stream.Event) {

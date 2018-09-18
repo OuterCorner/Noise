@@ -6,15 +6,18 @@
 // Copyright © 2018 Outer Corner. All rights reserved.
 //
 
-#import "NFSession.h"
-#import "NFProtocol.h"
+#import "NFSession+Package.h"
+#import "NFProtocol+Package.h"
 #import "NFHandshakeState+Package.h"
+#import "NFCipherState+Package.h"
 #import "NFErrors.h"
 #import <noise/protocol.h>
 
 @interface NFSession ()
 
-@property (strong) NFHandshakeState *handshakeState;
+@property (strong, readwrite) NFHandshakeState *handshakeState;
+@property (strong, readwrite) NFCipherState *sendingCipherState;
+@property (strong, readwrite) NFCipherState *receivingCipherState;
 
 @property (readwrite) NFSessionState state;
 
@@ -24,6 +27,7 @@
 @property (nullable, strong, readwrite) NSFileHandle *sendingHandle;
 @property (nullable, strong, readwrite) NSFileHandle *receivingHandle;
 
+@property (nonatomic, strong) NSOperationQueue *sessionQueue;
 @end
 
 @implementation NFSession
@@ -56,6 +60,8 @@
         _role = role;
         _state = NFSessionStateInitializing;
         _maxMessageSize = NOISE_MAX_PAYLOAD_LEN;
+        _sessionQueue = [[NSOperationQueue alloc] init];
+        _sessionQueue.maxConcurrentOperationCount = 1;
     }
     return self;
 }
@@ -159,8 +165,7 @@
         [self.delegate sessionDidStart:self];
     }
     
-    [self performSelector:@selector(performNextHandshakeActionIfNeeded) withObject:nil afterDelay:0.0];
-    
+    [self performNextHandshakeActionIfNeeded];
     return YES;
 }
 
@@ -182,17 +187,36 @@
                                              userInfo:nil];
             [self abort:error];
         }
-        uint16_t size = [data length];
-        uint8_t size_buf[2];
-        size_buf[0] = (uint8_t)size >> 8;
-        size_buf[1] = (uint8_t)size;
         
-        NSData *sizeHeader = [NSData dataWithBytes:size_buf length:2];
-        NSFileHandle *writingHandle = [self.outPipe fileHandleForWriting];
-        [writingHandle writeData:sizeHeader];
-        [writingHandle writeData:data];
+        [self writePacketWithPayload:data];
     }
+    else if (self.state == NFSessionStateEstablished) {
+        NSError *error = nil;
+        NSData *cipherText = [self.sendingCipherState encrypt:data error:&error];
+        if (!cipherText) {
+            [self abort:error];
+            return;
+        }
     
+        [self writePacketWithPayload:cipherText];
+    }
+}
+
+#pragma mark - Package
+
+- (void)establishWithSendingCipher:(NFCipherState *)sendCipher receivingCipher:(NFCipherState *)recvCipher
+{
+    NSAssert([NSOperationQueue currentQueue] == self.sessionQueue, @"This should be called in the session queue");
+    
+    self.sendingCipherState = sendCipher;
+    self.receivingCipherState = recvCipher;
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        if ([self.delegate respondsToSelector:@selector(session:handshakeComplete:)]) {
+            [self.delegate session:self handshakeComplete:self.handshakeState];
+        }
+        [self transitionToState:NFSessionStateEstablished];
+    });
 }
 
 
@@ -217,6 +241,8 @@
             self.receivingHandle = nil;
             self.inPipe = nil;
             self.outPipe = nil;
+            self.sendingCipherState = nil;
+            self.receivingCipherState = nil;
             break;
     }
 }
@@ -224,27 +250,67 @@
 
 - (void)performNextHandshakeActionIfNeeded
 {
-    if ([self.handshakeState needsPerformAction]) {
-        NSError *error = nil;
-        if (![self.handshakeState performNextAction:&error]) {
-            [self abort:error];
+    [self.sessionQueue addOperationWithBlock:^{
+        if ([self.handshakeState needsPerformAction]) {
+            NSError *error = nil;
+            if (![self.handshakeState performNextAction:&error]) {
+                [self abort:error];
+            }
         }
-    }
+    }];
+    
 }
 - (void)receivedData:(NSData *)data
 {
     if (self.state == NFSessionStateHandshaking) {
-        [self.handshakeState receivedData:data];
+        [self.sessionQueue addOperationWithBlock:^{
+            NSError *error = nil;
+            if (![self.handshakeState receivedData:data error:&error]) {
+                [self abort:error];
+            }
+        }];
+    }
+    else if (self.state == NFSessionStateEstablished) {
+        NSError *error = nil;
+        NSData *plaintext = [self.receivingCipherState decrypt:data error:&error];
+        if (!plaintext) {
+            [self abort:error];
+            return;
+        }
+        if ([self.delegate respondsToSelector:@selector(session:didReceiveData:)]) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self.delegate session:self didReceiveData:plaintext];
+                
+            });
+        }
     }
 }
 
 - (void)abort:(NSError *)error
 {
+    if (![NSThread isMainThread]) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self abort:error];
+        });
+        return;
+    }
     [self transitionToState:NFSessionStateError];
     if ([self.delegate respondsToSelector:@selector(sessionDidStop:error:)]) {
         [self.delegate sessionDidStop:self error:error];
     }
 }
 
+- (void)writePacketWithPayload:(NSData *)data
+{
+    uint16_t size = [data length];
+    uint8_t size_buf[2];
+    size_buf[0] = (uint8_t)size >> 8;
+    size_buf[1] = (uint8_t)size;
+    
+    NSData *sizeHeader = [NSData dataWithBytes:size_buf length:2];
+    NSFileHandle *writingHandle = [self.outPipe fileHandleForWriting];
+    [writingHandle writeData:sizeHeader];
+    [writingHandle writeData:data];
+}
 
 @end
