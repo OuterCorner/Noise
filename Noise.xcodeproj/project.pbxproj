@@ -35,12 +35,110 @@
 		D72E1691215156E300839C9D /* NFCipherState+Package.h in Headers */ = {isa = PBXBuildFile; fileRef = D72E168E215156E300839C9D /* NFCipherState+Package.h */; };
 		D72E169621515C6400839C9D /* NFSession+Package.h in Headers */ = {isa = PBXBuildFile; fileRef = D72E169421515C6400839C9D /* NFSession+Package.h */; };
 		D72E169721515C6400839C9D /* NFSession+Package.h in Headers */ = {isa = PBXBuildFile; fileRef = D72E169421515C6400839C9D /* NFSession+Package.h */; };
-		D75952B121492E890043D7ED /* f_arithmetic.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C71BB2142F04200A3E0EA /* f_arithmetic.c */; };
-		D75952B221492E890043D7ED /* f_arithmetic.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C71BB2142F04200A3E0EA /* f_arithmetic.c */; };
-		D75952B821492FCF0043D7ED /* f_arithmetic.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C71E52142F04200A3E0EA /* f_arithmetic.c */; };
-		D75952B921492FD00043D7ED /* f_arithmetic.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C71E52142F04200A3E0EA /* f_arithmetic.c */; };
-		D75952BB214944E40043D7ED /* p480.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C71B62142F04200A3E0EA /* p480.c */; };
-		D75952BC214944E50043D7ED /* p480.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C71B62142F04200A3E0EA /* p480.c */; };
+		D72E16BC2153012500839C9D /* cipherstate.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C72522142F04200A3E0EA /* cipherstate.c */; };
+		D72E16BD2153012500839C9D /* cipherstate.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C72522142F04200A3E0EA /* cipherstate.c */; };
+		D72E16BE2153012E00839C9D /* dhstate.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C724B2142F04200A3E0EA /* dhstate.c */; };
+		D72E16BF2153012E00839C9D /* dhstate.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C724B2142F04200A3E0EA /* dhstate.c */; };
+		D72E16C02153013600839C9D /* errors.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C72542142F04200A3E0EA /* errors.c */; };
+		D72E16C12153013600839C9D /* errors.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C72542142F04200A3E0EA /* errors.c */; };
+		D72E16C22153014500839C9D /* handshakestate.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C724D2142F04200A3E0EA /* handshakestate.c */; };
+		D72E16C32153014500839C9D /* handshakestate.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C724D2142F04200A3E0EA /* handshakestate.c */; };
+		D72E16C42153014E00839C9D /* hashstate.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C72512142F04200A3E0EA /* hashstate.c */; };
+		D72E16C52153014F00839C9D /* hashstate.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C72512142F04200A3E0EA /* hashstate.c */; };
+		D72E16C62153015600839C9D /* internal.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C724F2142F04200A3E0EA /* internal.c */; };
+		D72E16C72153015600839C9D /* internal.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C724F2142F04200A3E0EA /* internal.c */; };
+		D72E16C82153015D00839C9D /* names.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C72462142F04200A3E0EA /* names.c */; };
+		D72E16C92153015D00839C9D /* names.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C72462142F04200A3E0EA /* names.c */; };
+		D72E16CA2153016400839C9D /* patterns.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C72502142F04200A3E0EA /* patterns.c */; };
+		D72E16CB2153016500839C9D /* patterns.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C72502142F04200A3E0EA /* patterns.c */; };
+		D72E16CC2153016C00839C9D /* randstate.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C724C2142F04200A3E0EA /* randstate.c */; };
+		D72E16CD2153016C00839C9D /* randstate.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C724C2142F04200A3E0EA /* randstate.c */; };
+		D72E16CE2153017300839C9D /* signstate.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C72532142F04200A3E0EA /* signstate.c */; };
+		D72E16CF2153017300839C9D /* signstate.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C72532142F04200A3E0EA /* signstate.c */; };
+		D72E16D02153017A00839C9D /* symmetricstate.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C72552142F04200A3E0EA /* symmetricstate.c */; };
+		D72E16D12153017A00839C9D /* symmetricstate.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C72552142F04200A3E0EA /* symmetricstate.c */; };
+		D72E16D22153018100839C9D /* util.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C724A2142F04200A3E0EA /* util.c */; };
+		D72E16D32153018100839C9D /* util.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C724A2142F04200A3E0EA /* util.c */; };
+		D72E16D42153018A00839C9D /* dh-curve448.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C72392142F04200A3E0EA /* dh-curve448.c */; };
+		D72E16D52153018A00839C9D /* dh-curve448.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C72392142F04200A3E0EA /* dh-curve448.c */; };
+		D72E16D62153019600839C9D /* dh-newhope.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C72312142F04200A3E0EA /* dh-newhope.c */; };
+		D72E16D72153019600839C9D /* dh-newhope.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C72312142F04200A3E0EA /* dh-newhope.c */; };
+		D72E16D8215301A800839C9D /* hash-blake2s.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C72372142F04200A3E0EA /* hash-blake2s.c */; };
+		D72E16D9215301A800839C9D /* hash-blake2s.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C72372142F04200A3E0EA /* hash-blake2s.c */; };
+		D72E16DA215301C100839C9D /* blake2s.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C71802142F04200A3E0EA /* blake2s.c */; };
+		D72E16DB215301C100839C9D /* blake2s.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C71802142F04200A3E0EA /* blake2s.c */; };
+		D72E16DC215301CB00839C9D /* curve448.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C722A2142F04200A3E0EA /* curve448.c */; };
+		D72E16DD215301CB00839C9D /* curve448.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C722A2142F04200A3E0EA /* curve448.c */; };
+		D72E16DE215301DA00839C9D /* p448.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C71DD2142F04200A3E0EA /* p448.c */; };
+		D72E16DF215301DD00839C9D /* p448.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C71D82142F04200A3E0EA /* p448.c */; };
+		D72E16E0215301ED00839C9D /* batcher.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C71862142F04200A3E0EA /* batcher.c */; };
+		D72E16E1215301EE00839C9D /* batcher.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C71862142F04200A3E0EA /* batcher.c */; };
+		D72E16E2215301FC00839C9D /* error_correction.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C71992142F04200A3E0EA /* error_correction.c */; };
+		D72E16E3215301FC00839C9D /* error_correction.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C71992142F04200A3E0EA /* error_correction.c */; };
+		D72E16E42153020600839C9D /* fips202.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C71942142F04200A3E0EA /* fips202.c */; };
+		D72E16E52153020600839C9D /* fips202.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C71942142F04200A3E0EA /* fips202.c */; };
+		D72E16E62153021100839C9D /* newhope.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C719B2142F04200A3E0EA /* newhope.c */; };
+		D72E16E72153021100839C9D /* newhope.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C719B2142F04200A3E0EA /* newhope.c */; };
+		D72E16E82153021E00839C9D /* ntt.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C71882142F04200A3E0EA /* ntt.c */; };
+		D72E16E92153021E00839C9D /* ntt.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C71882142F04200A3E0EA /* ntt.c */; };
+		D72E16EA2153022900839C9D /* poly.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C71892142F04200A3E0EA /* poly.c */; };
+		D72E16EB2153022A00839C9D /* poly.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C71892142F04200A3E0EA /* poly.c */; };
+		D72E16EC2153023000839C9D /* precomp.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C71972142F04200A3E0EA /* precomp.c */; };
+		D72E16ED2153023000839C9D /* precomp.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C71972142F04200A3E0EA /* precomp.c */; };
+		D72E16EE2153023F00839C9D /* reduce.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C718F2142F04200A3E0EA /* reduce.c */; };
+		D72E16EF2153023F00839C9D /* reduce.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C718F2142F04200A3E0EA /* reduce.c */; };
+		D72E16F02153024D00839C9D /* cipher-aesgcm.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C72442142F04200A3E0EA /* cipher-aesgcm.c */; };
+		D72E16F12153024D00839C9D /* cipher-aesgcm.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C72442142F04200A3E0EA /* cipher-aesgcm.c */; };
+		D72E16F22153025700839C9D /* cipher-aesgcm.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C723E2142F04200A3E0EA /* cipher-aesgcm.c */; };
+		D72E16F32153025800839C9D /* cipher-aesgcm.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C723E2142F04200A3E0EA /* cipher-aesgcm.c */; };
+		D72E16F42153025E00839C9D /* cipher-aesgcm.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C72342142F04200A3E0EA /* cipher-aesgcm.c */; };
+		D72E16F52153025E00839C9D /* cipher-aesgcm.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C72342142F04200A3E0EA /* cipher-aesgcm.c */; };
+		D72E16F62153026900839C9D /* rand_sodium.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C72492142F04200A3E0EA /* rand_sodium.c */; };
+		D72E16F72153026A00839C9D /* rand_sodium.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C72492142F04200A3E0EA /* rand_sodium.c */; };
+		D72E16F82153027E00839C9D /* cipher-chachapoly.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C723F2142F04200A3E0EA /* cipher-chachapoly.c */; };
+		D72E16F92153027E00839C9D /* cipher-chachapoly.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C723F2142F04200A3E0EA /* cipher-chachapoly.c */; };
+		D72E16FA2153028C00839C9D /* dh-curve25519.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C723C2142F04200A3E0EA /* dh-curve25519.c */; };
+		D72E16FB2153028C00839C9D /* dh-curve25519.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C723C2142F04200A3E0EA /* dh-curve25519.c */; };
+		D72E16FC2153029200839C9D /* hash-blake2b.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C72422142F04200A3E0EA /* hash-blake2b.c */; };
+		D72E16FD2153029200839C9D /* hash-blake2b.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C72422142F04200A3E0EA /* hash-blake2b.c */; };
+		D72E16FE2153029900839C9D /* hash-sha256.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C72412142F04200A3E0EA /* hash-sha256.c */; };
+		D72E16FF2153029A00839C9D /* hash-sha256.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C72412142F04200A3E0EA /* hash-sha256.c */; };
+		D72E17002153029E00839C9D /* hash-sha512.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C72402142F04200A3E0EA /* hash-sha512.c */; };
+		D72E17012153029E00839C9D /* hash-sha512.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C72402142F04200A3E0EA /* hash-sha512.c */; };
+		D72E1702215302A600839C9D /* sign-ed25519.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C723D2142F04200A3E0EA /* sign-ed25519.c */; };
+		D72E1703215302A600839C9D /* sign-ed25519.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C723D2142F04200A3E0EA /* sign-ed25519.c */; };
+		D72E1704215302B100839C9D /* rand_os.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C72472142F04200A3E0EA /* rand_os.c */; };
+		D72E1705215302B100839C9D /* rand_os.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C72472142F04200A3E0EA /* rand_os.c */; };
+		D72E1706215302C100839C9D /* cipher-chachapoly.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C72352142F04200A3E0EA /* cipher-chachapoly.c */; };
+		D72E1707215302C100839C9D /* cipher-chachapoly.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C72352142F04200A3E0EA /* cipher-chachapoly.c */; };
+		D72E1708215302CB00839C9D /* dh-curve25519.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C72322142F04200A3E0EA /* dh-curve25519.c */; };
+		D72E1709215302CB00839C9D /* dh-curve25519.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C72322142F04200A3E0EA /* dh-curve25519.c */; };
+		D72E170A215302D400839C9D /* hash-blake2b.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C723A2142F04200A3E0EA /* hash-blake2b.c */; };
+		D72E170B215302D400839C9D /* hash-blake2b.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C723A2142F04200A3E0EA /* hash-blake2b.c */; };
+		D72E170C215302D900839C9D /* hash-sha256.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C72382142F04200A3E0EA /* hash-sha256.c */; };
+		D72E170D215302D900839C9D /* hash-sha256.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C72382142F04200A3E0EA /* hash-sha256.c */; };
+		D72E170E215302DF00839C9D /* hash-sha512.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C72362142F04200A3E0EA /* hash-sha512.c */; };
+		D72E170F215302DF00839C9D /* hash-sha512.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C72362142F04200A3E0EA /* hash-sha512.c */; };
+		D72E1710215302E600839C9D /* sign-ed25519.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C72332142F04200A3E0EA /* sign-ed25519.c */; };
+		D72E1711215302E600839C9D /* sign-ed25519.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C72332142F04200A3E0EA /* sign-ed25519.c */; };
+		D72E1712215302F300839C9D /* rijndael-alg-fst.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C722D2142F04200A3E0EA /* rijndael-alg-fst.c */; };
+		D72E1713215302F300839C9D /* rijndael-alg-fst.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C722D2142F04200A3E0EA /* rijndael-alg-fst.c */; };
+		D72E1714215302FD00839C9D /* blake2b.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C717F2142F04200A3E0EA /* blake2b.c */; };
+		D72E1715215302FE00839C9D /* blake2b.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C717F2142F04200A3E0EA /* blake2b.c */; };
+		D72E17162153030400839C9D /* chacha.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C71832142F04200A3E0EA /* chacha.c */; };
+		D72E17172153030400839C9D /* chacha.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C71832142F04200A3E0EA /* chacha.c */; };
+		D72E17182153030E00839C9D /* poly1305-donna.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C71742142F04200A3E0EA /* poly1305-donna.c */; };
+		D72E17192153030E00839C9D /* poly1305-donna.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C71742142F04200A3E0EA /* poly1305-donna.c */; };
+		D72E171A2153031900839C9D /* ghash.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C71FD2142F04200A3E0EA /* ghash.c */; };
+		D72E171B2153031A00839C9D /* ghash.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C71FD2142F04200A3E0EA /* ghash.c */; };
+		D72E171C2153032700839C9D /* crypto_stream_chacha20.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C718E2142F04200A3E0EA /* crypto_stream_chacha20.c */; };
+		D72E171D2153032700839C9D /* crypto_stream_chacha20.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C718E2142F04200A3E0EA /* crypto_stream_chacha20.c */; };
+		D72E171E2153033300839C9D /* sha256.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C71792142F04200A3E0EA /* sha256.c */; };
+		D72E171F2153033400839C9D /* sha256.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C71792142F04200A3E0EA /* sha256.c */; };
+		D72E17202153033B00839C9D /* sha512.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C717A2142F04200A3E0EA /* sha512.c */; };
+		D72E17212153033C00839C9D /* sha512.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C717A2142F04200A3E0EA /* sha512.c */; };
+		D72E17222153034600839C9D /* ed25519.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C72052142F04200A3E0EA /* ed25519.c */; };
+		D72E17232153034600839C9D /* ed25519.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C72052142F04200A3E0EA /* ed25519.c */; };
 		D75952BE214947DA0043D7ED /* KeyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D75952BD214947DA0043D7ED /* KeyTests.swift */; };
 		D75952C1214952B10043D7ED /* NFSession.h in Headers */ = {isa = PBXBuildFile; fileRef = D75952BF214952B10043D7ED /* NFSession.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D75952C2214952B10043D7ED /* NFSession.h in Headers */ = {isa = PBXBuildFile; fileRef = D75952BF214952B10043D7ED /* NFSession.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -50,110 +148,10 @@
 		D75952CA2149587C0043D7ED /* NFHandshakeState.h in Headers */ = {isa = PBXBuildFile; fileRef = D75952C72149587C0043D7ED /* NFHandshakeState.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D75952CB2149587C0043D7ED /* NFHandshakeState.m in Sources */ = {isa = PBXBuildFile; fileRef = D75952C82149587C0043D7ED /* NFHandshakeState.m */; };
 		D75952CC2149587C0043D7ED /* NFHandshakeState.m in Sources */ = {isa = PBXBuildFile; fileRef = D75952C82149587C0043D7ED /* NFHandshakeState.m */; };
-		D75952CD214974CF0043D7ED /* cipher-aesgcm.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C72442142F04200A3E0EA /* cipher-aesgcm.c */; };
-		D75952CE214974CF0043D7ED /* cipher-aesgcm.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C72442142F04200A3E0EA /* cipher-aesgcm.c */; };
 		D75952D0214989310043D7ED /* HandshakeStateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D75952CF214989310043D7ED /* HandshakeStateTests.swift */; };
 		D77C6E1A2142E09100A3E0EA /* Noise.h in Headers */ = {isa = PBXBuildFile; fileRef = D77C6E182142E09100A3E0EA /* Noise.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D77C725E2142F07800A3E0EA /* names.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C72462142F04200A3E0EA /* names.c */; };
-		D77C725F2142F07800A3E0EA /* rand_os.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C72472142F04200A3E0EA /* rand_os.c */; };
-		D77C72602142F07800A3E0EA /* rand_sodium.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C72492142F04200A3E0EA /* rand_sodium.c */; };
-		D77C72612142F07800A3E0EA /* util.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C724A2142F04200A3E0EA /* util.c */; };
-		D77C72622142F07800A3E0EA /* dhstate.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C724B2142F04200A3E0EA /* dhstate.c */; };
-		D77C72632142F07800A3E0EA /* randstate.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C724C2142F04200A3E0EA /* randstate.c */; };
-		D77C72642142F07800A3E0EA /* handshakestate.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C724D2142F04200A3E0EA /* handshakestate.c */; };
-		D77C72652142F07800A3E0EA /* internal.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C724F2142F04200A3E0EA /* internal.c */; };
-		D77C72662142F07800A3E0EA /* patterns.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C72502142F04200A3E0EA /* patterns.c */; };
-		D77C72672142F07800A3E0EA /* hashstate.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C72512142F04200A3E0EA /* hashstate.c */; };
-		D77C72682142F07800A3E0EA /* cipherstate.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C72522142F04200A3E0EA /* cipherstate.c */; };
-		D77C72692142F07800A3E0EA /* signstate.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C72532142F04200A3E0EA /* signstate.c */; };
-		D77C726A2142F07800A3E0EA /* errors.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C72542142F04200A3E0EA /* errors.c */; };
-		D77C726B2142F07800A3E0EA /* symmetricstate.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C72552142F04200A3E0EA /* symmetricstate.c */; };
-		D77C726C2142F08A00A3E0EA /* loader.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C725B2142F04200A3E0EA /* loader.c */; };
-		D77C726D2142F08A00A3E0EA /* certificate.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C725C2142F04200A3E0EA /* certificate.c */; };
-		D77C72702143125800A3E0EA /* curve25519-donna-c64.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C716F2142F04200A3E0EA /* curve25519-donna-c64.c */; };
-		D77C72712143125800A3E0EA /* curve25519-donna.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C71732142F04200A3E0EA /* curve25519-donna.c */; };
-		D77C72722143125800A3E0EA /* poly1305-donna.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C71742142F04200A3E0EA /* poly1305-donna.c */; };
-		D77C72802143129B00A3E0EA /* names.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C72462142F04200A3E0EA /* names.c */; };
-		D77C72812143129B00A3E0EA /* rand_os.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C72472142F04200A3E0EA /* rand_os.c */; };
-		D77C72822143129B00A3E0EA /* rand_sodium.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C72492142F04200A3E0EA /* rand_sodium.c */; };
-		D77C72832143129B00A3E0EA /* util.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C724A2142F04200A3E0EA /* util.c */; };
-		D77C72842143129B00A3E0EA /* dhstate.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C724B2142F04200A3E0EA /* dhstate.c */; };
-		D77C72852143129B00A3E0EA /* randstate.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C724C2142F04200A3E0EA /* randstate.c */; };
-		D77C72862143129B00A3E0EA /* handshakestate.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C724D2142F04200A3E0EA /* handshakestate.c */; };
-		D77C72872143129B00A3E0EA /* internal.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C724F2142F04200A3E0EA /* internal.c */; };
-		D77C72882143129B00A3E0EA /* patterns.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C72502142F04200A3E0EA /* patterns.c */; };
-		D77C72892143129B00A3E0EA /* hashstate.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C72512142F04200A3E0EA /* hashstate.c */; };
-		D77C728A2143129B00A3E0EA /* cipherstate.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C72522142F04200A3E0EA /* cipherstate.c */; };
-		D77C728B2143129B00A3E0EA /* signstate.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C72532142F04200A3E0EA /* signstate.c */; };
-		D77C728C2143129B00A3E0EA /* errors.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C72542142F04200A3E0EA /* errors.c */; };
-		D77C728D2143129B00A3E0EA /* symmetricstate.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C72552142F04200A3E0EA /* symmetricstate.c */; };
-		D77C728E214312A000A3E0EA /* loader.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C725B2142F04200A3E0EA /* loader.c */; };
-		D77C728F214312A000A3E0EA /* certificate.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C725C2142F04200A3E0EA /* certificate.c */; };
-		D77C7290214312C100A3E0EA /* dh-newhope.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C72312142F04200A3E0EA /* dh-newhope.c */; };
-		D77C7291214312C100A3E0EA /* dh-curve25519.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C72322142F04200A3E0EA /* dh-curve25519.c */; };
-		D77C7292214312C100A3E0EA /* sign-ed25519.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C72332142F04200A3E0EA /* sign-ed25519.c */; };
-		D77C7293214312C100A3E0EA /* cipher-aesgcm.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C72342142F04200A3E0EA /* cipher-aesgcm.c */; };
-		D77C7294214312C100A3E0EA /* cipher-chachapoly.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C72352142F04200A3E0EA /* cipher-chachapoly.c */; };
-		D77C7295214312C100A3E0EA /* hash-sha512.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C72362142F04200A3E0EA /* hash-sha512.c */; };
-		D77C7296214312C100A3E0EA /* hash-blake2s.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C72372142F04200A3E0EA /* hash-blake2s.c */; };
-		D77C7297214312C100A3E0EA /* hash-sha256.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C72382142F04200A3E0EA /* hash-sha256.c */; };
-		D77C7298214312C100A3E0EA /* dh-curve448.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C72392142F04200A3E0EA /* dh-curve448.c */; };
-		D77C7299214312C100A3E0EA /* hash-blake2b.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C723A2142F04200A3E0EA /* hash-blake2b.c */; };
-		D77C729A214312C100A3E0EA /* dh-newhope.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C72312142F04200A3E0EA /* dh-newhope.c */; };
-		D77C729B214312C100A3E0EA /* dh-curve25519.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C72322142F04200A3E0EA /* dh-curve25519.c */; };
-		D77C729C214312C100A3E0EA /* sign-ed25519.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C72332142F04200A3E0EA /* sign-ed25519.c */; };
-		D77C729D214312C100A3E0EA /* cipher-aesgcm.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C72342142F04200A3E0EA /* cipher-aesgcm.c */; };
-		D77C729E214312C100A3E0EA /* cipher-chachapoly.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C72352142F04200A3E0EA /* cipher-chachapoly.c */; };
-		D77C729F214312C100A3E0EA /* hash-sha512.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C72362142F04200A3E0EA /* hash-sha512.c */; };
-		D77C72A0214312C100A3E0EA /* hash-blake2s.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C72372142F04200A3E0EA /* hash-blake2s.c */; };
-		D77C72A1214312C100A3E0EA /* hash-sha256.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C72382142F04200A3E0EA /* hash-sha256.c */; };
-		D77C72A2214312C100A3E0EA /* dh-curve448.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C72392142F04200A3E0EA /* dh-curve448.c */; };
-		D77C72A3214312C100A3E0EA /* hash-blake2b.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C723A2142F04200A3E0EA /* hash-blake2b.c */; };
-		D77C72B92143133400A3E0EA /* curve25519-donna-c64.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C716F2142F04200A3E0EA /* curve25519-donna-c64.c */; };
-		D77C72BA2143133400A3E0EA /* curve25519-donna.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C71732142F04200A3E0EA /* curve25519-donna.c */; };
-		D77C72BB2143133400A3E0EA /* poly1305-donna.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C71742142F04200A3E0EA /* poly1305-donna.c */; };
-		D77C72BC2143133900A3E0EA /* sha256.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C71792142F04200A3E0EA /* sha256.c */; };
-		D77C72BD2143133900A3E0EA /* sha512.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C717A2142F04200A3E0EA /* sha512.c */; };
-		D77C72BE2143133900A3E0EA /* sha256.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C71792142F04200A3E0EA /* sha256.c */; };
-		D77C72BF2143133900A3E0EA /* sha512.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C717A2142F04200A3E0EA /* sha512.c */; };
-		D77C72C02143134000A3E0EA /* blake2b.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C717F2142F04200A3E0EA /* blake2b.c */; };
-		D77C72C12143134000A3E0EA /* blake2s.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C71802142F04200A3E0EA /* blake2s.c */; };
-		D77C72C22143134000A3E0EA /* blake2b.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C717F2142F04200A3E0EA /* blake2b.c */; };
-		D77C72C32143134000A3E0EA /* blake2s.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C71802142F04200A3E0EA /* blake2s.c */; };
-		D77C72C42143134600A3E0EA /* chacha.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C71832142F04200A3E0EA /* chacha.c */; };
-		D77C72C52143134600A3E0EA /* chacha.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C71832142F04200A3E0EA /* chacha.c */; };
-		D77C72C62143135400A3E0EA /* batcher.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C71862142F04200A3E0EA /* batcher.c */; };
-		D77C72C72143135400A3E0EA /* cpucycles.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C71872142F04200A3E0EA /* cpucycles.c */; };
-		D77C72C82143135400A3E0EA /* ntt.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C71882142F04200A3E0EA /* ntt.c */; };
-		D77C72C92143135400A3E0EA /* poly.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C71892142F04200A3E0EA /* poly.c */; };
-		D77C72CA2143135400A3E0EA /* crypto_stream_chacha20.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C718E2142F04200A3E0EA /* crypto_stream_chacha20.c */; };
-		D77C72CB2143135400A3E0EA /* reduce.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C718F2142F04200A3E0EA /* reduce.c */; };
-		D77C72CC2143135400A3E0EA /* fips202.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C71942142F04200A3E0EA /* fips202.c */; };
-		D77C72CD2143135400A3E0EA /* precomp.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C71972142F04200A3E0EA /* precomp.c */; };
-		D77C72CE2143135400A3E0EA /* randombytes.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C71982142F04200A3E0EA /* randombytes.c */; };
-		D77C72CF2143135400A3E0EA /* error_correction.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C71992142F04200A3E0EA /* error_correction.c */; };
-		D77C72D02143135400A3E0EA /* newhope.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C719B2142F04200A3E0EA /* newhope.c */; };
-		D77C72D12143135400A3E0EA /* batcher.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C71862142F04200A3E0EA /* batcher.c */; };
-		D77C72D22143135400A3E0EA /* cpucycles.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C71872142F04200A3E0EA /* cpucycles.c */; };
-		D77C72D32143135400A3E0EA /* ntt.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C71882142F04200A3E0EA /* ntt.c */; };
-		D77C72D42143135400A3E0EA /* poly.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C71892142F04200A3E0EA /* poly.c */; };
-		D77C72D52143135400A3E0EA /* crypto_stream_chacha20.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C718E2142F04200A3E0EA /* crypto_stream_chacha20.c */; };
-		D77C72D62143135400A3E0EA /* reduce.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C718F2142F04200A3E0EA /* reduce.c */; };
-		D77C72D72143135400A3E0EA /* fips202.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C71942142F04200A3E0EA /* fips202.c */; };
-		D77C72D82143135400A3E0EA /* precomp.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C71972142F04200A3E0EA /* precomp.c */; };
-		D77C72D92143135400A3E0EA /* randombytes.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C71982142F04200A3E0EA /* randombytes.c */; };
-		D77C72DA2143135400A3E0EA /* error_correction.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C71992142F04200A3E0EA /* error_correction.c */; };
-		D77C72DB2143135400A3E0EA /* newhope.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C719B2142F04200A3E0EA /* newhope.c */; };
 		D77C72DF2143162600A3E0EA /* libnoiseprotocol.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D77C6E3C2142EEDB00A3E0EA /* libnoiseprotocol.a */; };
 		D77C72E22143163B00A3E0EA /* libnoiseprotocol.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D77C72772143127B00A3E0EA /* libnoiseprotocol.a */; };
-		D77C72E32143F8D400A3E0EA /* ghash.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C71FD2142F04200A3E0EA /* ghash.c */; };
-		D77C72E42143F8D500A3E0EA /* ghash.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C71FD2142F04200A3E0EA /* ghash.c */; };
-		D77C72E52143F8EB00A3E0EA /* ed25519.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C72052142F04200A3E0EA /* ed25519.c */; };
-		D77C72E62143F8EC00A3E0EA /* ed25519.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C72052142F04200A3E0EA /* ed25519.c */; };
-		D77C72E72143F8F600A3E0EA /* curve448.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C722A2142F04200A3E0EA /* curve448.c */; };
-		D77C72E82143F8F700A3E0EA /* curve448.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C722A2142F04200A3E0EA /* curve448.c */; };
-		D77C72E92143F8FD00A3E0EA /* rijndael-alg-fst.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C722D2142F04200A3E0EA /* rijndael-alg-fst.c */; };
-		D77C72EA2143F8FE00A3E0EA /* rijndael-alg-fst.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C722D2142F04200A3E0EA /* rijndael-alg-fst.c */; };
 		D77C72F4214813F800A3E0EA /* NFProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = D77C72F2214813F800A3E0EA /* NFProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D77C72F5214813F800A3E0EA /* NFProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = D77C72F2214813F800A3E0EA /* NFProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D77C72F6214813F800A3E0EA /* NFProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = D77C72F3214813F800A3E0EA /* NFProtocol.m */; };
@@ -178,8 +176,6 @@
 		D77C73282148495A00A3E0EA /* NFKeyGenerator.h in Headers */ = {isa = PBXBuildFile; fileRef = D77C73252148495A00A3E0EA /* NFKeyGenerator.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D77C73292148495A00A3E0EA /* NFKeyGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = D77C73262148495A00A3E0EA /* NFKeyGenerator.m */; };
 		D77C732A2148495A00A3E0EA /* NFKeyGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = D77C73262148495A00A3E0EA /* NFKeyGenerator.m */; };
-		D77C732D214849EA00A3E0EA /* NFKey+Package.h in Headers */ = {isa = PBXBuildFile; fileRef = D77C732B214849EA00A3E0EA /* NFKey+Package.h */; };
-		D77C732E214849EA00A3E0EA /* NFKey+Package.h in Headers */ = {isa = PBXBuildFile; fileRef = D77C732B214849EA00A3E0EA /* NFKey+Package.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -375,14 +371,6 @@
 		D77C71AA2142F04200A3E0EA /* goldilocks.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = goldilocks.h; sourceTree = "<group>"; };
 		D77C71AB2142F04200A3E0EA /* ridinghood.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ridinghood.h; sourceTree = "<group>"; };
 		D77C71B12142F04200A3E0EA /* scalarmul.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = scalarmul.c; sourceTree = "<group>"; };
-		D77C71B42142F04200A3E0EA /* arch_config.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = arch_config.h; sourceTree = "<group>"; };
-		D77C71B52142F04200A3E0EA /* p480.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = p480.h; sourceTree = "<group>"; };
-		D77C71B62142F04200A3E0EA /* p480.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = p480.c; sourceTree = "<group>"; };
-		D77C71B72142F04200A3E0EA /* x86-64-arith.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "x86-64-arith.h"; sourceTree = "<group>"; };
-		D77C71B82142F04200A3E0EA /* magic.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = magic.c; sourceTree = "<group>"; };
-		D77C71B92142F04200A3E0EA /* f_magic.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = f_magic.h; sourceTree = "<group>"; };
-		D77C71BA2142F04200A3E0EA /* f_field.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = f_field.h; sourceTree = "<group>"; };
-		D77C71BB2142F04200A3E0EA /* f_arithmetic.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = f_arithmetic.c; sourceTree = "<group>"; };
 		D77C71BD2142F04200A3E0EA /* barrett_field.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = barrett_field.h; sourceTree = "<group>"; };
 		D77C71BE2142F04200A3E0EA /* ec_point.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ec_point.h; sourceTree = "<group>"; };
 		D77C71BF2142F04200A3E0EA /* magic.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = magic.h; sourceTree = "<group>"; };
@@ -424,16 +412,6 @@
 		D77C71EA2142F04200A3E0EA /* dh.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = dh.c; sourceTree = "<group>"; };
 		D77C71EB2142F04200A3E0EA /* sha512.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = sha512.c; sourceTree = "<group>"; };
 		D77C71EC2142F04200A3E0EA /* crandom.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = crandom.c; sourceTree = "<group>"; };
-		D77C71EF2142F04200A3E0EA /* arch_config.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = arch_config.h; sourceTree = "<group>"; };
-		D77C71F02142F04200A3E0EA /* p521.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = p521.c; sourceTree = "<group>"; };
-		D77C71F12142F04200A3E0EA /* p521.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = p521.h; sourceTree = "<group>"; };
-		D77C71F22142F04200A3E0EA /* magic.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = magic.c; sourceTree = "<group>"; };
-		D77C71F32142F04200A3E0EA /* f_magic.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = f_magic.h; sourceTree = "<group>"; };
-		D77C71F42142F04200A3E0EA /* f_field.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = f_field.h; sourceTree = "<group>"; };
-		D77C71F52142F04200A3E0EA /* f_arithmetic.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = f_arithmetic.c; sourceTree = "<group>"; };
-		D77C71F72142F04200A3E0EA /* arch_config.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = arch_config.h; sourceTree = "<group>"; };
-		D77C71F82142F04200A3E0EA /* p521.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = p521.c; sourceTree = "<group>"; };
-		D77C71F92142F04200A3E0EA /* p521.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = p521.h; sourceTree = "<group>"; };
 		D77C71FA2142F04200A3E0EA /* README */ = {isa = PBXFileReference; lastKnownFileType = text; path = README; sourceTree = "<group>"; };
 		D77C71FC2142F04200A3E0EA /* ghash.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ghash.h; sourceTree = "<group>"; };
 		D77C71FD2142F04200A3E0EA /* ghash.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = ghash.c; sourceTree = "<group>"; };
@@ -538,7 +516,6 @@
 		D77C73202148494500A3E0EA /* NFKeyPair.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NFKeyPair.m; sourceTree = "<group>"; };
 		D77C73252148495A00A3E0EA /* NFKeyGenerator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NFKeyGenerator.h; sourceTree = "<group>"; };
 		D77C73262148495A00A3E0EA /* NFKeyGenerator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NFKeyGenerator.m; sourceTree = "<group>"; };
-		D77C732B214849EA00A3E0EA /* NFKey+Package.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NFKey+Package.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -900,7 +877,6 @@
 			isa = PBXGroup;
 			children = (
 				D77C71B12142F04200A3E0EA /* scalarmul.c */,
-				D77C71B22142F04200A3E0EA /* p480 */,
 				D77C71BC2142F04200A3E0EA /* include */,
 				D77C71C82142F04200A3E0EA /* arithmetic.c */,
 				D77C71C92142F04200A3E0EA /* ec_point.c */,
@@ -910,32 +886,8 @@
 				D77C71E62142F04200A3E0EA /* bat */,
 				D77C71EB2142F04200A3E0EA /* sha512.c */,
 				D77C71EC2142F04200A3E0EA /* crandom.c */,
-				D77C71ED2142F04200A3E0EA /* p521 */,
 			);
 			path = src;
-			sourceTree = "<group>";
-		};
-		D77C71B22142F04200A3E0EA /* p480 */ = {
-			isa = PBXGroup;
-			children = (
-				D77C71B32142F04200A3E0EA /* arch_x86_64 */,
-				D77C71B82142F04200A3E0EA /* magic.c */,
-				D77C71B92142F04200A3E0EA /* f_magic.h */,
-				D77C71BA2142F04200A3E0EA /* f_field.h */,
-				D77C71BB2142F04200A3E0EA /* f_arithmetic.c */,
-			);
-			path = p480;
-			sourceTree = "<group>";
-		};
-		D77C71B32142F04200A3E0EA /* arch_x86_64 */ = {
-			isa = PBXGroup;
-			children = (
-				D77C71B42142F04200A3E0EA /* arch_config.h */,
-				D77C71B52142F04200A3E0EA /* p480.h */,
-				D77C71B62142F04200A3E0EA /* p480.c */,
-				D77C71B72142F04200A3E0EA /* x86-64-arith.h */,
-			);
-			path = arch_x86_64;
 			sourceTree = "<group>";
 		};
 		D77C71BC2142F04200A3E0EA /* include */ = {
@@ -1032,39 +984,6 @@
 				D77C71EA2142F04200A3E0EA /* dh.c */,
 			);
 			path = bat;
-			sourceTree = "<group>";
-		};
-		D77C71ED2142F04200A3E0EA /* p521 */ = {
-			isa = PBXGroup;
-			children = (
-				D77C71EE2142F04200A3E0EA /* arch_ref64 */,
-				D77C71F22142F04200A3E0EA /* magic.c */,
-				D77C71F32142F04200A3E0EA /* f_magic.h */,
-				D77C71F42142F04200A3E0EA /* f_field.h */,
-				D77C71F52142F04200A3E0EA /* f_arithmetic.c */,
-				D77C71F62142F04200A3E0EA /* arch_x86_64_r12 */,
-			);
-			path = p521;
-			sourceTree = "<group>";
-		};
-		D77C71EE2142F04200A3E0EA /* arch_ref64 */ = {
-			isa = PBXGroup;
-			children = (
-				D77C71EF2142F04200A3E0EA /* arch_config.h */,
-				D77C71F02142F04200A3E0EA /* p521.c */,
-				D77C71F12142F04200A3E0EA /* p521.h */,
-			);
-			path = arch_ref64;
-			sourceTree = "<group>";
-		};
-		D77C71F62142F04200A3E0EA /* arch_x86_64_r12 */ = {
-			isa = PBXGroup;
-			children = (
-				D77C71F72142F04200A3E0EA /* arch_config.h */,
-				D77C71F82142F04200A3E0EA /* p521.c */,
-				D77C71F92142F04200A3E0EA /* p521.h */,
-			);
-			path = arch_x86_64_r12;
 			sourceTree = "<group>";
 		};
 		D77C71FB2142F04200A3E0EA /* ghash */ = {
@@ -1276,7 +1195,6 @@
 			children = (
 				D77C73172148490800A3E0EA /* NFKey.h */,
 				D77C73182148490800A3E0EA /* NFKey.m */,
-				D77C732B214849EA00A3E0EA /* NFKey+Package.h */,
 				D77C731F2148494500A3E0EA /* NFKeyPair.h */,
 				D77C73202148494500A3E0EA /* NFKeyPair.m */,
 				D77C73252148495A00A3E0EA /* NFKeyGenerator.h */,
@@ -1297,7 +1215,6 @@
 				D72E1623214BB84B00839C9D /* NFErrors.h in Headers */,
 				D72E1690215156E300839C9D /* NFCipherState+Package.h in Headers */,
 				D72E168A215155E600839C9D /* NFCipherState.h in Headers */,
-				D77C732D214849EA00A3E0EA /* NFKey+Package.h in Headers */,
 				D77C73192148490800A3E0EA /* NFKey.h in Headers */,
 				D77C72F4214813F800A3E0EA /* NFProtocol.h in Headers */,
 				D72E169621515C6400839C9D /* NFSession+Package.h in Headers */,
@@ -1315,7 +1232,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D77C732E214849EA00A3E0EA /* NFKey+Package.h in Headers */,
 				D75952C2214952B10043D7ED /* NFSession.h in Headers */,
 				D77C72F5214813F800A3E0EA /* NFProtocol.h in Headers */,
 				D72E1624214BB84B00839C9D /* NFErrors.h in Headers */,
@@ -1608,59 +1524,58 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D77C7298214312C100A3E0EA /* dh-curve448.c in Sources */,
-				D77C72E32143F8D400A3E0EA /* ghash.c in Sources */,
-				D77C7294214312C100A3E0EA /* cipher-chachapoly.c in Sources */,
-				D77C7293214312C100A3E0EA /* cipher-aesgcm.c in Sources */,
-				D77C72C72143135400A3E0EA /* cpucycles.c in Sources */,
-				D77C7292214312C100A3E0EA /* sign-ed25519.c in Sources */,
-				D77C72CC2143135400A3E0EA /* fips202.c in Sources */,
-				D77C72652142F07800A3E0EA /* internal.c in Sources */,
-				D77C726D2142F08A00A3E0EA /* certificate.c in Sources */,
-				D77C726B2142F07800A3E0EA /* symmetricstate.c in Sources */,
-				D77C72D02143135400A3E0EA /* newhope.c in Sources */,
-				D77C72642142F07800A3E0EA /* handshakestate.c in Sources */,
-				D77C72BD2143133900A3E0EA /* sha512.c in Sources */,
-				D75952B821492FCF0043D7ED /* f_arithmetic.c in Sources */,
-				D77C72662142F07800A3E0EA /* patterns.c in Sources */,
-				D77C7296214312C100A3E0EA /* hash-blake2s.c in Sources */,
-				D77C72BC2143133900A3E0EA /* sha256.c in Sources */,
-				D77C72E82143F8F700A3E0EA /* curve448.c in Sources */,
-				D77C72C92143135400A3E0EA /* poly.c in Sources */,
-				D77C7299214312C100A3E0EA /* hash-blake2b.c in Sources */,
-				D77C72C02143134000A3E0EA /* blake2b.c in Sources */,
-				D77C72C62143135400A3E0EA /* batcher.c in Sources */,
-				D77C72CB2143135400A3E0EA /* reduce.c in Sources */,
-				D77C72712143125800A3E0EA /* curve25519-donna.c in Sources */,
-				D75952CD214974CF0043D7ED /* cipher-aesgcm.c in Sources */,
-				D77C72632142F07800A3E0EA /* randstate.c in Sources */,
-				D77C72722143125800A3E0EA /* poly1305-donna.c in Sources */,
-				D77C7290214312C100A3E0EA /* dh-newhope.c in Sources */,
-				D77C72622142F07800A3E0EA /* dhstate.c in Sources */,
-				D77C72CF2143135400A3E0EA /* error_correction.c in Sources */,
-				D77C72702143125800A3E0EA /* curve25519-donna-c64.c in Sources */,
-				D77C7291214312C100A3E0EA /* dh-curve25519.c in Sources */,
-				D77C72672142F07800A3E0EA /* hashstate.c in Sources */,
-				D77C726A2142F07800A3E0EA /* errors.c in Sources */,
-				D77C72692142F07800A3E0EA /* signstate.c in Sources */,
-				D77C72682142F07800A3E0EA /* cipherstate.c in Sources */,
-				D77C72C42143134600A3E0EA /* chacha.c in Sources */,
-				D77C7295214312C100A3E0EA /* hash-sha512.c in Sources */,
-				D77C72CD2143135400A3E0EA /* precomp.c in Sources */,
-				D77C72E92143F8FD00A3E0EA /* rijndael-alg-fst.c in Sources */,
-				D75952BB214944E40043D7ED /* p480.c in Sources */,
-				D77C725F2142F07800A3E0EA /* rand_os.c in Sources */,
-				D77C72E52143F8EB00A3E0EA /* ed25519.c in Sources */,
-				D77C72CE2143135400A3E0EA /* randombytes.c in Sources */,
-				D75952B121492E890043D7ED /* f_arithmetic.c in Sources */,
-				D77C7297214312C100A3E0EA /* hash-sha256.c in Sources */,
-				D77C72612142F07800A3E0EA /* util.c in Sources */,
-				D77C72C82143135400A3E0EA /* ntt.c in Sources */,
-				D77C725E2142F07800A3E0EA /* names.c in Sources */,
-				D77C72CA2143135400A3E0EA /* crypto_stream_chacha20.c in Sources */,
-				D77C726C2142F08A00A3E0EA /* loader.c in Sources */,
-				D77C72602142F07800A3E0EA /* rand_sodium.c in Sources */,
-				D77C72C12143134000A3E0EA /* blake2s.c in Sources */,
+				D72E16F22153025700839C9D /* cipher-aesgcm.c in Sources */,
+				D72E16C42153014E00839C9D /* hashstate.c in Sources */,
+				D72E16E82153021E00839C9D /* ntt.c in Sources */,
+				D72E171A2153031900839C9D /* ghash.c in Sources */,
+				D72E16C82153015D00839C9D /* names.c in Sources */,
+				D72E1710215302E600839C9D /* sign-ed25519.c in Sources */,
+				D72E16FA2153028C00839C9D /* dh-curve25519.c in Sources */,
+				D72E16BC2153012500839C9D /* cipherstate.c in Sources */,
+				D72E16F62153026900839C9D /* rand_sodium.c in Sources */,
+				D72E16D02153017A00839C9D /* symmetricstate.c in Sources */,
+				D72E16D42153018A00839C9D /* dh-curve448.c in Sources */,
+				D72E16DC215301CB00839C9D /* curve448.c in Sources */,
+				D72E16EE2153023F00839C9D /* reduce.c in Sources */,
+				D72E16F42153025E00839C9D /* cipher-aesgcm.c in Sources */,
+				D72E16CC2153016C00839C9D /* randstate.c in Sources */,
+				D72E170E215302DF00839C9D /* hash-sha512.c in Sources */,
+				D72E1712215302F300839C9D /* rijndael-alg-fst.c in Sources */,
+				D72E16D62153019600839C9D /* dh-newhope.c in Sources */,
+				D72E17182153030E00839C9D /* poly1305-donna.c in Sources */,
+				D72E16E2215301FC00839C9D /* error_correction.c in Sources */,
+				D72E16D22153018100839C9D /* util.c in Sources */,
+				D72E171C2153032700839C9D /* crypto_stream_chacha20.c in Sources */,
+				D72E17212153033C00839C9D /* sha512.c in Sources */,
+				D72E1704215302B100839C9D /* rand_os.c in Sources */,
+				D72E16C62153015600839C9D /* internal.c in Sources */,
+				D72E16CA2153016400839C9D /* patterns.c in Sources */,
+				D72E170A215302D400839C9D /* hash-blake2b.c in Sources */,
+				D72E16F02153024D00839C9D /* cipher-aesgcm.c in Sources */,
+				D72E16E0215301ED00839C9D /* batcher.c in Sources */,
+				D72E16C22153014500839C9D /* handshakestate.c in Sources */,
+				D72E16C02153013600839C9D /* errors.c in Sources */,
+				D72E16E42153020600839C9D /* fips202.c in Sources */,
+				D72E170C215302D900839C9D /* hash-sha256.c in Sources */,
+				D72E1706215302C100839C9D /* cipher-chachapoly.c in Sources */,
+				D72E16CE2153017300839C9D /* signstate.c in Sources */,
+				D72E1702215302A600839C9D /* sign-ed25519.c in Sources */,
+				D72E16BE2153012E00839C9D /* dhstate.c in Sources */,
+				D72E16EA2153022900839C9D /* poly.c in Sources */,
+				D72E16DE215301DA00839C9D /* p448.c in Sources */,
+				D72E16F82153027E00839C9D /* cipher-chachapoly.c in Sources */,
+				D72E16FF2153029A00839C9D /* hash-sha256.c in Sources */,
+				D72E171F2153033400839C9D /* sha256.c in Sources */,
+				D72E16DA215301C100839C9D /* blake2s.c in Sources */,
+				D72E1714215302FD00839C9D /* blake2b.c in Sources */,
+				D72E16E62153021100839C9D /* newhope.c in Sources */,
+				D72E16EC2153023000839C9D /* precomp.c in Sources */,
+				D72E16FC2153029200839C9D /* hash-blake2b.c in Sources */,
+				D72E16D8215301A800839C9D /* hash-blake2s.c in Sources */,
+				D72E17162153030400839C9D /* chacha.c in Sources */,
+				D72E17232153034600839C9D /* ed25519.c in Sources */,
+				D72E17002153029E00839C9D /* hash-sha512.c in Sources */,
+				D72E1708215302CB00839C9D /* dh-curve25519.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1668,59 +1583,58 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D77C72A2214312C100A3E0EA /* dh-curve448.c in Sources */,
-				D77C72E42143F8D500A3E0EA /* ghash.c in Sources */,
-				D77C72BB2143133400A3E0EA /* poly1305-donna.c in Sources */,
-				D77C728E214312A000A3E0EA /* loader.c in Sources */,
-				D77C72D22143135400A3E0EA /* cpucycles.c in Sources */,
-				D77C728F214312A000A3E0EA /* certificate.c in Sources */,
-				D77C72D72143135400A3E0EA /* fips202.c in Sources */,
-				D77C72A0214312C100A3E0EA /* hash-blake2s.c in Sources */,
-				D77C729C214312C100A3E0EA /* sign-ed25519.c in Sources */,
-				D77C72882143129B00A3E0EA /* patterns.c in Sources */,
-				D77C72DB2143135400A3E0EA /* newhope.c in Sources */,
-				D77C728D2143129B00A3E0EA /* symmetricstate.c in Sources */,
-				D77C72BF2143133900A3E0EA /* sha512.c in Sources */,
-				D77C72B92143133400A3E0EA /* curve25519-donna-c64.c in Sources */,
-				D77C72832143129B00A3E0EA /* util.c in Sources */,
-				D77C72BE2143133900A3E0EA /* sha256.c in Sources */,
-				D77C72E72143F8F600A3E0EA /* curve448.c in Sources */,
-				D77C72D42143135400A3E0EA /* poly.c in Sources */,
-				D77C72862143129B00A3E0EA /* handshakestate.c in Sources */,
-				D77C72C22143134000A3E0EA /* blake2b.c in Sources */,
-				D75952B921492FD00043D7ED /* f_arithmetic.c in Sources */,
-				D77C72D12143135400A3E0EA /* batcher.c in Sources */,
-				D77C72D62143135400A3E0EA /* reduce.c in Sources */,
-				D77C72842143129B00A3E0EA /* dhstate.c in Sources */,
-				D75952CE214974CF0043D7ED /* cipher-aesgcm.c in Sources */,
-				D77C72802143129B00A3E0EA /* names.c in Sources */,
-				D77C72812143129B00A3E0EA /* rand_os.c in Sources */,
-				D77C72892143129B00A3E0EA /* hashstate.c in Sources */,
-				D77C72822143129B00A3E0EA /* rand_sodium.c in Sources */,
-				D77C72DA2143135400A3E0EA /* error_correction.c in Sources */,
-				D77C72BA2143133400A3E0EA /* curve25519-donna.c in Sources */,
-				D77C729E214312C100A3E0EA /* cipher-chachapoly.c in Sources */,
-				D77C729D214312C100A3E0EA /* cipher-aesgcm.c in Sources */,
-				D77C729A214312C100A3E0EA /* dh-newhope.c in Sources */,
-				D77C72A1214312C100A3E0EA /* hash-sha256.c in Sources */,
-				D77C72852143129B00A3E0EA /* randstate.c in Sources */,
-				D77C72C52143134600A3E0EA /* chacha.c in Sources */,
-				D77C728C2143129B00A3E0EA /* errors.c in Sources */,
-				D77C72D82143135400A3E0EA /* precomp.c in Sources */,
-				D77C72EA2143F8FE00A3E0EA /* rijndael-alg-fst.c in Sources */,
-				D75952BC214944E50043D7ED /* p480.c in Sources */,
-				D77C729B214312C100A3E0EA /* dh-curve25519.c in Sources */,
-				D77C72E62143F8EC00A3E0EA /* ed25519.c in Sources */,
-				D77C72D92143135400A3E0EA /* randombytes.c in Sources */,
-				D75952B221492E890043D7ED /* f_arithmetic.c in Sources */,
-				D77C728A2143129B00A3E0EA /* cipherstate.c in Sources */,
-				D77C72872143129B00A3E0EA /* internal.c in Sources */,
-				D77C72D32143135400A3E0EA /* ntt.c in Sources */,
-				D77C72A3214312C100A3E0EA /* hash-blake2b.c in Sources */,
-				D77C72D52143135400A3E0EA /* crypto_stream_chacha20.c in Sources */,
-				D77C728B2143129B00A3E0EA /* signstate.c in Sources */,
-				D77C729F214312C100A3E0EA /* hash-sha512.c in Sources */,
-				D77C72C32143134000A3E0EA /* blake2s.c in Sources */,
+				D72E16F32153025800839C9D /* cipher-aesgcm.c in Sources */,
+				D72E16C52153014F00839C9D /* hashstate.c in Sources */,
+				D72E16E92153021E00839C9D /* ntt.c in Sources */,
+				D72E171B2153031A00839C9D /* ghash.c in Sources */,
+				D72E16C92153015D00839C9D /* names.c in Sources */,
+				D72E1711215302E600839C9D /* sign-ed25519.c in Sources */,
+				D72E16FB2153028C00839C9D /* dh-curve25519.c in Sources */,
+				D72E16BD2153012500839C9D /* cipherstate.c in Sources */,
+				D72E16F72153026A00839C9D /* rand_sodium.c in Sources */,
+				D72E16D12153017A00839C9D /* symmetricstate.c in Sources */,
+				D72E16D52153018A00839C9D /* dh-curve448.c in Sources */,
+				D72E16DD215301CB00839C9D /* curve448.c in Sources */,
+				D72E16EF2153023F00839C9D /* reduce.c in Sources */,
+				D72E16F52153025E00839C9D /* cipher-aesgcm.c in Sources */,
+				D72E16CD2153016C00839C9D /* randstate.c in Sources */,
+				D72E170F215302DF00839C9D /* hash-sha512.c in Sources */,
+				D72E1713215302F300839C9D /* rijndael-alg-fst.c in Sources */,
+				D72E16D72153019600839C9D /* dh-newhope.c in Sources */,
+				D72E17192153030E00839C9D /* poly1305-donna.c in Sources */,
+				D72E16E3215301FC00839C9D /* error_correction.c in Sources */,
+				D72E16D32153018100839C9D /* util.c in Sources */,
+				D72E171D2153032700839C9D /* crypto_stream_chacha20.c in Sources */,
+				D72E17202153033B00839C9D /* sha512.c in Sources */,
+				D72E1705215302B100839C9D /* rand_os.c in Sources */,
+				D72E16C72153015600839C9D /* internal.c in Sources */,
+				D72E16CB2153016500839C9D /* patterns.c in Sources */,
+				D72E170B215302D400839C9D /* hash-blake2b.c in Sources */,
+				D72E16F12153024D00839C9D /* cipher-aesgcm.c in Sources */,
+				D72E16E1215301EE00839C9D /* batcher.c in Sources */,
+				D72E16C32153014500839C9D /* handshakestate.c in Sources */,
+				D72E16C12153013600839C9D /* errors.c in Sources */,
+				D72E16E52153020600839C9D /* fips202.c in Sources */,
+				D72E170D215302D900839C9D /* hash-sha256.c in Sources */,
+				D72E1707215302C100839C9D /* cipher-chachapoly.c in Sources */,
+				D72E16CF2153017300839C9D /* signstate.c in Sources */,
+				D72E1703215302A600839C9D /* sign-ed25519.c in Sources */,
+				D72E16BF2153012E00839C9D /* dhstate.c in Sources */,
+				D72E16EB2153022A00839C9D /* poly.c in Sources */,
+				D72E16DF215301DD00839C9D /* p448.c in Sources */,
+				D72E16F92153027E00839C9D /* cipher-chachapoly.c in Sources */,
+				D72E16FE2153029900839C9D /* hash-sha256.c in Sources */,
+				D72E171E2153033300839C9D /* sha256.c in Sources */,
+				D72E16DB215301C100839C9D /* blake2s.c in Sources */,
+				D72E1715215302FE00839C9D /* blake2b.c in Sources */,
+				D72E16E72153021100839C9D /* newhope.c in Sources */,
+				D72E16ED2153023000839C9D /* precomp.c in Sources */,
+				D72E16FD2153029200839C9D /* hash-blake2b.c in Sources */,
+				D72E16D9215301A800839C9D /* hash-blake2s.c in Sources */,
+				D72E17172153030400839C9D /* chacha.c in Sources */,
+				D72E17222153034600839C9D /* ed25519.c in Sources */,
+				D72E17012153029E00839C9D /* hash-sha512.c in Sources */,
+				D72E1709215302CB00839C9D /* dh-curve25519.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1780,6 +1694,7 @@
 /* Begin XCBuildConfiguration section */
 		D72E165F214C667900839C9D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D77C6E312142E20300A3E0EA /* Noise.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 32HNEEH56A;
@@ -1787,14 +1702,13 @@
 					"$(SRCROOT)/Noise-C/include",
 					/usr/local/opt/openssl/include,
 				);
-				LIBRARY_SEARCH_PATHS = /usr/local/opt/openssl/lib/;
-				OTHER_LDFLAGS = "-lcrypto";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
 		};
 		D72E1660214C667900839C9D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D77C6E312142E20300A3E0EA /* Noise.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 32HNEEH56A;
@@ -1802,14 +1716,13 @@
 					"$(SRCROOT)/Noise-C/include",
 					/usr/local/opt/openssl/include,
 				);
-				LIBRARY_SEARCH_PATHS = /usr/local/opt/openssl/lib/;
-				OTHER_LDFLAGS = "-lcrypto";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
 		};
 		D72E166F214C67D700839C9D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D77C6E312142E20300A3E0EA /* Noise.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 32HNEEH56A;
@@ -1817,14 +1730,13 @@
 					"$(SRCROOT)/Noise-C/include",
 					/usr/local/opt/openssl/include,
 				);
-				LIBRARY_SEARCH_PATHS = /usr/local/opt/openssl/lib/;
-				OTHER_LDFLAGS = "-lcrypto";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
 		};
 		D72E1670214C67D700839C9D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D77C6E312142E20300A3E0EA /* Noise.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 32HNEEH56A;
@@ -1832,8 +1744,6 @@
 					"$(SRCROOT)/Noise-C/include",
 					/usr/local/opt/openssl/include,
 				);
-				LIBRARY_SEARCH_PATHS = /usr/local/opt/openssl/lib/;
-				OTHER_LDFLAGS = "-lcrypto";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

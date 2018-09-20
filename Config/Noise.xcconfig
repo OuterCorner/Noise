@@ -9,6 +9,6 @@
 // Configuration settings file format documentation can be found at:
 // https://help.apple.com/xcode/#/dev745c5c974
 
-LIBRARY_SEARCH_PATHS = /usr/local/opt/openssl/lib/
+LIBRARY_SEARCH_PATHS = /usr/local/opt/openssl/lib/ /usr/local/opt/libsodium/lib
 
-OTHER_LDFLAGS = -lcrypto
+OTHER_LDFLAGS = -lcrypto -lsodium
