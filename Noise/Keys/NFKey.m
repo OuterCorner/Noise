@@ -6,7 +6,7 @@
 // Copyright © 2018 Outer Corner. All rights reserved.
 //
 
-#import "NFKey+Package.h"
+#import "NFKey.h"
 
 NFKeyAlgo const NFKeyAlgoCurve25519   = @"25519";
 NFKeyAlgo const NFKeyAlgoCurve448     = @"448";

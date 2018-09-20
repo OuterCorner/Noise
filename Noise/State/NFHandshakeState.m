@@ -11,7 +11,7 @@
 #import "NFUtil.h"
 #import <noise/protocol.h>
 #import "NFKeyPair.h"
-#import "NFKey+Package.h"
+#import "NFKey.h"
 #import "NFErrors+Package.h"
 #import "NFCipherState+Package.h"
 #import "NFSession+Package.h"

@@ -7,7 +7,7 @@
 //
 
 #import "NFKeyGenerator.h"
-#import "NFKey+Package.h"
+#import "NFKey.h"
 #import <Security/Security.h>
 #import <noise/protocol.h>
 

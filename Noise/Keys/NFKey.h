@@ -27,6 +27,8 @@ NS_ASSUME_NONNULL_BEGIN
 NS_SWIFT_NAME(NoiseKey)
 @interface NFKey : NSObject <NSSecureCoding>
 
++ (instancetype)keyWithMaterial:(NSData *)material role:(NFKeyRole)role algo:(nullable NFKeyAlgo)algo;
+
 @property (strong, readonly) NSData *keyMaterial;
 @property (readonly) NFKeyRole keyRole;
 @property (nullable, readonly) NFKeyAlgo keyAlgo;
