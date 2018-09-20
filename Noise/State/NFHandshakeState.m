@@ -235,61 +235,63 @@
 - (BOOL)needsPerformAction
 {
     int action = noise_handshakestate_get_action(_handshakeState);
-    return action == NOISE_ACTION_WRITE_MESSAGE;
+    return action == NOISE_ACTION_WRITE_MESSAGE || action == NOISE_ACTION_SPLIT;
 }
 
 - (BOOL)performNextAction:(NSError * _Nullable __autoreleasing *)error
 {
     NFSession *session = [self session];
-    int action = noise_handshakestate_get_action(_handshakeState);
+    int action = NOISE_ACTION_NONE;
     
-    if (action == NOISE_ACTION_WRITE_MESSAGE) {
-        NSString *pattern = [self currentActionPattern];
-        NSData *payload = nil;
-        if ([session.delegate respondsToSelector:@selector(session:willSendHandshakeMessagePattern:)]) {
-            payload = [session.delegate session:session
-                willSendHandshakeMessagePattern:pattern];
-        }
-        
-        size_t max_buffer_size = 4096 + [payload length];
-        uint8_t *buffer = (uint8_t *)malloc(max_buffer_size);
-        NoiseBuffer message_buffer;
-        NoiseBuffer payload_buffer;
-        
-        noise_buffer_set_input(payload_buffer, (uint8_t *)[payload bytes], (size_t)[payload length]);
-        noise_buffer_set_output(message_buffer, buffer, max_buffer_size);
-        int err = noise_handshakestate_write_message(_handshakeState, &message_buffer, payload ? &payload_buffer : NULL);
-        if (err != NOISE_ERROR_NONE) {
-            free(buffer);
-            if (error != NULL) {
-                *error = internalErrorFromNoiseError(err);
-            }
-            return NO;
-        }
+    while ((void)(action = noise_handshakestate_get_action(_handshakeState)),
+           action == NOISE_ACTION_WRITE_MESSAGE || action == NOISE_ACTION_SPLIT) {
 
-        NSData *messageData = [[NSData alloc] initWithBytesNoCopy:buffer length:message_buffer.size];
-        
-        [self.session sendData:messageData];
-    }
-    else if (action == NOISE_ACTION_SPLIT) { // handshake finished
-        NoiseCipherState *send_cipher = NULL;
-        NoiseCipherState *recv_cipher = NULL;
-
-        int err = noise_handshakestate_split(_handshakeState, &send_cipher, &recv_cipher);
-        if (err != NOISE_ERROR_NONE) {
-            if (error != NULL) {
-                *error = internalErrorFromNoiseError(err);
+        if (action == NOISE_ACTION_WRITE_MESSAGE) {
+            NSString *pattern = [self currentActionPattern];
+            NSData *payload = nil;
+            if ([session.delegate respondsToSelector:@selector(session:willSendHandshakeMessagePattern:)]) {
+                payload = [session.delegate session:session
+                    willSendHandshakeMessagePattern:pattern];
             }
-            return NO;
+            
+            size_t max_buffer_size = 4096 + [payload length];
+            uint8_t *buffer = (uint8_t *)malloc(max_buffer_size);
+            NoiseBuffer message_buffer;
+            NoiseBuffer payload_buffer;
+            
+            noise_buffer_set_input(payload_buffer, (uint8_t *)[payload bytes], (size_t)[payload length]);
+            noise_buffer_set_output(message_buffer, buffer, max_buffer_size);
+            int err = noise_handshakestate_write_message(_handshakeState, &message_buffer, payload ? &payload_buffer : NULL);
+            if (err != NOISE_ERROR_NONE) {
+                free(buffer);
+                if (error != NULL) {
+                    *error = internalErrorFromNoiseError(err);
+                }
+                return NO;
+            }
+            
+            NSData *messageData = [[NSData alloc] initWithBytesNoCopy:buffer length:message_buffer.size];
+            
+            [self.session sendData:messageData];
         }
-        
-        NFCipherState *sendCipherState = [[NFCipherState alloc] initWithNoiseCCipherState:send_cipher maxMessageSize:session.maxMessageSize];
-        NFCipherState *recvCipherState = [[NFCipherState alloc] initWithNoiseCCipherState:recv_cipher maxMessageSize:session.maxMessageSize];
-        
-        [session establishWithSendingCipher:sendCipherState receivingCipher:recvCipherState];
-        return YES;
+        else if (action == NOISE_ACTION_SPLIT) { // handshake finished
+            NoiseCipherState *send_cipher = NULL;
+            NoiseCipherState *recv_cipher = NULL;
+            
+            int err = noise_handshakestate_split(_handshakeState, &send_cipher, &recv_cipher);
+            if (err != NOISE_ERROR_NONE) {
+                if (error != NULL) {
+                    *error = internalErrorFromNoiseError(err);
+                }
+                return NO;
+            }
+            
+            NFCipherState *sendCipherState = [[NFCipherState alloc] initWithNoiseCCipherState:send_cipher maxMessageSize:session.maxMessageSize];
+            NFCipherState *recvCipherState = [[NFCipherState alloc] initWithNoiseCCipherState:recv_cipher maxMessageSize:session.maxMessageSize];
+            
+            [session establishWithSendingCipher:sendCipherState receivingCipher:recvCipherState];
+        }
     }
-    
     return YES;
 }
 

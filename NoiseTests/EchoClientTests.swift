@@ -13,6 +13,8 @@ class EchoClientTests: XCTestCase, StreamDelegate, NoiseSessionDelegate {
 
     let didReceiveEchoNotification = Notification.Name("didReceiveEchoNotification")
     let didReceiveSessionEstablishedNotification = Notification.Name("didReceiveSessionEstablishedNotification")
+    let notificationHanshakeKey = "hs"
+    
     let serverHost = "localhost"
     let serverPort = 7000
     
@@ -66,60 +68,180 @@ class EchoClientTests: XCTestCase, StreamDelegate, NoiseSessionDelegate {
             setup.setPrologue(self.echoProtocolIdAsData(for: self.currentSession!))
         }
         
-        do {
-            try currentSession!.start()
-        }
-        catch {
-            XCTFail("Failed to start noise session \(error)")
-            return
-        }
-        
-        
-        currentSession!.sendingHandle?.readabilityHandler = { [weak self] fh -> Void in
-            guard let sSelf = self else {
-                return
-            }
-            sSelf.write(data: fh.availableData, to: sSelf.toServerStream!)
-        }
-        
-        let establishedExpectation = keyValueObservingExpectation(for: currentSession!, keyPath: "state", expectedValue: NoiseSessionState.established.rawValue)
-        let establishedNotificationExpectation = expectation(forNotification: didReceiveSessionEstablishedNotification, object: self, handler: nil)
-        wait(for: [establishedExpectation, establishedNotificationExpectation], timeout: 2.0)
-        
-        var text = "Hello World\n";
-        currentSession?.send(text.data(using: .utf8)!)
-        
-        var echoResponse = expectation(forNotification: didReceiveEchoNotification, object: self) { (note) -> Bool in
-            guard let receivedText = note.userInfo?["text"] as? String else {
-                return false
-            }
-            return text == receivedText
-        }
-        
-        wait(for: [echoResponse], timeout: 2.0)
-        
-        text = "All Noise messages are less than or equal to 65535 bytes in length.\n";
-        currentSession?.send(text.data(using: .utf8)!)
-        
-        echoResponse = expectation(forNotification: didReceiveEchoNotification, object: self) { (note) -> Bool in
-            guard let receivedText = note.userInfo?["text"] as? String else {
-                return false
-            }
-            return text == receivedText
-        }
-        
-        wait(for: [echoResponse], timeout: 2.0)
+        startSessionAndEstablishConnection()
+        exchangeMessages()
+        stopSession()
+    }
 
-        sessionDidStopExpectation = expectation(description: "Session stopped")
-        currentSession!.stop()
+    func testNX() {
+        currentSession = NoiseSession(protocolName: "Noise_NX_448_ChaChaPoly_BLAKE2b", role: .initiator)
+        currentSession!.delegate = self
+        XCTAssertNotNil(currentSession)
         
-        wait(for: [sessionDidStopExpectation!], timeout: 1.0)
+        let ready = currentSession!.setup { (setup) in
+            setup.setPrologue(self.echoProtocolIdAsData(for: self.currentSession!))
+        }
+        XCTAssertTrue(ready)
+        
+        let remotePublicKeyExpectation = expectation(forNotification: didReceiveSessionEstablishedNotification, object: self) { (note) -> Bool in
+            guard let handshake = note.userInfo?[self.notificationHanshakeKey] as? NoiseHandshakeState else {
+                return false
+            }
+            return handshake.remotePublicKey != nil
+        }
+        startSessionAndEstablishConnection()
+        wait(for: [remotePublicKeyExpectation], timeout: 2.0)
+        exchangeMessages()
+        stopSession()
     }
 
     func testXX() {
+        currentSession = NoiseSession(protocolName: "Noise_XX_448_AESGCM_SHA512", role: .initiator)
+        currentSession!.delegate = self
+        XCTAssertNotNil(currentSession)
         
+        var ready = currentSession!.setup { (setup) in
+            setup.setPrologue(self.echoProtocolIdAsData(for: self.currentSession!))
+        }
+        XCTAssertFalse(ready)
+        ready = currentSession!.setup { (setup) in
+            setup.localKeyPair = NoiseKeyGenerator.shared.generateKeyPair(.curve448)
+        }
+        XCTAssertTrue(ready)
+        
+        let remotePublicKeyExpectation = expectation(forNotification: didReceiveSessionEstablishedNotification, object: self) { (note) -> Bool in
+            guard let handshake = note.userInfo?[self.notificationHanshakeKey] as? NoiseHandshakeState else {
+                return false
+            }
+            return handshake.remotePublicKey != nil
+        }
+        startSessionAndEstablishConnection()
+        wait(for: [remotePublicKeyExpectation], timeout: 2.0)
+        exchangeMessages()
+        stopSession()
     }
-
+    
+    func testNK() {
+        currentSession = NoiseSession(protocolName: "Noise_NK_25519_AESGCM_BLAKE2s", role: .initiator)
+        currentSession!.delegate = self
+        XCTAssertNotNil(currentSession)
+        
+        var ready = currentSession!.setup { (setup) in
+            setup.setPrologue(self.echoProtocolIdAsData(for: self.currentSession!))
+        }
+        XCTAssertFalse(ready)
+        ready = currentSession!.setup { (setup) in
+            guard let remotePublicKeyURL = Bundle(for: EchoClientTests.self).url(forResource: "keys/server_key_25519", withExtension: "pub") else {
+                XCTFail("Could not find server public key")
+                return
+            }
+            var keyMaterial = [UInt8](repeating: 0, count: 32)
+            let ret = echo_load_public_key(remotePublicKeyURL.path.cString(using: .utf8), &keyMaterial, 32)
+            XCTAssertEqual(ret, 1)
+            setup.remotePublicKey = NoiseKey(material: Data(keyMaterial), role: NoiseKeyRole.public, algo: NoiseKeyAlgo.curve25519)
+        }
+        XCTAssertTrue(ready)
+        
+        let remotePublicKeyExpectation = expectation(forNotification: didReceiveSessionEstablishedNotification, object: self) { (note) -> Bool in
+            guard let handshake = note.userInfo?[self.notificationHanshakeKey] as? NoiseHandshakeState else {
+                return false
+            }
+            return handshake.remotePublicKey != nil
+        }
+        startSessionAndEstablishConnection()
+        wait(for: [remotePublicKeyExpectation], timeout: 2.0)
+        exchangeMessages()
+        stopSession()
+    }
+    
+    
+    func testXK() {
+        currentSession = NoiseSession(protocolName: "Noise_XK_25519_ChaChaPoly_BLAKE2s", role: .initiator)
+        currentSession!.delegate = self
+        XCTAssertNotNil(currentSession)
+        
+        var ready = currentSession!.setup { (setup) in
+            setup.setPrologue(self.echoProtocolIdAsData(for: self.currentSession!))
+        }
+        XCTAssertFalse(ready)
+        ready = currentSession!.setup { (setup) in
+            setup.localKeyPair = NoiseKeyGenerator.shared.generateKeyPair(.curve25519)
+        }
+        XCTAssertFalse(ready)
+        ready = currentSession!.setup { (setup) in
+            guard let remotePublicKeyURL = Bundle(for: EchoClientTests.self).url(forResource: "keys/server_key_25519", withExtension: "pub") else {
+                XCTFail("Could not find server public key")
+                return
+            }
+            var keyMaterial = [UInt8](repeating: 0, count: 32)
+            let ret = echo_load_public_key(remotePublicKeyURL.path.cString(using: .utf8), &keyMaterial, 32)
+            XCTAssertEqual(ret, 1)
+            setup.remotePublicKey = NoiseKey(material: Data(keyMaterial), role: NoiseKeyRole.public, algo: NoiseKeyAlgo.curve25519)
+        }
+        XCTAssertTrue(ready)
+        
+        let remotePublicKeyExpectation = expectation(forNotification: didReceiveSessionEstablishedNotification, object: self) { (note) -> Bool in
+            guard let handshake = note.userInfo?[self.notificationHanshakeKey] as? NoiseHandshakeState else {
+                return false
+            }
+            return handshake.remotePublicKey != nil
+        }
+        startSessionAndEstablishConnection()
+        wait(for: [remotePublicKeyExpectation], timeout: 2.0)
+        exchangeMessages()
+        stopSession()
+    }
+    
+    func testKK() {
+        currentSession = NoiseSession(protocolName: "Noise_KK_25519_ChaChaPoly_BLAKE2s", role: .initiator)
+        currentSession!.delegate = self
+        XCTAssertNotNil(currentSession)
+        
+        var ready = currentSession!.setup { (setup) in
+            setup.setPrologue(self.echoProtocolIdAsData(for: self.currentSession!))
+        }
+        XCTAssertFalse(ready)
+        ready = currentSession!.setup { (setup) in
+            guard let clientPublicKeyURL = Bundle(for: EchoClientTests.self).url(forResource: "keys/client_key_25519", withExtension: "pub"),
+                let clientPrivateKeyURL = Bundle(for: EchoClientTests.self).url(forResource: "keys/client_key_25519", withExtension: nil) else {
+                    XCTFail("Could not find client keys")
+                    return
+            }
+            var pubKeyMaterial = [UInt8](repeating: 0, count: 32)
+            var ret = echo_load_public_key(clientPublicKeyURL.path.cString(using: .utf8), &pubKeyMaterial, 32)
+            XCTAssertEqual(ret, 1)
+            var privKeyMaterial = [UInt8](repeating: 0, count: 32)
+            ret = echo_load_private_key(clientPrivateKeyURL.path.cString(using: .utf8), &privKeyMaterial, 32)
+            XCTAssertEqual(ret, 1)
+            
+            let pubKey = NoiseKey(material: Data(pubKeyMaterial), role: .public, algo: .curve25519)
+            let privKey = NoiseKey(material: Data(privKeyMaterial), role: .private, algo: .curve25519)
+            setup.localKeyPair = NoiseKeyPair(publicKey: pubKey, privateKey: privKey)
+        }
+        XCTAssertFalse(ready)
+        ready = currentSession!.setup { (setup) in
+            guard let remotePublicKeyURL = Bundle(for: EchoClientTests.self).url(forResource: "keys/server_key_25519", withExtension: "pub") else {
+                XCTFail("Could not find server public key")
+                return
+            }
+            var keyMaterial = [UInt8](repeating: 0, count: 32)
+            let ret = echo_load_public_key(remotePublicKeyURL.path.cString(using: .utf8), &keyMaterial, 32)
+            XCTAssertEqual(ret, 1)
+            setup.remotePublicKey = NoiseKey(material: Data(keyMaterial), role: NoiseKeyRole.public, algo: NoiseKeyAlgo.curve25519)
+        }
+        XCTAssertTrue(ready)
+        
+        let remotePublicKeyExpectation = expectation(forNotification: didReceiveSessionEstablishedNotification, object: self) { (note) -> Bool in
+            guard let handshake = note.userInfo?[self.notificationHanshakeKey] as? NoiseHandshakeState else {
+                return false
+            }
+            return handshake.remotePublicKey != nil
+        }
+        startSessionAndEstablishConnection()
+        wait(for: [remotePublicKeyExpectation], timeout: 2.0)
+        exchangeMessages()
+        stopSession()
+    }
     
     // MARK: - NoiseSession delegate
     
@@ -138,7 +260,9 @@ class EchoClientTests: XCTestCase, StreamDelegate, NoiseSessionDelegate {
     }
     
     func session(_ session: NoiseSession, handshakeComplete handshakeState: NoiseHandshakeState) {
-        NotificationCenter.default.post(name: didReceiveSessionEstablishedNotification, object: self)
+        NotificationCenter.default.post(name: didReceiveSessionEstablishedNotification,
+                                        object: self,
+                                        userInfo: [notificationHanshakeKey: handshakeState])
     }
     
     var sessionDidStopExpectation: XCTestExpectation?
@@ -194,6 +318,61 @@ class EchoClientTests: XCTestCase, StreamDelegate, NoiseSessionDelegate {
         
         let echoProtoData = Data(bytes: &echoProtoId, count: MemoryLayout<EchoProtocolId>.size)
         return echoProtoData
+    }
+    
+    func startSessionAndEstablishConnection() {
+        do {
+            try currentSession!.start()
+        }
+        catch {
+            XCTFail("Failed to start noise session \(error)")
+            return
+        }
+        
+        
+        currentSession!.sendingHandle?.readabilityHandler = { [weak self] fh -> Void in
+            guard let sSelf = self else {
+                return
+            }
+            sSelf.write(data: fh.availableData, to: sSelf.toServerStream!)
+        }
+        
+        let establishedExpectation = keyValueObservingExpectation(for: currentSession!, keyPath: "state", expectedValue: NoiseSessionState.established.rawValue)
+        let establishedNotificationExpectation = expectation(forNotification: didReceiveSessionEstablishedNotification, object: self, handler: nil)
+        wait(for: [establishedExpectation, establishedNotificationExpectation], timeout: 50.0)
+    }
+    
+    func exchangeMessages() {
+        var text = "Hello World\n";
+        currentSession?.send(text.data(using: .utf8)!)
+        
+        var echoResponse = expectation(forNotification: didReceiveEchoNotification, object: self) { (note) -> Bool in
+            guard let receivedText = note.userInfo?["text"] as? String else {
+                return false
+            }
+            return text == receivedText
+        }
+        
+        wait(for: [echoResponse], timeout: 2.0)
+        
+        text = "All Noise messages are less than or equal to 65535 bytes in length.\n";
+        currentSession?.send(text.data(using: .utf8)!)
+        
+        echoResponse = expectation(forNotification: didReceiveEchoNotification, object: self) { (note) -> Bool in
+            guard let receivedText = note.userInfo?["text"] as? String else {
+                return false
+            }
+            return text == receivedText
+        }
+        
+        wait(for: [echoResponse], timeout: 2.0)
+    }
+    
+    func stopSession(){
+        sessionDidStopExpectation = expectation(description: "Session stopped")
+        currentSession!.stop()
+        
+        wait(for: [sessionDidStopExpectation!], timeout: 1.0)
     }
 }
 
