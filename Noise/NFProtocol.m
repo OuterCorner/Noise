@@ -93,4 +93,26 @@
     return [[NSString alloc] initWithBytes:name length:strlen(name) encoding:NSASCIIStringEncoding];
 }
 
+- (NSUInteger)dhPublicKeySize
+{
+    NoiseDHState *state = NULL;
+    noise_dhstate_new_by_id(&state, _protocolId->dh_id);
+    
+    size_t size = noise_dhstate_get_public_key_length(state);
+    
+    noise_dhstate_free(state);
+    return size;
+}
+
+- (NSUInteger)dhPrivateKeySize
+{
+    NoiseDHState *state = NULL;
+    noise_dhstate_new_by_id(&state, _protocolId->dh_id);
+    
+    size_t size = noise_dhstate_get_private_key_length(state);
+    
+    noise_dhstate_free(state);
+    return size;
+}
+
 @end

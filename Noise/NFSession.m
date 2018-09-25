@@ -156,6 +156,7 @@
         }
         
         [wSelf receivedData:message];
+        
     };
     
     // change state
@@ -211,12 +212,13 @@
     self.sendingCipherState = sendCipher;
     self.receivingCipherState = recvCipher;
     
-    dispatch_async(dispatch_get_main_queue(), ^{
+    dispatch_sync(dispatch_get_main_queue(), ^{
         if ([self.delegate respondsToSelector:@selector(session:handshakeComplete:)]) {
             [self.delegate session:self handshakeComplete:self.handshakeState];
         }
-        [self transitionToState:NFSessionStateEstablished];
     });
+    
+    [self transitionToState:NFSessionStateEstablished];
 }
 
 
@@ -262,28 +264,28 @@
 }
 - (void)receivedData:(NSData *)data
 {
-    if (self.state == NFSessionStateHandshaking) {
-        [self.sessionQueue addOperationWithBlock:^{
+    [self.sessionQueue addOperationWithBlock:^{
+        if (self.state == NFSessionStateHandshaking) {
             NSError *error = nil;
             if (![self.handshakeState receivedData:data error:&error]) {
                 [self abort:error];
             }
-        }];
-    }
-    else if (self.state == NFSessionStateEstablished) {
-        NSError *error = nil;
-        NSData *plaintext = [self.receivingCipherState decrypt:data error:&error];
-        if (!plaintext) {
-            [self abort:error];
-            return;
         }
-        if ([self.delegate respondsToSelector:@selector(session:didReceiveData:)]) {
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [self.delegate session:self didReceiveData:plaintext];
-                
-            });
+        else if (self.state == NFSessionStateEstablished) {
+            NSError *error = nil;
+            NSData *plaintext = [self.receivingCipherState decrypt:data error:&error];
+            if (!plaintext) {
+                [self abort:error];
+                return;
+            }
+            if ([self.delegate respondsToSelector:@selector(session:didReceiveData:)]) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [self.delegate session:self didReceiveData:plaintext];
+                    
+                });
+            }
         }
-    }
+    }];
 }
 
 - (void)abort:(NSError *)error

@@ -45,6 +45,11 @@ NS_SWIFT_NAME(NoiseProtocol)
 /** The hash function name, e.g.: SHA256, BLAKE2s */
 @property (strong, readonly) NSString *hashFunction;
 
+/** The public key size for the underlying dh function */
+@property (readonly) NSUInteger dhPublicKeySize;
+
+/** The private key size for the underlying dh function */
+@property (readonly) NSUInteger dhPrivateKeySize;
 
 @end
 

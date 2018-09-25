@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D71A74FD21593D1F0040F0DA /* EchoServerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D71A74FC21593D1F0040F0DA /* EchoServerTests.swift */; };
 		D72E1623214BB84B00839C9D /* NFErrors.h in Headers */ = {isa = PBXBuildFile; fileRef = D72E1621214BB84B00839C9D /* NFErrors.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D72E1624214BB84B00839C9D /* NFErrors.h in Headers */ = {isa = PBXBuildFile; fileRef = D72E1621214BB84B00839C9D /* NFErrors.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D72E1625214BB84B00839C9D /* NFErrors.m in Sources */ = {isa = PBXBuildFile; fileRef = D72E1622214BB84B00839C9D /* NFErrors.m */; };
@@ -272,6 +273,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		D71A74FC21593D1F0040F0DA /* EchoServerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EchoServerTests.swift; sourceTree = "<group>"; };
 		D72E1621214BB84B00839C9D /* NFErrors.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NFErrors.h; sourceTree = "<group>"; };
 		D72E1622214BB84B00839C9D /* NFErrors.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NFErrors.m; sourceTree = "<group>"; };
 		D72E1627214BB9C500839C9D /* SessionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionTests.swift; sourceTree = "<group>"; };
@@ -1178,6 +1180,7 @@
 				D72E1676214C692B00839C9D /* EchoClientTests.swift */,
 				D77C7306214821D100A3E0EA /* Info.plist */,
 				D72E168321500B7600839C9D /* NoiseTests-Bridging-Header.h */,
+				D71A74FC21593D1F0040F0DA /* EchoServerTests.swift */,
 			);
 			path = NoiseTests;
 			sourceTree = "<group>";
@@ -1647,6 +1650,7 @@
 				D75952D0214989310043D7ED /* HandshakeStateTests.swift in Sources */,
 				D72E167F21500AE800839C9D /* echo-common.c in Sources */,
 				D77C730E214821F200A3E0EA /* ProtocolTests.swift in Sources */,
+				D71A74FD21593D1F0040F0DA /* EchoServerTests.swift in Sources */,
 				D75952BE214947DA0043D7ED /* KeyTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

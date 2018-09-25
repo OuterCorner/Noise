@@ -202,7 +202,8 @@
 {
     NFSession *session = [self session];
     int action = noise_handshakestate_get_action(_handshakeState);
-    NSAssert(action == NOISE_ACTION_READ_MESSAGE, @"Received unexpected data during handshake");
+
+    NSAssert(action == NOISE_ACTION_READ_MESSAGE, @"Received unexpected data during handshake %d", action);
     
     NSString *pattern = [self currentActionPattern];
 

@@ -47,7 +47,7 @@ class EchoClientTests: XCTestCase, StreamDelegate, NoiseSessionDelegate {
         fromServerStream?.open()
         toServerStream?.open()
         
-        wait(for: [tcpStreamEstablished!], timeout: 10.0)
+        wait(for: [tcpStreamEstablished!], timeout: 3.0)
         
     }
 
@@ -57,6 +57,7 @@ class EchoClientTests: XCTestCase, StreamDelegate, NoiseSessionDelegate {
         serverProcess = nil
         toServerStream = nil
         fromServerStream = nil
+        sessionDidStopExpectation = nil
     }
 
     func testNN() {
@@ -339,7 +340,7 @@ class EchoClientTests: XCTestCase, StreamDelegate, NoiseSessionDelegate {
         
         let establishedExpectation = keyValueObservingExpectation(for: currentSession!, keyPath: "state", expectedValue: NoiseSessionState.established.rawValue)
         let establishedNotificationExpectation = expectation(forNotification: didReceiveSessionEstablishedNotification, object: self, handler: nil)
-        wait(for: [establishedExpectation, establishedNotificationExpectation], timeout: 50.0)
+        wait(for: [establishedExpectation, establishedNotificationExpectation], timeout: 5.0)
     }
     
     func exchangeMessages() {
