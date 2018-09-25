@@ -269,6 +269,8 @@ int main(int argc, char *argv[])
     size_t message_size;
     size_t max_line_len;
 
+    setbuf(stdout, NULL);
+    
     /* Parse the command-line options */
     if (!parse_options(argc, argv))
         return 1;
