@@ -1,5 +1,5 @@
 //
-//  NFCipherState.h
+//  NPFCipherState.h
 //  Noise
 //
 // Created by Paulo Andrade on 18/09/2018.
@@ -11,7 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 NS_SWIFT_NAME(NoiseCipherState)
-@interface NFCipherState : NSObject
+@interface NPFCipherState : NSObject
 
 - (NSData *)encrypt:(NSData *)data error:(NSError * _Nullable __autoreleasing *)error;
 - (NSData *)decrypt:(NSData *)data error:(NSError * _Nullable __autoreleasing *)error;

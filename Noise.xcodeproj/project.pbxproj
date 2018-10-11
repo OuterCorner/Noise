@@ -8,15 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		D71A74FD21593D1F0040F0DA /* EchoServerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D71A74FC21593D1F0040F0DA /* EchoServerTests.swift */; };
-		D72E1623214BB84B00839C9D /* NFErrors.h in Headers */ = {isa = PBXBuildFile; fileRef = D72E1621214BB84B00839C9D /* NFErrors.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D72E1624214BB84B00839C9D /* NFErrors.h in Headers */ = {isa = PBXBuildFile; fileRef = D72E1621214BB84B00839C9D /* NFErrors.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D72E1625214BB84B00839C9D /* NFErrors.m in Sources */ = {isa = PBXBuildFile; fileRef = D72E1622214BB84B00839C9D /* NFErrors.m */; };
-		D72E1626214BB84B00839C9D /* NFErrors.m in Sources */ = {isa = PBXBuildFile; fileRef = D72E1622214BB84B00839C9D /* NFErrors.m */; };
+		D72E1623214BB84B00839C9D /* NPFErrors.h in Headers */ = {isa = PBXBuildFile; fileRef = D72E1621214BB84B00839C9D /* NPFErrors.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D72E1624214BB84B00839C9D /* NPFErrors.h in Headers */ = {isa = PBXBuildFile; fileRef = D72E1621214BB84B00839C9D /* NPFErrors.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D72E1625214BB84B00839C9D /* NPFErrors.m in Sources */ = {isa = PBXBuildFile; fileRef = D72E1622214BB84B00839C9D /* NPFErrors.m */; };
+		D72E1626214BB84B00839C9D /* NPFErrors.m in Sources */ = {isa = PBXBuildFile; fileRef = D72E1622214BB84B00839C9D /* NPFErrors.m */; };
 		D72E1628214BB9C500839C9D /* SessionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D72E1627214BB9C500839C9D /* SessionTests.swift */; };
-		D72E162B214BF24600839C9D /* NFHandshakeState+Package.h in Headers */ = {isa = PBXBuildFile; fileRef = D72E1629214BF24600839C9D /* NFHandshakeState+Package.h */; };
-		D72E162C214BF24600839C9D /* NFHandshakeState+Package.h in Headers */ = {isa = PBXBuildFile; fileRef = D72E1629214BF24600839C9D /* NFHandshakeState+Package.h */; };
-		D72E1631214BFF3500839C9D /* NFErrors+Package.h in Headers */ = {isa = PBXBuildFile; fileRef = D72E162F214BFF3500839C9D /* NFErrors+Package.h */; };
-		D72E1632214BFF3500839C9D /* NFErrors+Package.h in Headers */ = {isa = PBXBuildFile; fileRef = D72E162F214BFF3500839C9D /* NFErrors+Package.h */; };
+		D72E162B214BF24600839C9D /* NPFHandshakeState+Package.h in Headers */ = {isa = PBXBuildFile; fileRef = D72E1629214BF24600839C9D /* NPFHandshakeState+Package.h */; };
+		D72E162C214BF24600839C9D /* NPFHandshakeState+Package.h in Headers */ = {isa = PBXBuildFile; fileRef = D72E1629214BF24600839C9D /* NPFHandshakeState+Package.h */; };
+		D72E1631214BFF3500839C9D /* NPFErrors+Package.h in Headers */ = {isa = PBXBuildFile; fileRef = D72E162F214BFF3500839C9D /* NPFErrors+Package.h */; };
+		D72E1632214BFF3500839C9D /* NPFErrors+Package.h in Headers */ = {isa = PBXBuildFile; fileRef = D72E162F214BFF3500839C9D /* NPFErrors+Package.h */; };
 		D72E1661214C668900839C9D /* echo-common.c in Sources */ = {isa = PBXBuildFile; fileRef = D72E164C214C662C00839C9D /* echo-common.c */; settings = {COMPILER_FLAGS = "-w"; }; };
 		D72E1662214C668900839C9D /* echo-server.c in Sources */ = {isa = PBXBuildFile; fileRef = D72E164D214C662C00839C9D /* echo-server.c */; settings = {COMPILER_FLAGS = "-w"; }; };
 		D72E1665214C66A800839C9D /* libnoiseprotocol.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D77C6E3C2142EEDB00A3E0EA /* libnoiseprotocol.a */; };
@@ -28,14 +28,14 @@
 		D72E167E214FFFA800839C9D /* echo-client in CopyFiles */ = {isa = PBXBuildFile; fileRef = D72E166A214C67D700839C9D /* echo-client */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		D72E167F21500AE800839C9D /* echo-common.c in Sources */ = {isa = PBXBuildFile; fileRef = D72E164C214C662C00839C9D /* echo-common.c */; settings = {COMPILER_FLAGS = "-w"; }; };
 		D72E1685215035EF00839C9D /* keys in Resources */ = {isa = PBXBuildFile; fileRef = D72E1684215035EF00839C9D /* keys */; };
-		D72E168A215155E600839C9D /* NFCipherState.h in Headers */ = {isa = PBXBuildFile; fileRef = D72E1688215155E600839C9D /* NFCipherState.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D72E168B215155E600839C9D /* NFCipherState.h in Headers */ = {isa = PBXBuildFile; fileRef = D72E1688215155E600839C9D /* NFCipherState.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D72E168C215155E600839C9D /* NFCipherState.m in Sources */ = {isa = PBXBuildFile; fileRef = D72E1689215155E600839C9D /* NFCipherState.m */; };
-		D72E168D215155E600839C9D /* NFCipherState.m in Sources */ = {isa = PBXBuildFile; fileRef = D72E1689215155E600839C9D /* NFCipherState.m */; };
-		D72E1690215156E300839C9D /* NFCipherState+Package.h in Headers */ = {isa = PBXBuildFile; fileRef = D72E168E215156E300839C9D /* NFCipherState+Package.h */; };
-		D72E1691215156E300839C9D /* NFCipherState+Package.h in Headers */ = {isa = PBXBuildFile; fileRef = D72E168E215156E300839C9D /* NFCipherState+Package.h */; };
-		D72E169621515C6400839C9D /* NFSession+Package.h in Headers */ = {isa = PBXBuildFile; fileRef = D72E169421515C6400839C9D /* NFSession+Package.h */; };
-		D72E169721515C6400839C9D /* NFSession+Package.h in Headers */ = {isa = PBXBuildFile; fileRef = D72E169421515C6400839C9D /* NFSession+Package.h */; };
+		D72E168A215155E600839C9D /* NPFCipherState.h in Headers */ = {isa = PBXBuildFile; fileRef = D72E1688215155E600839C9D /* NPFCipherState.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D72E168B215155E600839C9D /* NPFCipherState.h in Headers */ = {isa = PBXBuildFile; fileRef = D72E1688215155E600839C9D /* NPFCipherState.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D72E168C215155E600839C9D /* NPFCipherState.m in Sources */ = {isa = PBXBuildFile; fileRef = D72E1689215155E600839C9D /* NPFCipherState.m */; };
+		D72E168D215155E600839C9D /* NPFCipherState.m in Sources */ = {isa = PBXBuildFile; fileRef = D72E1689215155E600839C9D /* NPFCipherState.m */; };
+		D72E1690215156E300839C9D /* NPFCipherState+Package.h in Headers */ = {isa = PBXBuildFile; fileRef = D72E168E215156E300839C9D /* NPFCipherState+Package.h */; };
+		D72E1691215156E300839C9D /* NPFCipherState+Package.h in Headers */ = {isa = PBXBuildFile; fileRef = D72E168E215156E300839C9D /* NPFCipherState+Package.h */; };
+		D72E169621515C6400839C9D /* NPFSession+Package.h in Headers */ = {isa = PBXBuildFile; fileRef = D72E169421515C6400839C9D /* NPFSession+Package.h */; };
+		D72E169721515C6400839C9D /* NPFSession+Package.h in Headers */ = {isa = PBXBuildFile; fileRef = D72E169421515C6400839C9D /* NPFSession+Package.h */; };
 		D72E16BC2153012500839C9D /* cipherstate.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C72522142F04200A3E0EA /* cipherstate.c */; };
 		D72E16BD2153012500839C9D /* cipherstate.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C72522142F04200A3E0EA /* cipherstate.c */; };
 		D72E16BE2153012E00839C9D /* dhstate.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C724B2142F04200A3E0EA /* dhstate.c */; };
@@ -141,42 +141,42 @@
 		D72E17222153034600839C9D /* ed25519.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C72052142F04200A3E0EA /* ed25519.c */; };
 		D72E17232153034600839C9D /* ed25519.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C72052142F04200A3E0EA /* ed25519.c */; };
 		D75952BE214947DA0043D7ED /* KeyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D75952BD214947DA0043D7ED /* KeyTests.swift */; };
-		D75952C1214952B10043D7ED /* NFSession.h in Headers */ = {isa = PBXBuildFile; fileRef = D75952BF214952B10043D7ED /* NFSession.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D75952C2214952B10043D7ED /* NFSession.h in Headers */ = {isa = PBXBuildFile; fileRef = D75952BF214952B10043D7ED /* NFSession.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D75952C3214952B10043D7ED /* NFSession.m in Sources */ = {isa = PBXBuildFile; fileRef = D75952C0214952B10043D7ED /* NFSession.m */; };
-		D75952C4214952B10043D7ED /* NFSession.m in Sources */ = {isa = PBXBuildFile; fileRef = D75952C0214952B10043D7ED /* NFSession.m */; };
-		D75952C92149587C0043D7ED /* NFHandshakeState.h in Headers */ = {isa = PBXBuildFile; fileRef = D75952C72149587C0043D7ED /* NFHandshakeState.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D75952CA2149587C0043D7ED /* NFHandshakeState.h in Headers */ = {isa = PBXBuildFile; fileRef = D75952C72149587C0043D7ED /* NFHandshakeState.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D75952CB2149587C0043D7ED /* NFHandshakeState.m in Sources */ = {isa = PBXBuildFile; fileRef = D75952C82149587C0043D7ED /* NFHandshakeState.m */; };
-		D75952CC2149587C0043D7ED /* NFHandshakeState.m in Sources */ = {isa = PBXBuildFile; fileRef = D75952C82149587C0043D7ED /* NFHandshakeState.m */; };
+		D75952C1214952B10043D7ED /* NPFSession.h in Headers */ = {isa = PBXBuildFile; fileRef = D75952BF214952B10043D7ED /* NPFSession.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D75952C2214952B10043D7ED /* NPFSession.h in Headers */ = {isa = PBXBuildFile; fileRef = D75952BF214952B10043D7ED /* NPFSession.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D75952C3214952B10043D7ED /* NPFSession.m in Sources */ = {isa = PBXBuildFile; fileRef = D75952C0214952B10043D7ED /* NPFSession.m */; };
+		D75952C4214952B10043D7ED /* NPFSession.m in Sources */ = {isa = PBXBuildFile; fileRef = D75952C0214952B10043D7ED /* NPFSession.m */; };
+		D75952C92149587C0043D7ED /* NPFHandshakeState.h in Headers */ = {isa = PBXBuildFile; fileRef = D75952C72149587C0043D7ED /* NPFHandshakeState.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D75952CA2149587C0043D7ED /* NPFHandshakeState.h in Headers */ = {isa = PBXBuildFile; fileRef = D75952C72149587C0043D7ED /* NPFHandshakeState.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D75952CB2149587C0043D7ED /* NPFHandshakeState.m in Sources */ = {isa = PBXBuildFile; fileRef = D75952C82149587C0043D7ED /* NPFHandshakeState.m */; };
+		D75952CC2149587C0043D7ED /* NPFHandshakeState.m in Sources */ = {isa = PBXBuildFile; fileRef = D75952C82149587C0043D7ED /* NPFHandshakeState.m */; };
 		D75952D0214989310043D7ED /* HandshakeStateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D75952CF214989310043D7ED /* HandshakeStateTests.swift */; };
 		D77C6E1A2142E09100A3E0EA /* Noise.h in Headers */ = {isa = PBXBuildFile; fileRef = D77C6E182142E09100A3E0EA /* Noise.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D77C72DF2143162600A3E0EA /* libnoiseprotocol.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D77C6E3C2142EEDB00A3E0EA /* libnoiseprotocol.a */; };
 		D77C72E22143163B00A3E0EA /* libnoiseprotocol.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D77C72772143127B00A3E0EA /* libnoiseprotocol.a */; };
-		D77C72F4214813F800A3E0EA /* NFProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = D77C72F2214813F800A3E0EA /* NFProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D77C72F5214813F800A3E0EA /* NFProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = D77C72F2214813F800A3E0EA /* NFProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D77C72F6214813F800A3E0EA /* NFProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = D77C72F3214813F800A3E0EA /* NFProtocol.m */; };
-		D77C72F7214813F800A3E0EA /* NFProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = D77C72F3214813F800A3E0EA /* NFProtocol.m */; };
-		D77C72FA214819F900A3E0EA /* NFProtocol+Package.h in Headers */ = {isa = PBXBuildFile; fileRef = D77C72F8214819F900A3E0EA /* NFProtocol+Package.h */; };
-		D77C72FB214819F900A3E0EA /* NFProtocol+Package.h in Headers */ = {isa = PBXBuildFile; fileRef = D77C72F8214819F900A3E0EA /* NFProtocol+Package.h */; };
+		D77C72F4214813F800A3E0EA /* NPFProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = D77C72F2214813F800A3E0EA /* NPFProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D77C72F5214813F800A3E0EA /* NPFProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = D77C72F2214813F800A3E0EA /* NPFProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D77C72F6214813F800A3E0EA /* NPFProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = D77C72F3214813F800A3E0EA /* NPFProtocol.m */; };
+		D77C72F7214813F800A3E0EA /* NPFProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = D77C72F3214813F800A3E0EA /* NPFProtocol.m */; };
+		D77C72FA214819F900A3E0EA /* NPFProtocol+Package.h in Headers */ = {isa = PBXBuildFile; fileRef = D77C72F8214819F900A3E0EA /* NPFProtocol+Package.h */; };
+		D77C72FB214819F900A3E0EA /* NPFProtocol+Package.h in Headers */ = {isa = PBXBuildFile; fileRef = D77C72F8214819F900A3E0EA /* NPFProtocol+Package.h */; };
 		D77C7307214821D100A3E0EA /* Noise.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D77C6E152142E09100A3E0EA /* Noise.framework */; };
 		D77C730E214821F200A3E0EA /* ProtocolTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77C730D214821F200A3E0EA /* ProtocolTests.swift */; };
-		D77C73112148484600A3E0EA /* NFUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = D77C730F2148484600A3E0EA /* NFUtil.h */; };
-		D77C73122148484600A3E0EA /* NFUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = D77C730F2148484600A3E0EA /* NFUtil.h */; };
-		D77C73132148484600A3E0EA /* NFUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = D77C73102148484600A3E0EA /* NFUtil.m */; };
-		D77C73142148484600A3E0EA /* NFUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = D77C73102148484600A3E0EA /* NFUtil.m */; };
-		D77C73192148490800A3E0EA /* NFKey.h in Headers */ = {isa = PBXBuildFile; fileRef = D77C73172148490800A3E0EA /* NFKey.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D77C731A2148490800A3E0EA /* NFKey.h in Headers */ = {isa = PBXBuildFile; fileRef = D77C73172148490800A3E0EA /* NFKey.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D77C731B2148490800A3E0EA /* NFKey.m in Sources */ = {isa = PBXBuildFile; fileRef = D77C73182148490800A3E0EA /* NFKey.m */; };
-		D77C731C2148490800A3E0EA /* NFKey.m in Sources */ = {isa = PBXBuildFile; fileRef = D77C73182148490800A3E0EA /* NFKey.m */; };
-		D77C73212148494500A3E0EA /* NFKeyPair.h in Headers */ = {isa = PBXBuildFile; fileRef = D77C731F2148494500A3E0EA /* NFKeyPair.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D77C73222148494500A3E0EA /* NFKeyPair.h in Headers */ = {isa = PBXBuildFile; fileRef = D77C731F2148494500A3E0EA /* NFKeyPair.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D77C73232148494500A3E0EA /* NFKeyPair.m in Sources */ = {isa = PBXBuildFile; fileRef = D77C73202148494500A3E0EA /* NFKeyPair.m */; };
-		D77C73242148494500A3E0EA /* NFKeyPair.m in Sources */ = {isa = PBXBuildFile; fileRef = D77C73202148494500A3E0EA /* NFKeyPair.m */; };
-		D77C73272148495A00A3E0EA /* NFKeyGenerator.h in Headers */ = {isa = PBXBuildFile; fileRef = D77C73252148495A00A3E0EA /* NFKeyGenerator.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D77C73282148495A00A3E0EA /* NFKeyGenerator.h in Headers */ = {isa = PBXBuildFile; fileRef = D77C73252148495A00A3E0EA /* NFKeyGenerator.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D77C73292148495A00A3E0EA /* NFKeyGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = D77C73262148495A00A3E0EA /* NFKeyGenerator.m */; };
-		D77C732A2148495A00A3E0EA /* NFKeyGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = D77C73262148495A00A3E0EA /* NFKeyGenerator.m */; };
+		D77C73112148484600A3E0EA /* NPFUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = D77C730F2148484600A3E0EA /* NPFUtil.h */; };
+		D77C73122148484600A3E0EA /* NPFUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = D77C730F2148484600A3E0EA /* NPFUtil.h */; };
+		D77C73132148484600A3E0EA /* NPFUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = D77C73102148484600A3E0EA /* NPFUtil.m */; };
+		D77C73142148484600A3E0EA /* NPFUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = D77C73102148484600A3E0EA /* NPFUtil.m */; };
+		D77C73192148490800A3E0EA /* NPFKey.h in Headers */ = {isa = PBXBuildFile; fileRef = D77C73172148490800A3E0EA /* NPFKey.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D77C731A2148490800A3E0EA /* NPFKey.h in Headers */ = {isa = PBXBuildFile; fileRef = D77C73172148490800A3E0EA /* NPFKey.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D77C731B2148490800A3E0EA /* NPFKey.m in Sources */ = {isa = PBXBuildFile; fileRef = D77C73182148490800A3E0EA /* NPFKey.m */; };
+		D77C731C2148490800A3E0EA /* NPFKey.m in Sources */ = {isa = PBXBuildFile; fileRef = D77C73182148490800A3E0EA /* NPFKey.m */; };
+		D77C73212148494500A3E0EA /* NPFKeyPair.h in Headers */ = {isa = PBXBuildFile; fileRef = D77C731F2148494500A3E0EA /* NPFKeyPair.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D77C73222148494500A3E0EA /* NPFKeyPair.h in Headers */ = {isa = PBXBuildFile; fileRef = D77C731F2148494500A3E0EA /* NPFKeyPair.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D77C73232148494500A3E0EA /* NPFKeyPair.m in Sources */ = {isa = PBXBuildFile; fileRef = D77C73202148494500A3E0EA /* NPFKeyPair.m */; };
+		D77C73242148494500A3E0EA /* NPFKeyPair.m in Sources */ = {isa = PBXBuildFile; fileRef = D77C73202148494500A3E0EA /* NPFKeyPair.m */; };
+		D77C73272148495A00A3E0EA /* NPFKeyGenerator.h in Headers */ = {isa = PBXBuildFile; fileRef = D77C73252148495A00A3E0EA /* NPFKeyGenerator.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D77C73282148495A00A3E0EA /* NPFKeyGenerator.h in Headers */ = {isa = PBXBuildFile; fileRef = D77C73252148495A00A3E0EA /* NPFKeyGenerator.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D77C73292148495A00A3E0EA /* NPFKeyGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = D77C73262148495A00A3E0EA /* NPFKeyGenerator.m */; };
+		D77C732A2148495A00A3E0EA /* NPFKeyGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = D77C73262148495A00A3E0EA /* NPFKeyGenerator.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -274,11 +274,11 @@
 
 /* Begin PBXFileReference section */
 		D71A74FC21593D1F0040F0DA /* EchoServerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EchoServerTests.swift; sourceTree = "<group>"; };
-		D72E1621214BB84B00839C9D /* NFErrors.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NFErrors.h; sourceTree = "<group>"; };
-		D72E1622214BB84B00839C9D /* NFErrors.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NFErrors.m; sourceTree = "<group>"; };
+		D72E1621214BB84B00839C9D /* NPFErrors.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NPFErrors.h; sourceTree = "<group>"; };
+		D72E1622214BB84B00839C9D /* NPFErrors.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NPFErrors.m; sourceTree = "<group>"; };
 		D72E1627214BB9C500839C9D /* SessionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionTests.swift; sourceTree = "<group>"; };
-		D72E1629214BF24600839C9D /* NFHandshakeState+Package.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NFHandshakeState+Package.h"; sourceTree = "<group>"; };
-		D72E162F214BFF3500839C9D /* NFErrors+Package.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NFErrors+Package.h"; sourceTree = "<group>"; };
+		D72E1629214BF24600839C9D /* NPFHandshakeState+Package.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NPFHandshakeState+Package.h"; sourceTree = "<group>"; };
+		D72E162F214BFF3500839C9D /* NPFErrors+Package.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NPFErrors+Package.h"; sourceTree = "<group>"; };
 		D72E1648214C662C00839C9D /* echo-keygen.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = "echo-keygen.c"; sourceTree = "<group>"; };
 		D72E1649214C662C00839C9D /* Makefile.am */ = {isa = PBXFileReference; lastKnownFileType = text; path = Makefile.am; sourceTree = "<group>"; };
 		D72E164A214C662C00839C9D /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
@@ -291,15 +291,15 @@
 		D72E1676214C692B00839C9D /* EchoClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EchoClientTests.swift; sourceTree = "<group>"; };
 		D72E168321500B7600839C9D /* NoiseTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NoiseTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		D72E1684215035EF00839C9D /* keys */ = {isa = PBXFileReference; lastKnownFileType = folder; path = keys; sourceTree = "<group>"; };
-		D72E1688215155E600839C9D /* NFCipherState.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NFCipherState.h; sourceTree = "<group>"; };
-		D72E1689215155E600839C9D /* NFCipherState.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NFCipherState.m; sourceTree = "<group>"; };
-		D72E168E215156E300839C9D /* NFCipherState+Package.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NFCipherState+Package.h"; sourceTree = "<group>"; };
-		D72E169421515C6400839C9D /* NFSession+Package.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NFSession+Package.h"; sourceTree = "<group>"; };
+		D72E1688215155E600839C9D /* NPFCipherState.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NPFCipherState.h; sourceTree = "<group>"; };
+		D72E1689215155E600839C9D /* NPFCipherState.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NPFCipherState.m; sourceTree = "<group>"; };
+		D72E168E215156E300839C9D /* NPFCipherState+Package.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NPFCipherState+Package.h"; sourceTree = "<group>"; };
+		D72E169421515C6400839C9D /* NPFSession+Package.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NPFSession+Package.h"; sourceTree = "<group>"; };
 		D75952BD214947DA0043D7ED /* KeyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyTests.swift; sourceTree = "<group>"; };
-		D75952BF214952B10043D7ED /* NFSession.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NFSession.h; sourceTree = "<group>"; };
-		D75952C0214952B10043D7ED /* NFSession.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NFSession.m; sourceTree = "<group>"; };
-		D75952C72149587C0043D7ED /* NFHandshakeState.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NFHandshakeState.h; sourceTree = "<group>"; };
-		D75952C82149587C0043D7ED /* NFHandshakeState.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NFHandshakeState.m; sourceTree = "<group>"; };
+		D75952BF214952B10043D7ED /* NPFSession.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NPFSession.h; sourceTree = "<group>"; };
+		D75952C0214952B10043D7ED /* NPFSession.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NPFSession.m; sourceTree = "<group>"; };
+		D75952C72149587C0043D7ED /* NPFHandshakeState.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NPFHandshakeState.h; sourceTree = "<group>"; };
+		D75952C82149587C0043D7ED /* NPFHandshakeState.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NPFHandshakeState.m; sourceTree = "<group>"; };
 		D75952CF214989310043D7ED /* HandshakeStateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandshakeStateTests.swift; sourceTree = "<group>"; };
 		D77C6E152142E09100A3E0EA /* Noise.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Noise.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D77C6E182142E09100A3E0EA /* Noise.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Noise.h; sourceTree = "<group>"; };
@@ -504,20 +504,20 @@
 		D77C725D2142F04200A3E0EA /* Makefile.am */ = {isa = PBXFileReference; lastKnownFileType = text; path = Makefile.am; sourceTree = "<group>"; };
 		D77C726E214310D400A3E0EA /* noise-c.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "noise-c.xcconfig"; sourceTree = "<group>"; };
 		D77C72772143127B00A3E0EA /* libnoiseprotocol.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libnoiseprotocol.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		D77C72F2214813F800A3E0EA /* NFProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NFProtocol.h; sourceTree = "<group>"; };
-		D77C72F3214813F800A3E0EA /* NFProtocol.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NFProtocol.m; sourceTree = "<group>"; };
-		D77C72F8214819F900A3E0EA /* NFProtocol+Package.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NFProtocol+Package.h"; sourceTree = "<group>"; };
+		D77C72F2214813F800A3E0EA /* NPFProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NPFProtocol.h; sourceTree = "<group>"; };
+		D77C72F3214813F800A3E0EA /* NPFProtocol.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NPFProtocol.m; sourceTree = "<group>"; };
+		D77C72F8214819F900A3E0EA /* NPFProtocol+Package.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NPFProtocol+Package.h"; sourceTree = "<group>"; };
 		D77C7302214821D100A3E0EA /* NoiseTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NoiseTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D77C7306214821D100A3E0EA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D77C730D214821F200A3E0EA /* ProtocolTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtocolTests.swift; sourceTree = "<group>"; };
-		D77C730F2148484600A3E0EA /* NFUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NFUtil.h; sourceTree = "<group>"; };
-		D77C73102148484600A3E0EA /* NFUtil.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NFUtil.m; sourceTree = "<group>"; };
-		D77C73172148490800A3E0EA /* NFKey.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NFKey.h; sourceTree = "<group>"; };
-		D77C73182148490800A3E0EA /* NFKey.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NFKey.m; sourceTree = "<group>"; };
-		D77C731F2148494500A3E0EA /* NFKeyPair.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NFKeyPair.h; sourceTree = "<group>"; };
-		D77C73202148494500A3E0EA /* NFKeyPair.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NFKeyPair.m; sourceTree = "<group>"; };
-		D77C73252148495A00A3E0EA /* NFKeyGenerator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NFKeyGenerator.h; sourceTree = "<group>"; };
-		D77C73262148495A00A3E0EA /* NFKeyGenerator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NFKeyGenerator.m; sourceTree = "<group>"; };
+		D77C730F2148484600A3E0EA /* NPFUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NPFUtil.h; sourceTree = "<group>"; };
+		D77C73102148484600A3E0EA /* NPFUtil.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NPFUtil.m; sourceTree = "<group>"; };
+		D77C73172148490800A3E0EA /* NPFKey.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NPFKey.h; sourceTree = "<group>"; };
+		D77C73182148490800A3E0EA /* NPFKey.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NPFKey.m; sourceTree = "<group>"; };
+		D77C731F2148494500A3E0EA /* NPFKeyPair.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NPFKeyPair.h; sourceTree = "<group>"; };
+		D77C73202148494500A3E0EA /* NPFKeyPair.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NPFKeyPair.m; sourceTree = "<group>"; };
+		D77C73252148495A00A3E0EA /* NPFKeyGenerator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NPFKeyGenerator.h; sourceTree = "<group>"; };
+		D77C73262148495A00A3E0EA /* NPFKeyGenerator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NPFKeyGenerator.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -620,12 +620,12 @@
 		D75952C6214958540043D7ED /* State */ = {
 			isa = PBXGroup;
 			children = (
-				D75952C72149587C0043D7ED /* NFHandshakeState.h */,
-				D75952C82149587C0043D7ED /* NFHandshakeState.m */,
-				D72E1629214BF24600839C9D /* NFHandshakeState+Package.h */,
-				D72E1688215155E600839C9D /* NFCipherState.h */,
-				D72E1689215155E600839C9D /* NFCipherState.m */,
-				D72E168E215156E300839C9D /* NFCipherState+Package.h */,
+				D75952C72149587C0043D7ED /* NPFHandshakeState.h */,
+				D75952C82149587C0043D7ED /* NPFHandshakeState.m */,
+				D72E1629214BF24600839C9D /* NPFHandshakeState+Package.h */,
+				D72E1688215155E600839C9D /* NPFCipherState.h */,
+				D72E1689215155E600839C9D /* NPFCipherState.m */,
+				D72E168E215156E300839C9D /* NPFCipherState+Package.h */,
 			);
 			path = State;
 			sourceTree = "<group>";
@@ -660,19 +660,19 @@
 			isa = PBXGroup;
 			children = (
 				D77C6E182142E09100A3E0EA /* Noise.h */,
-				D75952BF214952B10043D7ED /* NFSession.h */,
-				D75952C0214952B10043D7ED /* NFSession.m */,
-				D72E169421515C6400839C9D /* NFSession+Package.h */,
-				D77C72F2214813F800A3E0EA /* NFProtocol.h */,
-				D77C72F3214813F800A3E0EA /* NFProtocol.m */,
-				D77C72F8214819F900A3E0EA /* NFProtocol+Package.h */,
+				D75952BF214952B10043D7ED /* NPFSession.h */,
+				D75952C0214952B10043D7ED /* NPFSession.m */,
+				D72E169421515C6400839C9D /* NPFSession+Package.h */,
+				D77C72F2214813F800A3E0EA /* NPFProtocol.h */,
+				D77C72F3214813F800A3E0EA /* NPFProtocol.m */,
+				D77C72F8214819F900A3E0EA /* NPFProtocol+Package.h */,
 				D75952C6214958540043D7ED /* State */,
 				D77C731E2148492F00A3E0EA /* Keys */,
-				D77C730F2148484600A3E0EA /* NFUtil.h */,
-				D77C73102148484600A3E0EA /* NFUtil.m */,
-				D72E1621214BB84B00839C9D /* NFErrors.h */,
-				D72E162F214BFF3500839C9D /* NFErrors+Package.h */,
-				D72E1622214BB84B00839C9D /* NFErrors.m */,
+				D77C730F2148484600A3E0EA /* NPFUtil.h */,
+				D77C73102148484600A3E0EA /* NPFUtil.m */,
+				D72E1621214BB84B00839C9D /* NPFErrors.h */,
+				D72E1622214BB84B00839C9D /* NPFErrors.m */,
+				D72E162F214BFF3500839C9D /* NPFErrors+Package.h */,
 				D77C7316214848D400A3E0EA /* Supporting Files */,
 			);
 			path = Noise;
@@ -1196,12 +1196,12 @@
 		D77C731E2148492F00A3E0EA /* Keys */ = {
 			isa = PBXGroup;
 			children = (
-				D77C73172148490800A3E0EA /* NFKey.h */,
-				D77C73182148490800A3E0EA /* NFKey.m */,
-				D77C731F2148494500A3E0EA /* NFKeyPair.h */,
-				D77C73202148494500A3E0EA /* NFKeyPair.m */,
-				D77C73252148495A00A3E0EA /* NFKeyGenerator.h */,
-				D77C73262148495A00A3E0EA /* NFKeyGenerator.m */,
+				D77C73172148490800A3E0EA /* NPFKey.h */,
+				D77C73182148490800A3E0EA /* NPFKey.m */,
+				D77C731F2148494500A3E0EA /* NPFKeyPair.h */,
+				D77C73202148494500A3E0EA /* NPFKeyPair.m */,
+				D77C73252148495A00A3E0EA /* NPFKeyGenerator.h */,
+				D77C73262148495A00A3E0EA /* NPFKeyGenerator.m */,
 			);
 			path = Keys;
 			sourceTree = "<group>";
@@ -1213,21 +1213,21 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D77C73272148495A00A3E0EA /* NFKeyGenerator.h in Headers */,
-				D75952C1214952B10043D7ED /* NFSession.h in Headers */,
-				D72E1623214BB84B00839C9D /* NFErrors.h in Headers */,
-				D72E1690215156E300839C9D /* NFCipherState+Package.h in Headers */,
-				D72E168A215155E600839C9D /* NFCipherState.h in Headers */,
-				D77C73192148490800A3E0EA /* NFKey.h in Headers */,
-				D77C72F4214813F800A3E0EA /* NFProtocol.h in Headers */,
-				D72E169621515C6400839C9D /* NFSession+Package.h in Headers */,
-				D77C73212148494500A3E0EA /* NFKeyPair.h in Headers */,
-				D72E162B214BF24600839C9D /* NFHandshakeState+Package.h in Headers */,
+				D77C73272148495A00A3E0EA /* NPFKeyGenerator.h in Headers */,
+				D75952C1214952B10043D7ED /* NPFSession.h in Headers */,
+				D72E1623214BB84B00839C9D /* NPFErrors.h in Headers */,
+				D72E1690215156E300839C9D /* NPFCipherState+Package.h in Headers */,
+				D72E168A215155E600839C9D /* NPFCipherState.h in Headers */,
+				D77C73192148490800A3E0EA /* NPFKey.h in Headers */,
+				D77C72F4214813F800A3E0EA /* NPFProtocol.h in Headers */,
+				D72E169621515C6400839C9D /* NPFSession+Package.h in Headers */,
+				D77C73212148494500A3E0EA /* NPFKeyPair.h in Headers */,
+				D72E162B214BF24600839C9D /* NPFHandshakeState+Package.h in Headers */,
 				D77C6E1A2142E09100A3E0EA /* Noise.h in Headers */,
-				D77C73112148484600A3E0EA /* NFUtil.h in Headers */,
-				D72E1631214BFF3500839C9D /* NFErrors+Package.h in Headers */,
-				D75952C92149587C0043D7ED /* NFHandshakeState.h in Headers */,
-				D77C72FA214819F900A3E0EA /* NFProtocol+Package.h in Headers */,
+				D77C73112148484600A3E0EA /* NPFUtil.h in Headers */,
+				D72E1631214BFF3500839C9D /* NPFErrors+Package.h in Headers */,
+				D75952C92149587C0043D7ED /* NPFHandshakeState.h in Headers */,
+				D77C72FA214819F900A3E0EA /* NPFProtocol+Package.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1235,20 +1235,20 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D75952C2214952B10043D7ED /* NFSession.h in Headers */,
-				D77C72F5214813F800A3E0EA /* NFProtocol.h in Headers */,
-				D72E1624214BB84B00839C9D /* NFErrors.h in Headers */,
-				D72E1632214BFF3500839C9D /* NFErrors+Package.h in Headers */,
-				D72E168B215155E600839C9D /* NFCipherState.h in Headers */,
-				D72E1691215156E300839C9D /* NFCipherState+Package.h in Headers */,
-				D77C72FB214819F900A3E0EA /* NFProtocol+Package.h in Headers */,
-				D75952CA2149587C0043D7ED /* NFHandshakeState.h in Headers */,
-				D77C73282148495A00A3E0EA /* NFKeyGenerator.h in Headers */,
-				D77C73222148494500A3E0EA /* NFKeyPair.h in Headers */,
-				D72E162C214BF24600839C9D /* NFHandshakeState+Package.h in Headers */,
-				D77C731A2148490800A3E0EA /* NFKey.h in Headers */,
-				D77C73122148484600A3E0EA /* NFUtil.h in Headers */,
-				D72E169721515C6400839C9D /* NFSession+Package.h in Headers */,
+				D75952C2214952B10043D7ED /* NPFSession.h in Headers */,
+				D77C72F5214813F800A3E0EA /* NPFProtocol.h in Headers */,
+				D72E1624214BB84B00839C9D /* NPFErrors.h in Headers */,
+				D72E1632214BFF3500839C9D /* NPFErrors+Package.h in Headers */,
+				D72E168B215155E600839C9D /* NPFCipherState.h in Headers */,
+				D72E1691215156E300839C9D /* NPFCipherState+Package.h in Headers */,
+				D77C72FB214819F900A3E0EA /* NPFProtocol+Package.h in Headers */,
+				D75952CA2149587C0043D7ED /* NPFHandshakeState.h in Headers */,
+				D77C73282148495A00A3E0EA /* NPFKeyGenerator.h in Headers */,
+				D77C73222148494500A3E0EA /* NPFKeyPair.h in Headers */,
+				D72E162C214BF24600839C9D /* NPFHandshakeState+Package.h in Headers */,
+				D77C731A2148490800A3E0EA /* NPFKey.h in Headers */,
+				D77C73122148484600A3E0EA /* NPFUtil.h in Headers */,
+				D72E169721515C6400839C9D /* NPFSession+Package.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1397,6 +1397,7 @@
 		D77C6E0C2142E09100A3E0EA /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = NPF;
 				LastSwiftUpdateCheck = 1000;
 				LastUpgradeCheck = 1000;
 				ORGANIZATIONNAME = "Outer Corner";
@@ -1495,15 +1496,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D77C731B2148490800A3E0EA /* NFKey.m in Sources */,
-				D77C72F6214813F800A3E0EA /* NFProtocol.m in Sources */,
-				D77C73132148484600A3E0EA /* NFUtil.m in Sources */,
-				D72E168C215155E600839C9D /* NFCipherState.m in Sources */,
-				D77C73292148495A00A3E0EA /* NFKeyGenerator.m in Sources */,
-				D75952CB2149587C0043D7ED /* NFHandshakeState.m in Sources */,
-				D75952C3214952B10043D7ED /* NFSession.m in Sources */,
-				D72E1625214BB84B00839C9D /* NFErrors.m in Sources */,
-				D77C73232148494500A3E0EA /* NFKeyPair.m in Sources */,
+				D77C731B2148490800A3E0EA /* NPFKey.m in Sources */,
+				D77C72F6214813F800A3E0EA /* NPFProtocol.m in Sources */,
+				D77C73132148484600A3E0EA /* NPFUtil.m in Sources */,
+				D72E168C215155E600839C9D /* NPFCipherState.m in Sources */,
+				D77C73292148495A00A3E0EA /* NPFKeyGenerator.m in Sources */,
+				D75952CB2149587C0043D7ED /* NPFHandshakeState.m in Sources */,
+				D75952C3214952B10043D7ED /* NPFSession.m in Sources */,
+				D72E1625214BB84B00839C9D /* NPFErrors.m in Sources */,
+				D77C73232148494500A3E0EA /* NPFKeyPair.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1511,15 +1512,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D77C731C2148490800A3E0EA /* NFKey.m in Sources */,
-				D77C72F7214813F800A3E0EA /* NFProtocol.m in Sources */,
-				D77C73142148484600A3E0EA /* NFUtil.m in Sources */,
-				D72E168D215155E600839C9D /* NFCipherState.m in Sources */,
-				D77C732A2148495A00A3E0EA /* NFKeyGenerator.m in Sources */,
-				D75952CC2149587C0043D7ED /* NFHandshakeState.m in Sources */,
-				D75952C4214952B10043D7ED /* NFSession.m in Sources */,
-				D72E1626214BB84B00839C9D /* NFErrors.m in Sources */,
-				D77C73242148494500A3E0EA /* NFKeyPair.m in Sources */,
+				D77C731C2148490800A3E0EA /* NPFKey.m in Sources */,
+				D77C72F7214813F800A3E0EA /* NPFProtocol.m in Sources */,
+				D77C73142148484600A3E0EA /* NPFUtil.m in Sources */,
+				D72E168D215155E600839C9D /* NPFCipherState.m in Sources */,
+				D77C732A2148495A00A3E0EA /* NPFKeyGenerator.m in Sources */,
+				D75952CC2149587C0043D7ED /* NPFHandshakeState.m in Sources */,
+				D75952C4214952B10043D7ED /* NPFSession.m in Sources */,
+				D72E1626214BB84B00839C9D /* NPFErrors.m in Sources */,
+				D77C73242148494500A3E0EA /* NPFKeyPair.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

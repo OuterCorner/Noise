@@ -1,5 +1,5 @@
 //
-//  NFErrors+Package.h
+//  NPFErrors+Package.h
 //  Noise
 //
 // Created by Paulo Andrade on 14/09/2018.

@@ -1,14 +1,14 @@
 //
-//  NFProtocol.m
+//  NPFProtocol.m
 //  Noise
 //
 // Created by Paulo Andrade on 11/09/2018.
 // Copyright © 2018 Outer Corner. All rights reserved.
 //
 
-#import "NFProtocol+Package.h"
+#import "NPFProtocol+Package.h"
 
-@implementation NFProtocol {
+@implementation NPFProtocol {
     NoiseProtocolId *_protocolId;
 }
 
@@ -56,9 +56,9 @@
     }
 }
 
-- (NFKeyAlgo)keyAlgo
+- (NPFKeyAlgo)keyAlgo
 {
-    return (NFKeyAlgo)[self dhFunction];
+    return (NPFKeyAlgo)[self dhFunction];
 }
 
 - (NSString *)cipherFunction

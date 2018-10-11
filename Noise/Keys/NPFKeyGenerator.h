@@ -1,5 +1,5 @@
 //
-//  NFKeyGenerator.h
+//  NPFKeyGenerator.h
 //  Noise
 //
 // Created by Paulo Andrade on 11/09/2018.
@@ -7,8 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "NFKey.h"
-#import "NFKeyPair.h"
+#import "NPFKey.h"
+#import "NPFKeyPair.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -16,13 +16,13 @@ NS_ASSUME_NONNULL_BEGIN
  You use this class to generate the keys you need.
  */
 NS_SWIFT_NAME(NoiseKeyGenerator)
-@interface NFKeyGenerator : NSObject
+@interface NPFKeyGenerator : NSObject
 
 /**
  The shared key generator.
  You should not instantiate another generator, but use this one instead.
  */
-@property (class, readonly, strong) NFKeyGenerator *sharedGenerator;
+@property (class, readonly, strong) NPFKeyGenerator *sharedGenerator;
 
 /**
  Generates a new keypair for a given algorithm.
@@ -30,9 +30,9 @@ NS_SWIFT_NAME(NoiseKeyGenerator)
  @param keyAlgo the algorithm to generate keys for
  @return a new keypair or nil if key algo is not supported
  */
-- (NFKeyPair *)generateKeyPair:(NFKeyAlgo)keyAlgo;
+- (NPFKeyPair *)generateKeyPair:(NPFKeyAlgo)keyAlgo;
 
-- (NFKey *)generateSymmetricKey:(NSUInteger)sizeInBytes;
+- (NPFKey *)generateSymmetricKey:(NSUInteger)sizeInBytes;
 
 @end
 

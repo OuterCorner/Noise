@@ -1,17 +1,17 @@
 //
-//  NFCipherState.m
+//  NPFCipherState.m
 //  Noise
 //
 // Created by Paulo Andrade on 18/09/2018.
 // Copyright © 2018 Outer Corner. All rights reserved.
 //
 
-#import "NFCipherState+Package.h"
-#import "NFErrors+Package.h"
+#import "NPFCipherState+Package.h"
+#import "NPFErrors+Package.h"
 
 #import <noise/protocol.h>
 
-@implementation NFCipherState {
+@implementation NPFCipherState {
     NoiseCipherState *_cipherState;
     uint8_t *_buffer;
     NSUInteger _maxMessageSize;

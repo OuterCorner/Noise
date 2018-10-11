@@ -1,24 +1,24 @@
 //
-//  NFUtil.m
+//  NPFUtil.m
 //  Noise
 //
 // Created by Paulo Andrade on 11/09/2018.
 // Copyright © 2018 Outer Corner. All rights reserved.
 //
 
-#import "NFUtil.h"
+#import "NPFUtil.h"
 #import <noise/protocol.h>
 
-void NFInit(void) {
+void NPFInit(void) {
     noise_init();
 }
 
 
-int NFSessionRoleToNoiseRole(NFSessionRole role) {
+int NPFSessionRoleToNoiseRole(NPFSessionRole role) {
     switch (role) {
-        case NFSessionRoleInitiator:
+        case NPFSessionRoleInitiator:
             return NOISE_ROLE_INITIATOR;
-        case NFSessionRoleResponder:
+        case NPFSessionRoleResponder:
             return NOISE_ROLE_RESPONDER;
     }
 }

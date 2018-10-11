@@ -1,29 +1,29 @@
 //
-//  NFKeyGenerator.m
+//  NPFKeyGenerator.m
 //  Noise
 //
 // Created by Paulo Andrade on 11/09/2018.
 // Copyright © 2018 Outer Corner. All rights reserved.
 //
 
-#import "NFKeyGenerator.h"
-#import "NFKey.h"
+#import "NPFKeyGenerator.h"
+#import "NPFKey.h"
 #import <Security/Security.h>
 #import <noise/protocol.h>
 
-@implementation NFKeyGenerator
+@implementation NPFKeyGenerator
 
-+ (NFKeyGenerator *)sharedGenerator
++ (NPFKeyGenerator *)sharedGenerator
 {
     static dispatch_once_t onceToken;
-    static NFKeyGenerator *_sharedGenerator;
+    static NPFKeyGenerator *_sharedGenerator;
     dispatch_once(&onceToken, ^{
-        _sharedGenerator = [[NFKeyGenerator alloc] init];
+        _sharedGenerator = [[NPFKeyGenerator alloc] init];
     });
     return _sharedGenerator;
 }
 
-- (NFKeyPair *)generateKeyPair:(NFKeyAlgo)keyAlgo
+- (NPFKeyPair *)generateKeyPair:(NPFKeyAlgo)keyAlgo
 {
     NoiseDHState *dh;
     const char *key_type = [keyAlgo UTF8String];
@@ -52,15 +52,15 @@
         ok = NO;
     }
     
-    NFKeyPair *keyPair = nil;
+    NPFKeyPair *keyPair = nil;
     if (ok) {
-        NFKey *publicKey = [NFKey keyWithMaterial:[NSData dataWithBytes:pub_key length:pub_key_len]
-                                             role:NFKeyRolePublic
+        NPFKey *publicKey = [NPFKey keyWithMaterial:[NSData dataWithBytes:pub_key length:pub_key_len]
+                                             role:NPFKeyRolePublic
                                              algo:keyAlgo];
-        NFKey *privateKey = [NFKey keyWithMaterial:[NSData dataWithBytes:priv_key length:priv_key_len]
-                                              role:NFKeyRolePrivate
+        NPFKey *privateKey = [NPFKey keyWithMaterial:[NSData dataWithBytes:priv_key length:priv_key_len]
+                                              role:NPFKeyRolePrivate
                                               algo:keyAlgo];
-        keyPair = [[NFKeyPair alloc] initWithPublicKey:publicKey privateKey:privateKey];
+        keyPair = [[NPFKeyPair alloc] initWithPublicKey:publicKey privateKey:privateKey];
     }
     
     /* Clean up */
@@ -71,14 +71,14 @@
     return keyPair;
 }
 
-- (NFKey *)generateSymmetricKey:(NSUInteger)sizeInBytes
+- (NPFKey *)generateSymmetricKey:(NSUInteger)sizeInBytes
 {
     uint8_t buffer[sizeInBytes];
     int ret = SecRandomCopyBytes( kSecRandomDefault, sizeInBytes, (uint8_t *)&buffer);
     assert(ret == 0);
     NSData *randomData = [NSData dataWithBytes:buffer length:sizeInBytes];
     
-    return [NFKey keyWithMaterial:randomData role:NFKeyRoleSymmetric algo:nil];
+    return [NPFKey keyWithMaterial:randomData role:NPFKeyRoleSymmetric algo:nil];
 }
 
 @end

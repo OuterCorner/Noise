@@ -16,11 +16,11 @@ FOUNDATION_EXPORT const unsigned char NoiseVersionString[];
 
 // In this header, you should import all the public headers of your framework using statements like #import <Noise/PublicHeader.h>
 
-#import <Noise/NFProtocol.h>
-#import <Noise/NFKey.h>
-#import <Noise/NFKeyPair.h>
-#import <Noise/NFKeyGenerator.h>
-#import <Noise/NFSession.h>
-#import <Noise/NFHandshakeState.h>
-#import <Noise/NFCipherState.h>
-#import <Noise/NFErrors.h>
+#import <Noise/NPFProtocol.h>
+#import <Noise/NPFKey.h>
+#import <Noise/NPFKeyPair.h>
+#import <Noise/NPFKeyGenerator.h>
+#import <Noise/NPFSession.h>
+#import <Noise/NPFHandshakeState.h>
+#import <Noise/NPFCipherState.h>
+#import <Noise/NPFErrors.h>

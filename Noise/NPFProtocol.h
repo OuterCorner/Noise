@@ -1,5 +1,5 @@
 //
-//  NFProtocol.h
+//  NPFProtocol.h
 //  Noise
 //
 // Created by Paulo Andrade on 11/09/2018.
@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "NFKey.h"
+#import "NPFKey.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -15,7 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
  Represents a specific noise protocol.
  */
 NS_SWIFT_NAME(NoiseProtocol)
-@interface NFProtocol : NSObject
+@interface NPFProtocol : NSObject
 
 /**
  You create an instance of this class by passing in the name of the desired protocol
@@ -37,7 +37,7 @@ NS_SWIFT_NAME(NoiseProtocol)
 @property (strong, readonly) NSString *dhFunction;
 
 /** The DH function name, e.g.: 25519, 448 (this is the same as dhFunction) */
-@property (strong, readonly) NFKeyAlgo keyAlgo;
+@property (strong, readonly) NPFKeyAlgo keyAlgo;
 
 /** The cipher function name, e.g.: AESGCM, ChaChaPoly */
 @property (strong, readonly) NSString *cipherFunction;

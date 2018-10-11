@@ -1,29 +1,29 @@
 //
-//  NFHandshakeState.m
+//  NPFHandshakeState.m
 //  Noise
 //
 // Created by Paulo Andrade on 12/09/2018.
 // Copyright © 2018 Outer Corner. All rights reserved.
 //
 
-#import "NFHandshakeState.h"
-#import "NFProtocol+Package.h"
-#import "NFUtil.h"
+#import "NPFHandshakeState.h"
+#import "NPFProtocol+Package.h"
+#import "NPFUtil.h"
 #import <noise/protocol.h>
-#import "NFKeyPair.h"
-#import "NFKey.h"
-#import "NFErrors+Package.h"
-#import "NFCipherState+Package.h"
-#import "NFSession+Package.h"
+#import "NPFKeyPair.h"
+#import "NPFKey.h"
+#import "NPFErrors+Package.h"
+#import "NPFCipherState+Package.h"
+#import "NPFSession+Package.h"
 
-@interface NFHandshakeState ()
+@interface NPFHandshakeState ()
 
-@property (nullable, weak, readwrite) NFSession *session;
+@property (nullable, weak, readwrite) NPFSession *session;
 
 @end
 
 
-@implementation NFHandshakeState {
+@implementation NPFHandshakeState {
     NoiseHandshakeState *_handshakeState;
 }
 
@@ -36,13 +36,13 @@
 }
 #pragma clang diagnostic pop
 
-- (instancetype)initWithProtocol:(NFProtocol *)protocol role:(NFSessionRole)role
+- (instancetype)initWithProtocol:(NPFProtocol *)protocol role:(NPFSessionRole)role
 {
     self = [super init];
     if (self) {
         _protocol = protocol;
         _role = role;
-        noise_handshakestate_new_by_id(&_handshakeState, protocol.protocolId, NFSessionRoleToNoiseRole(role));
+        noise_handshakestate_new_by_id(&_handshakeState, protocol.protocolId, NPFSessionRoleToNoiseRole(role));
     }
     return self;
 }
@@ -60,10 +60,10 @@
     noise_handshakestate_set_prologue(_handshakeState, [prologue bytes], [prologue length]);
 }
 
-- (void)setPreSharedKey:(NFKey *)preSharedKey
+- (void)setPreSharedKey:(NPFKey *)preSharedKey
 {
     NSData *km = [preSharedKey keyMaterial];
-    if ([preSharedKey keyRole] != NFKeyRoleSymmetric || [km length] != 32) {
+    if ([preSharedKey keyRole] != NPFKeyRoleSymmetric || [km length] != 32) {
         [[NSException exceptionWithName:NSInvalidArgumentException reason:@"%@ is not symmetric or is not 32 bytes in length" userInfo:nil] raise];
         return;
     }
@@ -76,7 +76,7 @@
     return noise_handshakestate_needs_pre_shared_key(_handshakeState);
 }
 
-- (NFKeyPair *)localKeyPair
+- (NPFKeyPair *)localKeyPair
 {
     if (!noise_handshakestate_has_local_keypair(_handshakeState)) {
         return nil;
@@ -94,15 +94,15 @@
         noise_perror("get keypair", err);
         ok = NO;
     }
-    NFKeyPair *keyPair = nil;
+    NPFKeyPair *keyPair = nil;
     if (ok) {
-        NFKey *publicKey = [NFKey keyWithMaterial:[NSData dataWithBytes:pub_key length:pub_key_len]
-                                             role:NFKeyRolePublic
+        NPFKey *publicKey = [NPFKey keyWithMaterial:[NSData dataWithBytes:pub_key length:pub_key_len]
+                                             role:NPFKeyRolePublic
                                              algo:self.protocol.keyAlgo];
-        NFKey *privateKey = [NFKey keyWithMaterial:[NSData dataWithBytes:priv_key length:priv_key_len]
-                                              role:NFKeyRolePrivate
+        NPFKey *privateKey = [NPFKey keyWithMaterial:[NSData dataWithBytes:priv_key length:priv_key_len]
+                                              role:NPFKeyRolePrivate
                                               algo:self.protocol.keyAlgo];
-        keyPair = [[NFKeyPair alloc] initWithPublicKey:publicKey privateKey:privateKey];
+        keyPair = [[NPFKeyPair alloc] initWithPublicKey:publicKey privateKey:privateKey];
     }
     
     noise_free(priv_key, priv_key_len);
@@ -111,7 +111,7 @@
     return keyPair;
 }
 
-- (void)setLocalKeyPair:(NFKeyPair *)localKeyPair
+- (void)setLocalKeyPair:(NPFKeyPair *)localKeyPair
 {
     if ([localKeyPair.privateKey.keyAlgo compare:self.protocol.keyAlgo] != NSOrderedSame) {
         [[NSException exceptionWithName:NSInvalidArgumentException
@@ -130,7 +130,7 @@
     return noise_handshakestate_needs_local_keypair(_handshakeState);
 }
 
-- (NFKey *)remotePublicKey
+- (NPFKey *)remotePublicKey
 {
     if (!noise_handshakestate_has_remote_public_key(_handshakeState)) {
         return nil;
@@ -145,10 +145,10 @@
         noise_perror("get keypair", err);
         ok = NO;
     }
-    NFKey *key = nil;
+    NPFKey *key = nil;
     if (ok) {
-        key = [NFKey keyWithMaterial:[NSData dataWithBytes:pub_key length:pub_key_len]
-                                role:NFKeyRolePublic
+        key = [NPFKey keyWithMaterial:[NSData dataWithBytes:pub_key length:pub_key_len]
+                                role:NPFKeyRolePublic
                                 algo:self.protocol.keyAlgo];
     }
     
@@ -156,7 +156,7 @@
     return key;
 }
 
-- (void)setRemotePublicKey:(NFKey *)remotePublicKey
+- (void)setRemotePublicKey:(NPFKey *)remotePublicKey
 {
     if ([remotePublicKey.keyAlgo compare:self.protocol.keyAlgo] != NSOrderedSame) {
         [[NSException exceptionWithName:NSInvalidArgumentException
@@ -164,7 +164,7 @@
                                userInfo:nil] raise];
         return;
     }
-    if (remotePublicKey.keyRole != NFKeyRolePublic) {
+    if (remotePublicKey.keyRole != NPFKeyRolePublic) {
         [[NSException exceptionWithName:NSInvalidArgumentException
                                  reason:[NSString stringWithFormat:@"Expecing a public key got: %lu", (unsigned long)remotePublicKey.keyRole]
                                userInfo:nil] raise];
@@ -184,7 +184,7 @@
 
 #pragma mark - Package private methods
 
-- (BOOL)startForSession:(NFSession *)session error:(NSError * _Nullable __autoreleasing *)error
+- (BOOL)startForSession:(NPFSession *)session error:(NSError * _Nullable __autoreleasing *)error
 {
     int err = noise_handshakestate_start(_handshakeState);
     if (err != NOISE_ERROR_NONE) {
@@ -200,7 +200,7 @@
 
 - (BOOL)receivedData:(NSData *)data error:(NSError * _Nullable __autoreleasing *)error
 {
-    NFSession *session = [self session];
+    NPFSession *session = [self session];
     int action = noise_handshakestate_get_action(_handshakeState);
 
     NSAssert(action == NOISE_ACTION_READ_MESSAGE, @"Received unexpected data during handshake %d", action);
@@ -241,7 +241,7 @@
 
 - (BOOL)performNextAction:(NSError * _Nullable __autoreleasing *)error
 {
-    NFSession *session = [self session];
+    NPFSession *session = [self session];
     int action = NOISE_ACTION_NONE;
     
     while ((void)(action = noise_handshakestate_get_action(_handshakeState)),
@@ -287,8 +287,8 @@
                 return NO;
             }
             
-            NFCipherState *sendCipherState = [[NFCipherState alloc] initWithNoiseCCipherState:send_cipher maxMessageSize:session.maxMessageSize];
-            NFCipherState *recvCipherState = [[NFCipherState alloc] initWithNoiseCCipherState:recv_cipher maxMessageSize:session.maxMessageSize];
+            NPFCipherState *sendCipherState = [[NPFCipherState alloc] initWithNoiseCCipherState:send_cipher maxMessageSize:session.maxMessageSize];
+            NPFCipherState *recvCipherState = [[NPFCipherState alloc] initWithNoiseCCipherState:recv_cipher maxMessageSize:session.maxMessageSize];
             
             [session establishWithSendingCipher:sendCipherState receivingCipher:recvCipherState];
         }

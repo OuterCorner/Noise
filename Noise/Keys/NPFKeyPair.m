@@ -1,24 +1,24 @@
 //
-//  NFKeyPair.m
+//  NPFKeyPair.m
 //  Noise
 //
 // Created by Paulo Andrade on 11/09/2018.
 // Copyright © 2018 Outer Corner. All rights reserved.
 //
 
-#import "NFKeyPair.h"
+#import "NPFKeyPair.h"
 
 static NSString *const kPublicKeyCodingKey = @"pub";
 static NSString *const kPrivateKeyCodingKey = @"priv";
 
-@implementation NFKeyPair
+@implementation NPFKeyPair
 
 + (BOOL)supportsSecureCoding
 {
     return YES;
 }
 
-- (instancetype)initWithPublicKey:(NFKey *)publicKey privateKey:(NFKey *)privateKey
+- (instancetype)initWithPublicKey:(NPFKey *)publicKey privateKey:(NPFKey *)privateKey
 {
     self = [super init];
     if (self) {
@@ -32,8 +32,8 @@ static NSString *const kPrivateKeyCodingKey = @"priv";
 {
     self = [super init];
     if (self) {
-        _publicKey = [aDecoder decodeObjectOfClass:[NFKey class] forKey:kPublicKeyCodingKey];
-        _privateKey = [aDecoder decodeObjectOfClass:[NFKey class] forKey:kPrivateKeyCodingKey];
+        _publicKey = [aDecoder decodeObjectOfClass:[NPFKey class] forKey:kPublicKeyCodingKey];
+        _privateKey = [aDecoder decodeObjectOfClass:[NPFKey class] forKey:kPrivateKeyCodingKey];
     }
     return self;
 }

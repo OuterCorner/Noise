@@ -54,7 +54,7 @@ class SessionTests: XCTestCase {
         let session = NoiseSession(protocolName: "Noise_NK_25519_AESGCM_SHA256", role: .initiator)!
         
         XCTAssertThrowsError(try session.start(), "Failed to throw on") { (error) in
-            if let nfError = error as? NFError, nfError.code == NFError.sessionNotSetupError {
+            if let nfError = error as? NPFError, nfError.code == NPFError.sessionNotSetupError {
                 // OK!
             }
             else {
@@ -64,7 +64,7 @@ class SessionTests: XCTestCase {
         session.setup { (setup) in }
         
         XCTAssertThrowsError(try session.start(), "Failed to throw on") { (error) in
-            if let nfError = error as? NFError, nfError.code == NFError.sessionNotReadyError {
+            if let nfError = error as? NPFError, nfError.code == NPFError.sessionNotReadyError {
                 // OK!
             }
             else {

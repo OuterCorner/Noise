@@ -1,5 +1,5 @@
 //
-//  NFSession.h
+//  NPFSession.h
 //  Noise
 //
 // Created by Paulo Andrade on 12/09/2018.
@@ -8,26 +8,26 @@
 
 #import <Foundation/Foundation.h>
 
-typedef NS_ENUM(NSUInteger, NFSessionRole) {
-    NFSessionRoleInitiator,
-    NFSessionRoleResponder
+typedef NS_ENUM(NSUInteger, NPFSessionRole) {
+    NPFSessionRoleInitiator,
+    NPFSessionRoleResponder
 } NS_SWIFT_NAME(NoiseSessionRole);
 
-typedef NS_ENUM(NSUInteger, NFSessionState) {
-    NFSessionStateInitializing,
-    NFSessionStateHandshaking,
-    NFSessionStateEstablished,
-    NFSessionStateStopped,
-    NFSessionStateError
+typedef NS_ENUM(NSUInteger, NPFSessionState) {
+    NPFSessionStateInitializing,
+    NPFSessionStateHandshaking,
+    NPFSessionStateEstablished,
+    NPFSessionStateStopped,
+    NPFSessionStateError
 } NS_SWIFT_NAME(NoiseSessionState);
 
-@class NFProtocol, NFHandshakeState, NFCipherState, NFKeyPair, NFKey;
-@protocol NFSessionDelegate, NFSessionSetup;
+@class NPFProtocol, NPFHandshakeState, NPFCipherState, NPFKeyPair, NPFKey;
+@protocol NPFSessionDelegate, NPFSessionSetup;
 
 NS_ASSUME_NONNULL_BEGIN
 
 NS_SWIFT_NAME(NoiseSession)
-@interface NFSession : NSObject
+@interface NPFSession : NSObject
 
 /**
  Convenience initializer.
@@ -36,7 +36,7 @@ NS_SWIFT_NAME(NoiseSession)
  @param role the session role for this peer (initiator or responder)
  @return a newly initialized session object or nil of protocolName is not supported
  */
-- (nullable instancetype)initWithProtocolName:(NSString *)protocolName role:(NFSessionRole)role;
+- (nullable instancetype)initWithProtocolName:(NSString *)protocolName role:(NPFSessionRole)role;
 
 
 
@@ -48,7 +48,7 @@ NS_SWIFT_NAME(NoiseSession)
  @param setupBlock the block to setup this session
  @return a newly initialzed and setup session object or nil if protocolName is not supported
  */
-- (nullable instancetype)initWithProtocolName:(NSString *)protocolName role:(NFSessionRole)role setup:(void(^)(id<NFSessionSetup>))setupBlock;
+- (nullable instancetype)initWithProtocolName:(NSString *)protocolName role:(NPFSessionRole)role setup:(void(^)(id<NPFSessionSetup>))setupBlock;
 
 /**
  Designated initializer for a new session protocol
@@ -57,31 +57,31 @@ NS_SWIFT_NAME(NoiseSession)
  @param role the session role for this peer (initiator or responder)
  @return a newly initialized session object
  */
-- (instancetype)initWithProtocol:(NFProtocol *)protocol role:(NFSessionRole)role NS_DESIGNATED_INITIALIZER;
+- (instancetype)initWithProtocol:(NPFProtocol *)protocol role:(NPFSessionRole)role NS_DESIGNATED_INITIALIZER;
 
 /** The protocol for this session. */
-@property (strong, readonly) NFProtocol *protocol;
+@property (strong, readonly) NPFProtocol *protocol;
 
 /** The role for this session. */
-@property (readonly) NFSessionRole role;
+@property (readonly) NPFSessionRole role;
 
 /** The current state of this session. This is KVO-compatible. */
-@property (readonly) NFSessionState state;
+@property (readonly) NPFSessionState state;
 
 
 /** An optional delegate for this session */
-@property (nullable, weak) id<NFSessionDelegate> delegate;
+@property (nullable, weak) id<NPFSessionDelegate> delegate;
 
 /**
  You should call this method before starting a session to setup all the required data for the
  chosen protocol such as static or pre-shared keys, and other data like the prologue.
- This method will throw if called when session state is not NFSessionStateInitializing
+ This method will throw if called when session state is not NPFSessionStateInitializing
  
- @param block the single block parameter of NFSessionSetup is you interface to setup the session
+ @param block the single block parameter of NPFSessionSetup is you interface to setup the session
  @return YES if all required data has been provided, NO if there's data missing
- @throw if session state is not NFSessionStateInitializing
+ @throw if session state is not NPFSessionStateInitializing
  */
-- (BOOL)setup:(void(^)(id<NFSessionSetup>))block;
+- (BOOL)setup:(void(^)(id<NPFSessionSetup>))block;
 
 
 /**
@@ -141,17 +141,17 @@ NS_SWIFT_NAME(NoiseSession)
  Contains the handshake state while the session is performing the handshake, nil otherwise.
  @see session:handshakeComplete:
  */
-@property (strong, readonly) NFHandshakeState *handshakeState;
+@property (strong, readonly) NPFHandshakeState *handshakeState;
 
 /**
  Contains the sending cipher state when the session is established, nil otherwise.
  */
-@property (strong, readonly) NFCipherState *sendingCipherState;
+@property (strong, readonly) NPFCipherState *sendingCipherState;
 
 /**
  Contains the receiving cipher state when the session is established, nil otherwise.
  */
-@property (strong, readonly) NFCipherState *receivingCipherState;
+@property (strong, readonly) NPFCipherState *receivingCipherState;
 
 
 @end
@@ -164,7 +164,7 @@ NS_SWIFT_NAME(NoiseSession)
 
 
 NS_SWIFT_NAME(NoiseSessionSetup)
-@protocol NFSessionSetup <NSObject>
+@protocol NPFSessionSetup <NSObject>
 
 /**
  Prologue to use before starting the handshake.
@@ -179,13 +179,13 @@ NS_SWIFT_NAME(NoiseSessionSetup)
  @param key a symmetric key of 32 bytes
  @throw if key is not symmetric and doesn't have 32 bytes in length
  */
-- (void)setPreSharedKey:(NFKey *)key;
+- (void)setPreSharedKey:(NPFKey *)key;
 /** @return YES if this protocol requires a pre-shared key but it hasn't been set yet */
 @property (nonatomic, readonly) BOOL preSharedKeyMissing;
 
 
 /** The static DH key for this peer */
-@property (nullable, nonatomic, strong) NFKeyPair *localKeyPair;
+@property (nullable, nonatomic, strong) NPFKeyPair *localKeyPair;
 /** @return YES if this protocol requires a static key pair but it hasn't been set yet */
 @property (nonatomic, readonly) BOOL localKeyPairMissing;
 
@@ -193,7 +193,7 @@ NS_SWIFT_NAME(NoiseSessionSetup)
  The remote DH public key.
  On protocols where the remote public key isn't know, this value is set automatically for you after the handshake phase.
  */
-@property (nullable, nonatomic, strong) NFKey *remotePublicKey;
+@property (nullable, nonatomic, strong) NPFKey *remotePublicKey;
 /** @return YES if this protocol requires the remove static public key but it hasn't been set yet */
 @property (nonatomic, readonly) BOOL remotePublicKeyMissing;
 
@@ -207,7 +207,7 @@ NS_SWIFT_NAME(NoiseSessionSetup)
 
 
 NS_SWIFT_NAME(NoiseSessionDelegate)
-@protocol NFSessionDelegate <NSObject>
+@protocol NPFSessionDelegate <NSObject>
 
 @optional
 
@@ -218,15 +218,15 @@ NS_SWIFT_NAME(NoiseSessionDelegate)
  
  @param session the session instance
  */
-- (void)sessionWillStart:(NFSession *)session;
+- (void)sessionWillStart:(NPFSession *)session;
 
 /**
  Sent when the session has started.
- Session state is now NFSessionStateHandshaking
+ Session state is now NPFSessionStateHandshaking
  
  @param session the session instance
  */
-- (void)sessionDidStart:(NFSession *)session;
+- (void)sessionDidStart:(NPFSession *)session;
 
 /**
  Sent before sending each of the handshake message patterns for the chosen protocol.
@@ -237,7 +237,7 @@ NS_SWIFT_NAME(NoiseSessionDelegate)
  @param pattern the handshake message pattern we're about to send
  @return an optional payload to send along with the message
  */
-- (nullable NSData *)session:(NFSession *)session willSendHandshakeMessagePattern:(NSString *)pattern;
+- (nullable NSData *)session:(NPFSession *)session willSendHandshakeMessagePattern:(NSString *)pattern;
 
 /**
  Sent after a handshake message pattern was received.
@@ -247,7 +247,7 @@ NS_SWIFT_NAME(NoiseSessionDelegate)
  @param pattern the handshake message pattern we just received
  @param payload the payload sent along with the message pattern (can be empty)
  */
-- (void)session:(NFSession *)session didReceiveHandshakeMessage:(NSString *)pattern payload:(NSData *)payload;
+- (void)session:(NPFSession *)session didReceiveHandshakeMessage:(NSString *)pattern payload:(NSData *)payload;
 
 
 /**
@@ -255,9 +255,9 @@ NS_SWIFT_NAME(NoiseSessionDelegate)
  You may want to inspect the passed handshakeState to grab/inspect the peer's static key.
  
  @param session the session instance
- @param handshakeState the final NFHandshakeState object
+ @param handshakeState the final NPFHandshakeState object
  */
-- (void)session:(NFSession *)session handshakeComplete:(NFHandshakeState *)handshakeState;
+- (void)session:(NPFSession *)session handshakeComplete:(NPFHandshakeState *)handshakeState;
 
 /**
  Notifies the delegate of received data.
@@ -265,7 +265,7 @@ NS_SWIFT_NAME(NoiseSessionDelegate)
  @param session the session instance
  @param data the received data after decryption
  */
-- (void)session:(NFSession *)session didReceiveData:(NSData *)data;
+- (void)session:(NPFSession *)session didReceiveData:(NSData *)data;
 
 
 /**
@@ -275,7 +275,7 @@ NS_SWIFT_NAME(NoiseSessionDelegate)
  @param session the session instance
  @param error an optional error object
  */
-- (void)sessionDidStop:(NFSession *)session error:(nullable NSError *)error;
+- (void)sessionDidStop:(NPFSession *)session error:(nullable NSError *)error;
 
 @end
 

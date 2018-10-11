@@ -1,25 +1,25 @@
 //
-//  NFSession.m
+//  NPFSession.m
 //  Noise
 //
 // Created by Paulo Andrade on 12/09/2018.
 // Copyright © 2018 Outer Corner. All rights reserved.
 //
 
-#import "NFSession+Package.h"
-#import "NFProtocol+Package.h"
-#import "NFHandshakeState+Package.h"
-#import "NFCipherState+Package.h"
-#import "NFErrors.h"
+#import "NPFSession+Package.h"
+#import "NPFProtocol+Package.h"
+#import "NPFHandshakeState+Package.h"
+#import "NPFCipherState+Package.h"
+#import "NPFErrors.h"
 #import <noise/protocol.h>
 
-@interface NFSession ()
+@interface NPFSession ()
 
-@property (strong, readwrite) NFHandshakeState *handshakeState;
-@property (strong, readwrite) NFCipherState *sendingCipherState;
-@property (strong, readwrite) NFCipherState *receivingCipherState;
+@property (strong, readwrite) NPFHandshakeState *handshakeState;
+@property (strong, readwrite) NPFCipherState *sendingCipherState;
+@property (strong, readwrite) NPFCipherState *receivingCipherState;
 
-@property (readwrite) NFSessionState state;
+@property (readwrite) NPFSessionState state;
 
 @property (nullable, strong) NSPipe *inPipe;
 @property (nullable, strong) NSPipe *outPipe;
@@ -30,7 +30,7 @@
 @property (nonatomic, strong) NSOperationQueue *sessionQueue;
 @end
 
-@implementation NFSession
+@implementation NPFSession
 
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wobjc-designated-initializers"
@@ -41,9 +41,9 @@
 }
 #pragma clang diagnostic pop
 
-- (nullable instancetype)initWithProtocolName:(NSString *)protocolName role:(NFSessionRole)role
+- (nullable instancetype)initWithProtocolName:(NSString *)protocolName role:(NPFSessionRole)role
 {
-    NFProtocol *protocol = [[NFProtocol alloc] initWithName:protocolName];
+    NPFProtocol *protocol = [[NPFProtocol alloc] initWithName:protocolName];
     if (protocol) {
         return [self initWithProtocol:protocol role:role];
     } else {
@@ -52,7 +52,7 @@
     }
 }
 
-- (nullable instancetype)initWithProtocolName:(NSString *)protocolName role:(NFSessionRole)role setup:(void(^)(id<NFSessionSetup>))setupBlock
+- (nullable instancetype)initWithProtocolName:(NSString *)protocolName role:(NPFSessionRole)role setup:(void(^)(id<NPFSessionSetup>))setupBlock
 {
     self = [self initWithProtocolName:protocolName role:role];
     if (self) {
@@ -62,13 +62,13 @@
 }
 
 
-- (instancetype)initWithProtocol:(NFProtocol *)protocol role:(NFSessionRole)role
+- (instancetype)initWithProtocol:(NPFProtocol *)protocol role:(NPFSessionRole)role
 {
     self = [super init];
     if (self) {
         _protocol = protocol;
         _role = role;
-        _state = NFSessionStateInitializing;
+        _state = NPFSessionStateInitializing;
         _maxMessageSize = NOISE_MAX_PAYLOAD_LEN;
         _sessionQueue = [[NSOperationQueue alloc] init];
         _sessionQueue.maxConcurrentOperationCount = 1;
@@ -76,9 +76,9 @@
     return self;
 }
 
-- (BOOL)setup:(void (^)(id<NFSessionSetup> _Nonnull))setup
+- (BOOL)setup:(void (^)(id<NPFSessionSetup> _Nonnull))setup
 {
-    if (self.state != NFSessionStateInitializing) {
+    if (self.state != NPFSessionStateInitializing) {
         [[NSException exceptionWithName:@"InvalidState"
                                  reason:[NSString stringWithFormat:@"Session state is %lu", (unsigned long)self.state]
                                userInfo:nil] raise];
@@ -86,7 +86,7 @@
     }
     
     if (self.handshakeState == nil) {
-        self.handshakeState = [[NFHandshakeState alloc] initWithProtocol:self.protocol
+        self.handshakeState = [[NPFHandshakeState alloc] initWithProtocol:self.protocol
                                                                     role:self.role];
     }
     
@@ -108,7 +108,7 @@
     // check if setup has been run
     if (self.handshakeState == nil) {
         if (error != NULL){
-            *error = [NSError errorWithDomain:NFErrorDomain
+            *error = [NSError errorWithDomain:NPFErrorDomain
                                          code:sessionNotSetupError
                                      userInfo: nil];
         }
@@ -118,7 +118,7 @@
     // check if we're ready
     if (![self isReady]) {
         if (error != NULL){
-            *error = [NSError errorWithDomain:NFErrorDomain
+            *error = [NSError errorWithDomain:NPFErrorDomain
                                          code:sessionNotReadyError
                                      userInfo: nil];
         }
@@ -143,13 +143,13 @@
     self.sendingHandle = [self.outPipe fileHandleForReading];
     self.receivingHandle = [self.inPipe fileHandleForWriting];
     
-    __weak NFSession *wSelf = self;
+    __weak NPFSession *wSelf = self;
     self.inPipe.fileHandleForReading.readabilityHandler = ^(NSFileHandle * _Nonnull handle) {
         
         NSData *sizeHeader = [handle readDataOfLength:2];
         if ([sizeHeader length] != 2) {
             dispatch_async(dispatch_get_main_queue(), ^{
-                [wSelf abort:[NSError errorWithDomain:NFErrorDomain code:fileHandleReadFailedError userInfo:nil]];
+                [wSelf abort:[NSError errorWithDomain:NPFErrorDomain code:fileHandleReadFailedError userInfo:nil]];
             });
             return;
         }
@@ -160,7 +160,7 @@
         NSData *message = [handle readDataOfLength:(NSUInteger)size];
         if ([message length] != size) {
             dispatch_async(dispatch_get_main_queue(), ^{
-                [wSelf abort:[NSError errorWithDomain:NFErrorDomain code:fileHandleReadFailedError userInfo:nil]];
+                [wSelf abort:[NSError errorWithDomain:NPFErrorDomain code:fileHandleReadFailedError userInfo:nil]];
             });
             return;
         }
@@ -170,7 +170,7 @@
     };
     
     // change state
-    [self transitionToState:NFSessionStateHandshaking];
+    [self transitionToState:NPFSessionStateHandshaking];
     
     if ([self.delegate respondsToSelector:@selector(sessionDidStart:)]) {
         [self.delegate sessionDidStart:self];
@@ -182,7 +182,7 @@
 
 - (void)stop
 {
-    [self transitionToState:NFSessionStateStopped];
+    [self transitionToState:NPFSessionStateStopped];
     if ([self.delegate respondsToSelector:@selector(sessionDidStop:error:)]) {
         [self.delegate sessionDidStop:self error:nil];
     }
@@ -190,10 +190,10 @@
 
 - (void)sendData:(NSData *)data
 {
-    if (self.state == NFSessionStateHandshaking) {
+    if (self.state == NPFSessionStateHandshaking) {
 
         if ([data length] > NOISE_MAX_PAYLOAD_LEN - 2) {
-            NSError *error = [NSError errorWithDomain:NFErrorDomain
+            NSError *error = [NSError errorWithDomain:NPFErrorDomain
                                                  code:handshakeMessageToBigError
                                              userInfo:nil];
             [self abort:error];
@@ -201,7 +201,7 @@
         
         [self writePacketWithPayload:data];
     }
-    else if (self.state == NFSessionStateEstablished) {
+    else if (self.state == NPFSessionStateEstablished) {
         NSError *error = nil;
         NSData *cipherText = [self.sendingCipherState encrypt:data error:&error];
         if (!cipherText) {
@@ -215,7 +215,7 @@
 
 #pragma mark - Package
 
-- (void)establishWithSendingCipher:(NFCipherState *)sendCipher receivingCipher:(NFCipherState *)recvCipher
+- (void)establishWithSendingCipher:(NPFCipherState *)sendCipher receivingCipher:(NPFCipherState *)recvCipher
 {
     NSAssert([NSOperationQueue currentQueue] == self.sessionQueue, @"This should be called in the session queue");
     
@@ -228,26 +228,26 @@
         }
     });
     
-    [self transitionToState:NFSessionStateEstablished];
+    [self transitionToState:NPFSessionStateEstablished];
 }
 
 
 #pragma mark - Private
 
-- (void)transitionToState:(NFSessionState)state
+- (void)transitionToState:(NPFSessionState)state
 {
     self.state = state;
     
     switch (state) {
-        case NFSessionStateInitializing:
+        case NPFSessionStateInitializing:
             break;
-        case NFSessionStateHandshaking:
+        case NPFSessionStateHandshaking:
             break;
-        case NFSessionStateEstablished:
+        case NPFSessionStateEstablished:
             self.handshakeState = nil;
             break;
-        case NFSessionStateStopped:
-        case NFSessionStateError:
+        case NPFSessionStateStopped:
+        case NPFSessionStateError:
             self.handshakeState = nil;
             self.sendingHandle = nil;
             self.receivingHandle = nil;
@@ -275,13 +275,13 @@
 - (void)receivedData:(NSData *)data
 {
     [self.sessionQueue addOperationWithBlock:^{
-        if (self.state == NFSessionStateHandshaking) {
+        if (self.state == NPFSessionStateHandshaking) {
             NSError *error = nil;
             if (![self.handshakeState receivedData:data error:&error]) {
                 [self abort:error];
             }
         }
-        else if (self.state == NFSessionStateEstablished) {
+        else if (self.state == NPFSessionStateEstablished) {
             NSError *error = nil;
             NSData *plaintext = [self.receivingCipherState decrypt:data error:&error];
             if (!plaintext) {
@@ -306,7 +306,7 @@
         });
         return;
     }
-    [self transitionToState:NFSessionStateError];
+    [self transitionToState:NPFSessionStateError];
     if ([self.delegate respondsToSelector:@selector(sessionDidStop:error:)]) {
         [self.delegate sessionDidStop:self error:error];
     }

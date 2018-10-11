@@ -1,5 +1,5 @@
 //
-//  NFErrors.h
+//  NPFErrors.h
 //  Noise
 //
 // Created by Paulo Andrade on 14/09/2018.
@@ -8,11 +8,11 @@
 
 #import <Foundation/Foundation.h>
 
-extern NSErrorDomain const NFErrorDomain;
+extern NSErrorDomain const NPFErrorDomain;
 
-extern NSString *const NFInternalErrorCodeKey;
-extern NSString *const NFInternalErrorMessageKey;
-typedef NS_ERROR_ENUM(NFErrorDomain, NFError) {
+extern NSString *const NPFInternalErrorCodeKey;
+extern NSString *const NPFInternalErrorMessageKey;
+typedef NS_ERROR_ENUM(NPFErrorDomain, NPFError) {
     sessionNotSetupError = 1,
     sessionNotReadyError,
     fileHandleReadFailedError,
