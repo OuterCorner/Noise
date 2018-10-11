@@ -38,6 +38,18 @@ NS_SWIFT_NAME(NoiseSession)
  */
 - (nullable instancetype)initWithProtocolName:(NSString *)protocolName role:(NFSessionRole)role;
 
+
+
+/**
+ Convenience initializer. This is the equivalent of calling -initWithProtocolName:role: followed by -setup:
+
+ @param protocolName the name of the protocol to use in this session
+ @param role the session role for this peer (initiator or responder)
+ @param setupBlock the block to setup this session
+ @return a newly initialzed and setup session object or nil if protocolName is not supported
+ */
+- (nullable instancetype)initWithProtocolName:(NSString *)protocolName role:(NFSessionRole)role setup:(void(^)(id<NFSessionSetup>))setupBlock;
+
 /**
  Designated initializer for a new session protocol
 

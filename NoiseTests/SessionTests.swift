@@ -21,6 +21,19 @@ class SessionTests: XCTestCase {
         let p = NoiseProtocol(name: "Noise_IK_448_ChaChaPoly_BLAKE2b")!
         let s3 = NoiseSession(with: p, role: .responder)
         XCTAssertNotNil(s3)
+        
+        let s4 = NoiseSession(protocolName: "Noise_NK_25519_AESGCM_SHA256", role: .initiator) { setup in
+            guard let remotePublicKeyURL = Bundle(for: EchoClientTests.self).url(forResource: "keys/server_key_25519", withExtension: "pub") else {
+                XCTFail("Could not find server public key")
+                return
+            }
+            var keyMaterial = [UInt8](repeating: 0, count: 32)
+            let ret = echo_load_public_key(remotePublicKeyURL.path.cString(using: .utf8), &keyMaterial, 32)
+            XCTAssertEqual(ret, 1)
+            setup.remotePublicKey = NoiseKey(material: Data(keyMaterial), role: NoiseKeyRole.public, algo: NoiseKeyAlgo.curve25519)
+        }
+        XCTAssertNotNil(s4)
+        XCTAssertTrue(s4!.isReady)
     }
 
     func testSetup() {

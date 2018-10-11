@@ -52,6 +52,16 @@
     }
 }
 
+- (nullable instancetype)initWithProtocolName:(NSString *)protocolName role:(NFSessionRole)role setup:(void(^)(id<NFSessionSetup>))setupBlock
+{
+    self = [self initWithProtocolName:protocolName role:role];
+    if (self) {
+        [self setup:setupBlock];
+    }
+    return self;
+}
+
+
 - (instancetype)initWithProtocol:(NFProtocol *)protocol role:(NFSessionRole)role
 {
     self = [super init];
