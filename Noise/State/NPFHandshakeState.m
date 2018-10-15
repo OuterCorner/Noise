@@ -15,6 +15,7 @@
 #import "NPFErrors+Package.h"
 #import "NPFCipherState+Package.h"
 #import "NPFSession+Package.h"
+#import "NPFErrors.h"
 
 @interface NPFHandshakeState ()
 
@@ -203,7 +204,14 @@
     NPFSession *session = [self session];
     int action = noise_handshakestate_get_action(_handshakeState);
 
-    NSAssert(action == NOISE_ACTION_READ_MESSAGE, @"Received unexpected data during handshake %d", action);
+    if (action != NOISE_ACTION_READ_MESSAGE) {
+        if (error != NULL) {
+            *error = [NSError errorWithDomain:NPFErrorDomain
+                                         code:handshakeFailedError
+                                     userInfo:@{NSLocalizedDescriptionKey: @"Received unexpected data during handshake"}];
+        }
+        return NO;
+    }
     
     NSString *pattern = [self currentActionPattern];
 

@@ -17,5 +17,6 @@ typedef NS_ERROR_ENUM(NPFErrorDomain, NPFError) {
     sessionNotReadyError,
     fileHandleReadFailedError,
     handshakeMessageToBigError,
-    internalError
+    internalError,
+    handshakeFailedError,
 };
