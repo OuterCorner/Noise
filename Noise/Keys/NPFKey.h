@@ -16,8 +16,8 @@ typedef NS_ENUM(NSUInteger, NPFKeyRole) {
 
 typedef NSString *NPFKeyAlgo NS_SWIFT_NAME(NoiseKeyAlgo) NS_STRING_ENUM;
 
-extern NPFKeyAlgo const NPFKeyAlgoCurve25519;
-extern NPFKeyAlgo const NPFKeyAlgoCurve448;
+extern NPFKeyAlgo const _Nonnull NPFKeyAlgoCurve25519;
+extern NPFKeyAlgo const _Nonnull NPFKeyAlgoCurve448;
 
 NS_ASSUME_NONNULL_BEGIN
 /**
