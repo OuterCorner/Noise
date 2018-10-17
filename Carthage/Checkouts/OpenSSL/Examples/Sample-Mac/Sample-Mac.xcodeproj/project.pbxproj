@@ -1,0 +1,414 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D76C0E01217679FF00BC534D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D76C0E00217679FF00BC534D /* AppDelegate.m */; };
+		D76C0E0321767A0000BC534D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D76C0E0221767A0000BC534D /* Assets.xcassets */; };
+		D76C0E0621767A0000BC534D /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = D76C0E0421767A0000BC534D /* MainMenu.xib */; };
+		D76C0E0921767A0000BC534D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D76C0E0821767A0000BC534D /* main.m */; };
+		D76C0E2221767A3E00BC534D /* OpenSSL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D76C0E1F21767A3000BC534D /* OpenSSL.framework */; };
+		D76C0E2321767A3E00BC534D /* OpenSSL.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D76C0E1F21767A3000BC534D /* OpenSSL.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D76C0E1E21767A3000BC534D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D76C0E1921767A3000BC534D /* OpenSSL.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D7ADDD512175F2D4000EDCC4;
+			remoteInfo = OpenSSL;
+		};
+		D76C0E2021767A3000BC534D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D76C0E1921767A3000BC534D /* OpenSSL.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D7ADDD6A21761CD3000EDCC4;
+			remoteInfo = openssl;
+		};
+		D76C0E2421767A3E00BC534D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D76C0E1921767A3000BC534D /* OpenSSL.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = D7ADDD502175F2D4000EDCC4;
+			remoteInfo = OpenSSL;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		D76C0E2621767A3F00BC534D /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				D76C0E2321767A3E00BC534D /* OpenSSL.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		D76C0DFC217679FF00BC534D /* Sample-Mac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Sample-Mac.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D76C0DFF217679FF00BC534D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		D76C0E00217679FF00BC534D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		D76C0E0221767A0000BC534D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D76C0E0521767A0000BC534D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		D76C0E0721767A0000BC534D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D76C0E0821767A0000BC534D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		D76C0E0A21767A0000BC534D /* Sample_Mac.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Sample_Mac.entitlements; sourceTree = "<group>"; };
+		D76C0E1921767A3000BC534D /* OpenSSL.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = OpenSSL.xcodeproj; path = ../../OpenSSL.xcodeproj; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D76C0DF9217679FF00BC534D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D76C0E2221767A3E00BC534D /* OpenSSL.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D76C0DF3217679FF00BC534D = {
+			isa = PBXGroup;
+			children = (
+				D76C0E1921767A3000BC534D /* OpenSSL.xcodeproj */,
+				D76C0DFE217679FF00BC534D /* Sample-Mac */,
+				D76C0DFD217679FF00BC534D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D76C0DFD217679FF00BC534D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D76C0DFC217679FF00BC534D /* Sample-Mac.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D76C0DFE217679FF00BC534D /* Sample-Mac */ = {
+			isa = PBXGroup;
+			children = (
+				D76C0DFF217679FF00BC534D /* AppDelegate.h */,
+				D76C0E00217679FF00BC534D /* AppDelegate.m */,
+				D76C0E0221767A0000BC534D /* Assets.xcassets */,
+				D76C0E0421767A0000BC534D /* MainMenu.xib */,
+				D76C0E0721767A0000BC534D /* Info.plist */,
+				D76C0E0821767A0000BC534D /* main.m */,
+				D76C0E0A21767A0000BC534D /* Sample_Mac.entitlements */,
+			);
+			path = "Sample-Mac";
+			sourceTree = "<group>";
+		};
+		D76C0E1A21767A3000BC534D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D76C0E1F21767A3000BC534D /* OpenSSL.framework */,
+				D76C0E2121767A3000BC534D /* libopenssl.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D76C0DFB217679FF00BC534D /* Sample-Mac */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D76C0E0D21767A0000BC534D /* Build configuration list for PBXNativeTarget "Sample-Mac" */;
+			buildPhases = (
+				D76C0DF8217679FF00BC534D /* Sources */,
+				D76C0DF9217679FF00BC534D /* Frameworks */,
+				D76C0DFA217679FF00BC534D /* Resources */,
+				D76C0E2621767A3F00BC534D /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D76C0E2521767A3E00BC534D /* PBXTargetDependency */,
+			);
+			name = "Sample-Mac";
+			productName = "Sample-Mac";
+			productReference = D76C0DFC217679FF00BC534D /* Sample-Mac.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D76C0DF4217679FF00BC534D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1000;
+				ORGANIZATIONNAME = "Outer Corner";
+				TargetAttributes = {
+					D76C0DFB217679FF00BC534D = {
+						CreatedOnToolsVersion = 10.0;
+					};
+				};
+			};
+			buildConfigurationList = D76C0DF7217679FF00BC534D /* Build configuration list for PBXProject "Sample-Mac" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = D76C0DF3217679FF00BC534D;
+			productRefGroup = D76C0DFD217679FF00BC534D /* Products */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = D76C0E1A21767A3000BC534D /* Products */;
+					ProjectRef = D76C0E1921767A3000BC534D /* OpenSSL.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				D76C0DFB217679FF00BC534D /* Sample-Mac */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		D76C0E1F21767A3000BC534D /* OpenSSL.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = OpenSSL.framework;
+			remoteRef = D76C0E1E21767A3000BC534D /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		D76C0E2121767A3000BC534D /* libopenssl.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libopenssl.a;
+			remoteRef = D76C0E2021767A3000BC534D /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D76C0DFA217679FF00BC534D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D76C0E0321767A0000BC534D /* Assets.xcassets in Resources */,
+				D76C0E0621767A0000BC534D /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D76C0DF8217679FF00BC534D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D76C0E0921767A0000BC534D /* main.m in Sources */,
+				D76C0E01217679FF00BC534D /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D76C0E2521767A3E00BC534D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = OpenSSL;
+			targetProxy = D76C0E2421767A3E00BC534D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		D76C0E0421767A0000BC534D /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D76C0E0521767A0000BC534D /* Base */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D76C0E0B21767A0000BC534D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		D76C0E0C21767A0000BC534D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		D76C0E0E21767A0000BC534D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = "Sample-Mac/Sample_Mac.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 32HNEEH56A;
+				INFOPLIST_FILE = "Sample-Mac/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.outercorner.Sample-Mac";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		D76C0E0F21767A0000BC534D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = "Sample-Mac/Sample_Mac.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 32HNEEH56A;
+				INFOPLIST_FILE = "Sample-Mac/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.outercorner.Sample-Mac";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D76C0DF7217679FF00BC534D /* Build configuration list for PBXProject "Sample-Mac" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D76C0E0B21767A0000BC534D /* Debug */,
+				D76C0E0C21767A0000BC534D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D76C0E0D21767A0000BC534D /* Build configuration list for PBXNativeTarget "Sample-Mac" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D76C0E0E21767A0000BC534D /* Debug */,
+				D76C0E0F21767A0000BC534D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D76C0DF4217679FF00BC534D /* Project object */;
+}

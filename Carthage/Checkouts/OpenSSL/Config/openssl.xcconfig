@@ -1,0 +1,21 @@
+//
+//  openssl.xcconfig
+//  OpenSSL
+//
+// Created by Paulo Andrade on 16/10/2018.
+// Copyright © 2018 Outer Corner. All rights reserved.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+OPENSSL_VERSION = 1.1.1
+BUILD_VERSION = 181017.0
+
+DYLIB_COMPATIBILITY_VERSION = 1.1
+CURRENT_PROJECT_VERSION = $(BUILD_VERSION)
+
+
+OPENSSL_OPTIONS = no-weak-ssl-ciphers
+
+APPLICATION_EXTENSION_API_ONLY = YES
