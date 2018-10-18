@@ -90,24 +90,10 @@
 		D72E16EF2153023F00839C9D /* reduce.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C718F2142F04200A3E0EA /* reduce.c */; };
 		D72E16F02153024D00839C9D /* cipher-aesgcm.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C72442142F04200A3E0EA /* cipher-aesgcm.c */; };
 		D72E16F12153024D00839C9D /* cipher-aesgcm.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C72442142F04200A3E0EA /* cipher-aesgcm.c */; };
-		D72E16F22153025700839C9D /* cipher-aesgcm.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C723E2142F04200A3E0EA /* cipher-aesgcm.c */; };
-		D72E16F32153025800839C9D /* cipher-aesgcm.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C723E2142F04200A3E0EA /* cipher-aesgcm.c */; };
 		D72E16F42153025E00839C9D /* cipher-aesgcm.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C72342142F04200A3E0EA /* cipher-aesgcm.c */; };
 		D72E16F52153025E00839C9D /* cipher-aesgcm.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C72342142F04200A3E0EA /* cipher-aesgcm.c */; };
 		D72E16F62153026900839C9D /* rand_sodium.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C72492142F04200A3E0EA /* rand_sodium.c */; };
 		D72E16F72153026A00839C9D /* rand_sodium.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C72492142F04200A3E0EA /* rand_sodium.c */; };
-		D72E16F82153027E00839C9D /* cipher-chachapoly.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C723F2142F04200A3E0EA /* cipher-chachapoly.c */; };
-		D72E16F92153027E00839C9D /* cipher-chachapoly.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C723F2142F04200A3E0EA /* cipher-chachapoly.c */; };
-		D72E16FA2153028C00839C9D /* dh-curve25519.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C723C2142F04200A3E0EA /* dh-curve25519.c */; };
-		D72E16FB2153028C00839C9D /* dh-curve25519.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C723C2142F04200A3E0EA /* dh-curve25519.c */; };
-		D72E16FC2153029200839C9D /* hash-blake2b.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C72422142F04200A3E0EA /* hash-blake2b.c */; };
-		D72E16FD2153029200839C9D /* hash-blake2b.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C72422142F04200A3E0EA /* hash-blake2b.c */; };
-		D72E16FE2153029900839C9D /* hash-sha256.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C72412142F04200A3E0EA /* hash-sha256.c */; };
-		D72E16FF2153029A00839C9D /* hash-sha256.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C72412142F04200A3E0EA /* hash-sha256.c */; };
-		D72E17002153029E00839C9D /* hash-sha512.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C72402142F04200A3E0EA /* hash-sha512.c */; };
-		D72E17012153029E00839C9D /* hash-sha512.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C72402142F04200A3E0EA /* hash-sha512.c */; };
-		D72E1702215302A600839C9D /* sign-ed25519.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C723D2142F04200A3E0EA /* sign-ed25519.c */; };
-		D72E1703215302A600839C9D /* sign-ed25519.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C723D2142F04200A3E0EA /* sign-ed25519.c */; };
 		D72E1704215302B100839C9D /* rand_os.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C72472142F04200A3E0EA /* rand_os.c */; };
 		D72E1705215302B100839C9D /* rand_os.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C72472142F04200A3E0EA /* rand_os.c */; };
 		D72E1706215302C100839C9D /* cipher-chachapoly.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C72352142F04200A3E0EA /* cipher-chachapoly.c */; };
@@ -150,6 +136,10 @@
 		D75952CB2149587C0043D7ED /* NPFHandshakeState.m in Sources */ = {isa = PBXBuildFile; fileRef = D75952C82149587C0043D7ED /* NPFHandshakeState.m */; };
 		D75952CC2149587C0043D7ED /* NPFHandshakeState.m in Sources */ = {isa = PBXBuildFile; fileRef = D75952C82149587C0043D7ED /* NPFHandshakeState.m */; };
 		D75952D0214989310043D7ED /* HandshakeStateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D75952CF214989310043D7ED /* HandshakeStateTests.swift */; };
+		D76C0E742177945500BC534D /* OpenSSL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D76C0E732177945500BC534D /* OpenSSL.framework */; };
+		D76C0E762177945E00BC534D /* OpenSSL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D76C0E752177945E00BC534D /* OpenSSL.framework */; };
+		D76C0E7721788B5A00BC534D /* OpenSSL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D76C0E752177945E00BC534D /* OpenSSL.framework */; };
+		D76C0E7821788D7800BC534D /* OpenSSL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D76C0E752177945E00BC534D /* OpenSSL.framework */; };
 		D77C6E1A2142E09100A3E0EA /* Noise.h in Headers */ = {isa = PBXBuildFile; fileRef = D77C6E182142E09100A3E0EA /* Noise.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D77C72DF2143162600A3E0EA /* libnoiseprotocol.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D77C6E3C2142EEDB00A3E0EA /* libnoiseprotocol.a */; };
 		D77C72E22143163B00A3E0EA /* libnoiseprotocol.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D77C72772143127B00A3E0EA /* libnoiseprotocol.a */; };
@@ -301,6 +291,8 @@
 		D75952C72149587C0043D7ED /* NPFHandshakeState.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NPFHandshakeState.h; sourceTree = "<group>"; };
 		D75952C82149587C0043D7ED /* NPFHandshakeState.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NPFHandshakeState.m; sourceTree = "<group>"; };
 		D75952CF214989310043D7ED /* HandshakeStateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandshakeStateTests.swift; sourceTree = "<group>"; };
+		D76C0E732177945500BC534D /* OpenSSL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenSSL.framework; path = Carthage/Build/iOS/OpenSSL.framework; sourceTree = "<group>"; };
+		D76C0E752177945E00BC534D /* OpenSSL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenSSL.framework; path = Carthage/Build/Mac/OpenSSL.framework; sourceTree = "<group>"; };
 		D77C6E152142E09100A3E0EA /* Noise.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Noise.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D77C6E182142E09100A3E0EA /* Noise.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Noise.h; sourceTree = "<group>"; };
 		D77C6E192142E09100A3E0EA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -526,6 +518,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D72E1665214C66A800839C9D /* libnoiseprotocol.a in Frameworks */,
+				D76C0E7721788B5A00BC534D /* OpenSSL.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -534,6 +527,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D72E1675214C67EF00839C9D /* libnoiseprotocol.a in Frameworks */,
+				D76C0E7821788D7800BC534D /* OpenSSL.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -542,6 +536,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D77C72DF2143162600A3E0EA /* libnoiseprotocol.a in Frameworks */,
+				D76C0E762177945E00BC534D /* OpenSSL.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -550,6 +545,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D77C72E22143163B00A3E0EA /* libnoiseprotocol.a in Frameworks */,
+				D76C0E742177945500BC534D /* OpenSSL.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -630,6 +626,31 @@
 			path = State;
 			sourceTree = "<group>";
 		};
+		D76C0E6F2177941D00BC534D /* Dependencies */ = {
+			isa = PBXGroup;
+			children = (
+				D76C0E722177943A00BC534D /* iOS */,
+				D76C0E712177943200BC534D /* macOS */,
+			);
+			name = Dependencies;
+			sourceTree = "<group>";
+		};
+		D76C0E712177943200BC534D /* macOS */ = {
+			isa = PBXGroup;
+			children = (
+				D76C0E752177945E00BC534D /* OpenSSL.framework */,
+			);
+			name = macOS;
+			sourceTree = "<group>";
+		};
+		D76C0E722177943A00BC534D /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				D76C0E732177945500BC534D /* OpenSSL.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
 		D77C6E0B2142E09100A3E0EA = {
 			isa = PBXGroup;
 			children = (
@@ -637,6 +658,7 @@
 				D77C6FD62142EF3D00A3E0EA /* Noise-C */,
 				D77C6E172142E09100A3E0EA /* Noise */,
 				D77C7303214821D100A3E0EA /* NoiseTests */,
+				D76C0E6F2177941D00BC534D /* Dependencies */,
 				D77C6E162142E09100A3E0EA /* Products */,
 				D77C72DE2143162600A3E0EA /* Frameworks */,
 			);
@@ -1528,13 +1550,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D72E16F22153025700839C9D /* cipher-aesgcm.c in Sources */,
 				D72E16C42153014E00839C9D /* hashstate.c in Sources */,
 				D72E16E82153021E00839C9D /* ntt.c in Sources */,
 				D72E171A2153031900839C9D /* ghash.c in Sources */,
 				D72E16C82153015D00839C9D /* names.c in Sources */,
 				D72E1710215302E600839C9D /* sign-ed25519.c in Sources */,
-				D72E16FA2153028C00839C9D /* dh-curve25519.c in Sources */,
 				D72E16BC2153012500839C9D /* cipherstate.c in Sources */,
 				D72E16F62153026900839C9D /* rand_sodium.c in Sources */,
 				D72E16D02153017A00839C9D /* symmetricstate.c in Sources */,
@@ -1563,22 +1583,17 @@
 				D72E170C215302D900839C9D /* hash-sha256.c in Sources */,
 				D72E1706215302C100839C9D /* cipher-chachapoly.c in Sources */,
 				D72E16CE2153017300839C9D /* signstate.c in Sources */,
-				D72E1702215302A600839C9D /* sign-ed25519.c in Sources */,
 				D72E16BE2153012E00839C9D /* dhstate.c in Sources */,
 				D72E16EA2153022900839C9D /* poly.c in Sources */,
 				D72E16DE215301DA00839C9D /* p448.c in Sources */,
-				D72E16F82153027E00839C9D /* cipher-chachapoly.c in Sources */,
-				D72E16FF2153029A00839C9D /* hash-sha256.c in Sources */,
 				D72E171F2153033400839C9D /* sha256.c in Sources */,
 				D72E16DA215301C100839C9D /* blake2s.c in Sources */,
 				D72E1714215302FD00839C9D /* blake2b.c in Sources */,
 				D72E16E62153021100839C9D /* newhope.c in Sources */,
 				D72E16EC2153023000839C9D /* precomp.c in Sources */,
-				D72E16FC2153029200839C9D /* hash-blake2b.c in Sources */,
 				D72E16D8215301A800839C9D /* hash-blake2s.c in Sources */,
 				D72E17162153030400839C9D /* chacha.c in Sources */,
 				D72E17232153034600839C9D /* ed25519.c in Sources */,
-				D72E17002153029E00839C9D /* hash-sha512.c in Sources */,
 				D72E1708215302CB00839C9D /* dh-curve25519.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1587,13 +1602,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D72E16F32153025800839C9D /* cipher-aesgcm.c in Sources */,
 				D72E16C52153014F00839C9D /* hashstate.c in Sources */,
 				D72E16E92153021E00839C9D /* ntt.c in Sources */,
 				D72E171B2153031A00839C9D /* ghash.c in Sources */,
 				D72E16C92153015D00839C9D /* names.c in Sources */,
 				D72E1711215302E600839C9D /* sign-ed25519.c in Sources */,
-				D72E16FB2153028C00839C9D /* dh-curve25519.c in Sources */,
 				D72E16BD2153012500839C9D /* cipherstate.c in Sources */,
 				D72E16F72153026A00839C9D /* rand_sodium.c in Sources */,
 				D72E16D12153017A00839C9D /* symmetricstate.c in Sources */,
@@ -1622,22 +1635,17 @@
 				D72E170D215302D900839C9D /* hash-sha256.c in Sources */,
 				D72E1707215302C100839C9D /* cipher-chachapoly.c in Sources */,
 				D72E16CF2153017300839C9D /* signstate.c in Sources */,
-				D72E1703215302A600839C9D /* sign-ed25519.c in Sources */,
 				D72E16BF2153012E00839C9D /* dhstate.c in Sources */,
 				D72E16EB2153022A00839C9D /* poly.c in Sources */,
 				D72E16DF215301DD00839C9D /* p448.c in Sources */,
-				D72E16F92153027E00839C9D /* cipher-chachapoly.c in Sources */,
-				D72E16FE2153029900839C9D /* hash-sha256.c in Sources */,
 				D72E171E2153033300839C9D /* sha256.c in Sources */,
 				D72E16DB215301C100839C9D /* blake2s.c in Sources */,
 				D72E1715215302FE00839C9D /* blake2b.c in Sources */,
 				D72E16E72153021100839C9D /* newhope.c in Sources */,
 				D72E16ED2153023000839C9D /* precomp.c in Sources */,
-				D72E16FD2153029200839C9D /* hash-blake2b.c in Sources */,
 				D72E16D9215301A800839C9D /* hash-blake2s.c in Sources */,
 				D72E17172153030400839C9D /* chacha.c in Sources */,
 				D72E17222153034600839C9D /* ed25519.c in Sources */,
-				D72E17012153029E00839C9D /* hash-sha512.c in Sources */,
 				D72E1709215302CB00839C9D /* dh-curve25519.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1699,56 +1707,72 @@
 /* Begin XCBuildConfiguration section */
 		D72E165F214C667900839C9D /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D77C6E312142E20300A3E0EA /* Noise.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 32HNEEH56A;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
 				HEADER_SEARCH_PATHS = (
 					"$(SRCROOT)/Noise-C/include",
 					/usr/local/opt/openssl/include,
 				);
+				LD_RUNPATH_SEARCH_PATHS = "$(SRCROOT)/Carthage/Build/Mac";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
 		};
 		D72E1660214C667900839C9D /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D77C6E312142E20300A3E0EA /* Noise.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 32HNEEH56A;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
 				HEADER_SEARCH_PATHS = (
 					"$(SRCROOT)/Noise-C/include",
 					/usr/local/opt/openssl/include,
 				);
+				LD_RUNPATH_SEARCH_PATHS = "$(SRCROOT)/Carthage/Build/Mac";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
 		};
 		D72E166F214C67D700839C9D /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D77C6E312142E20300A3E0EA /* Noise.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 32HNEEH56A;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
 				HEADER_SEARCH_PATHS = (
 					"$(SRCROOT)/Noise-C/include",
 					/usr/local/opt/openssl/include,
 				);
+				LD_RUNPATH_SEARCH_PATHS = "$(SRCROOT)/Carthage/Build/Mac";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
 		};
 		D72E1670214C67D700839C9D /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D77C6E312142E20300A3E0EA /* Noise.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 32HNEEH56A;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
 				HEADER_SEARCH_PATHS = (
 					"$(SRCROOT)/Noise-C/include",
 					/usr/local/opt/openssl/include,
 				);
+				LD_RUNPATH_SEARCH_PATHS = "$(SRCROOT)/Carthage/Build/Mac";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -1884,6 +1908,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
 				FRAMEWORK_VERSION = A;
 				HEADER_SEARCH_PATHS = "$(SRCROOT)/Noise-C/include";
 				INFOPLIST_FILE = Noise/Info.plist;
@@ -1911,6 +1939,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
 				FRAMEWORK_VERSION = A;
 				HEADER_SEARCH_PATHS = "$(SRCROOT)/Noise-C/include";
 				INFOPLIST_FILE = Noise/Info.plist;
@@ -1937,6 +1969,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				HEADER_SEARCH_PATHS = "$(SRCROOT)/Noise-C/include";
 				INFOPLIST_FILE = Noise/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -1965,6 +2001,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				HEADER_SEARCH_PATHS = "$(SRCROOT)/Noise-C/include";
 				INFOPLIST_FILE = Noise/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -2053,6 +2093,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 					"@loader_path/../Frameworks",
+					"$(SRCROOT)/Carthage/Build/Mac",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.outercorner.NoiseTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -2076,6 +2117,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 					"@loader_path/../Frameworks",
+					"$(SRCROOT)/Carthage/Build/Mac",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.outercorner.NoiseTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";

@@ -53,11 +53,17 @@ class EchoClientTests: XCTestCase, StreamDelegate, NoiseSessionDelegate {
 
     override func tearDown() {
         // stop the server
-        serverProcess?.terminate()
-        serverProcess = nil
+        fromServerStream?.close()
+        toServerStream?.close()
         toServerStream = nil
         fromServerStream = nil
+
         sessionDidStopExpectation = nil
+        
+        serverProcess?.terminate()
+        serverProcess?.waitUntilExit()
+        serverProcess = nil
+        
     }
 
     func testNN() {
