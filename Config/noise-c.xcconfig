@@ -14,8 +14,10 @@ USE_OPENSSL = 1
 
 GCC_PREPROCESSOR_DEFINITIONS = USE_SODIUM=$(USE_SODIUM) USE_OPENSSL=$(USE_OPENSSL)
 
-HEADER_SEARCH_PATHS[sdk=macosx*] = $(SRCROOT)/Noise-C/include $(SRCROOT)/Noise-C/src/crypto/goldilocks/include $(SRCROOT)/Noise-C/src/crypto/goldilocks/src/include $(SRCROOT)/Dependencies/Mac/include
-HEADER_SEARCH_PATHS[sdk=iphone*] = $(SRCROOT)/Noise-C/include $(SRCROOT)/Noise-C/src/crypto/goldilocks/include $(SRCROOT)/Noise-C/src/crypto/goldilocks/src/include $(SRCROOT)/Dependencies/iOS/include
+HEADER_SEARCH_PATHS = $(SRCROOT)/Noise-C/include $(SRCROOT)/Noise-C/src/crypto/goldilocks/include $(SRCROOT)/Noise-C/src/crypto/goldilocks/src/include
+HEADER_SEARCH_PATHS[sdk=macosx*] = $(inherited) $(SRCROOT)/Dependencies/Mac/include
+HEADER_SEARCH_PATHS[sdk=iphoneos*] = $(inherited) $(SRCROOT)/Dependencies/iOS/include
+HEADER_SEARCH_PATHS[sdk=iphonesimulator*] = $(inherited) $(SRCROOT)/Dependencies/iOS/include
 
 USER_HEADER_SEARCH_PATHS = $(SRCROOT)/Noise-C/src $(SRCROOT)/Noise-C/src/crypto/goldilocks/src/include
 

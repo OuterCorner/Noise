@@ -1,0 +1,12 @@
+//
+//  project.xcconfig
+//  Noise
+//
+// Created by Paulo Andrade on 18/10/2018.
+// Copyright © 2018 Outer Corner. All rights reserved.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+SUPPORTED_PLATFORMS = macosx iphoneos iphonesimulator

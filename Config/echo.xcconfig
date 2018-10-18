@@ -1,19 +1,16 @@
 //
-//  Common.xcconfig
+//  echo.xcconfig
 //  Noise
 //
-//  Created by Paulo Andrade on 07/09/2018.
-//  Copyright © 2018 Outer Corner. All rights reserved.
+// Created by Paulo Andrade on 18/10/2018.
+// Copyright © 2018 Outer Corner. All rights reserved.
 //
 
 // Configuration settings file format documentation can be found at:
 // https://help.apple.com/xcode/#/dev745c5c974
 
-
 FRAMEWORK_SEARCH_PATHS[sdk=macosx*] = $(PROJECT_DIR)/Carthage/Build/Mac
-FRAMEWORK_SEARCH_PATHS[sdk=iphoneos*] = $(PROJECT_DIR)/Carthage/Build/iOS
 FRAMEWORK_SEARCH_PATHS[sdk=iphonesimulator*] = $(PROJECT_DIR)/Carthage/Build/iOS
+FRAMEWORK_SEARCH_PATHS[sdk=iphoneos*] = $(PROJECT_DIR)/Carthage/Build/iOS
 
-
-OTHER_LDFLAGS = -framework OpenSSL
-
+HEADER_SEARCH_PATHS = $(SRCROOT)/Noise-C/include
