@@ -202,17 +202,47 @@
         [self writePacketWithPayload:data];
     }
     else if (self.state == NPFSessionStateEstablished) {
-        NSError *error = nil;
-        NSData *cipherText = [self.sendingCipherState encrypt:data error:&error];
-        if (!cipherText) {
-            [self abort:error];
-            return;
+        NSUInteger minSize = 2 + [self.sendingCipherState macLength];
+        NSUInteger remaining = [data length];
+        NSUInteger loc = 0;
+        NSData *subData = nil;
+        while ((void)(subData = [data subdataWithRange:NSMakeRange(loc, MIN(remaining, self.maxMessageSize - minSize))]), [subData length] > 0) {
+            NSError *error = nil;
+            NSData *cipherText = [self.sendingCipherState encrypt:subData error:&error];
+            if (!cipherText) {
+                [self abort:error];
+                return;
+            }
+            
+            [self writePacketWithPayload:cipherText];
+            loc += [subData length];
+            remaining -= [subData length];
         }
-    
-        [self writePacketWithPayload:cipherText];
     }
 }
 
+#pragma mark - Properties
+    
+- (void)setMaxMessageSize:(NSUInteger)maxMessageSize
+{
+    NPFCipherState *cipher = [[NPFCipherState alloc] initWithCipherName:self.protocol.cipherFunction maxMessageSize:maxMessageSize];
+    NSUInteger minSize = 2 + [cipher macLength];
+    if (maxMessageSize > NOISE_MAX_PAYLOAD_LEN) {
+        [[NSException exceptionWithName:NSInvalidArgumentException
+                                 reason:[NSString stringWithFormat:@"maxMessageSize (%lu) must be less than %d.", (unsigned long)maxMessageSize, NOISE_MAX_PAYLOAD_LEN]
+                               userInfo:nil] raise];
+    }
+    else if (maxMessageSize <= minSize) {
+        [[NSException exceptionWithName:NSInvalidArgumentException
+                                 reason:[NSString stringWithFormat:@"maxMessageSize (%lu) must be greater than %lu.", (unsigned long)maxMessageSize, (unsigned long)minSize]
+                               userInfo:nil] raise];
+    }
+    else {
+        _maxMessageSize = maxMessageSize;
+    }
+    
+}
+    
 #pragma mark - Package
 
 - (void)establishWithSendingCipher:(NPFCipherState *)sendCipher receivingCipher:(NPFCipherState *)recvCipher

@@ -122,10 +122,10 @@ NS_SWIFT_NAME(NoiseSession)
 
 
 /**
- The maximum message size. Must be less than 65535.
+ The maximum message size. Must be less than 65535 and more than 2 + MAC size.
  Defaults to 65535
  */
-@property NSUInteger maxMessageSize;
+@property (nonatomic) NSUInteger maxMessageSize;
 
 
 /**

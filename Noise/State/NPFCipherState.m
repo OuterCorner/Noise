@@ -42,6 +42,16 @@
     return self;
 }
 
+- (instancetype)initWithCipherName:(NSString *)cipherName maxMessageSize:(NSUInteger)maxMessageSize
+{
+    NoiseCipherState *cipher = NULL;
+    int err = noise_cipherstate_new_by_name(&cipher, [cipherName cStringUsingEncoding:NSUTF8StringEncoding]);
+    if (err != NOISE_ERROR_NONE) {
+        return nil;
+    }
+    return [self initWithNoiseCCipherState:cipher maxMessageSize:maxMessageSize];
+}
+    
 - (NSData *)encrypt:(NSData *)data error:(NSError * _Nullable __autoreleasing *)error
 {
     NoiseBuffer noise_buffer;

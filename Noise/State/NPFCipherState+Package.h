@@ -15,6 +15,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (instancetype)initWithNoiseCCipherState:(NoiseCipherState *)cipher_state maxMessageSize:(NSUInteger)maxMessageSize;
 
+- (instancetype)initWithCipherName:(NSString *)cipherName maxMessageSize:(NSUInteger)maxMessageSize;
+    
 @end
 
 NS_ASSUME_NONNULL_END

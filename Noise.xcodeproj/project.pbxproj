@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		D704465D2179CE3B00A91DA0 /* echo-server in Copy Executables */ = {isa = PBXBuildFile; fileRef = D72E165A214C667900839C9D /* echo-server */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		D704465E2179CE3B00A91DA0 /* echo-client in Copy Executables */ = {isa = PBXBuildFile; fileRef = D72E166A214C67D700839C9D /* echo-client */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		D71EAEE12179DC06004C4D36 /* ObjC.m in Sources */ = {isa = PBXBuildFile; fileRef = D71EAEE02179DC06004C4D36 /* ObjC.m */; };
 		D72E1623214BB84B00839C9D /* NPFErrors.h in Headers */ = {isa = PBXBuildFile; fileRef = D72E1621214BB84B00839C9D /* NPFErrors.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D72E1625214BB84B00839C9D /* NPFErrors.m in Sources */ = {isa = PBXBuildFile; fileRef = D72E1622214BB84B00839C9D /* NPFErrors.m */; };
 		D72E1628214BB9C500839C9D /* SessionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D72E1627214BB9C500839C9D /* SessionTests.swift */; };
@@ -187,6 +188,9 @@
 		D70446602179D37300A91DA0 /* EchoTests.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = EchoTests.xcconfig; sourceTree = "<group>"; };
 		D70446642179D49D00A91DA0 /* EchoTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "EchoTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		D71A74FC21593D1F0040F0DA /* EchoServerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EchoServerTests.swift; sourceTree = "<group>"; };
+		D71EAEDE2179DC06004C4D36 /* NoiseTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NoiseTests-Bridging-Header.h"; sourceTree = "<group>"; };
+		D71EAEDF2179DC06004C4D36 /* ObjC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ObjC.h; sourceTree = "<group>"; };
+		D71EAEE02179DC06004C4D36 /* ObjC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ObjC.m; sourceTree = "<group>"; };
 		D72E1621214BB84B00839C9D /* NPFErrors.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NPFErrors.h; sourceTree = "<group>"; };
 		D72E1622214BB84B00839C9D /* NPFErrors.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NPFErrors.m; sourceTree = "<group>"; };
 		D72E1627214BB9C500839C9D /* SessionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionTests.swift; sourceTree = "<group>"; };
@@ -1098,6 +1102,9 @@
 				D75952BD214947DA0043D7ED /* KeyTests.swift */,
 				D72E1627214BB9C500839C9D /* SessionTests.swift */,
 				D77C7306214821D100A3E0EA /* Info.plist */,
+				D71EAEDF2179DC06004C4D36 /* ObjC.h */,
+				D71EAEE02179DC06004C4D36 /* ObjC.m */,
+				D71EAEDE2179DC06004C4D36 /* NoiseTests-Bridging-Header.h */,
 			);
 			path = NoiseTests;
 			sourceTree = "<group>";
@@ -1297,6 +1304,7 @@
 					};
 					D77C7301214821D100A3E0EA = {
 						CreatedOnToolsVersion = 10.0;
+						LastSwiftMigration = 1000;
 					};
 				};
 			};
@@ -1448,6 +1456,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D71EAEE12179DC06004C4D36 /* ObjC.m in Sources */,
 				D72E1628214BB9C500839C9D /* SessionTests.swift in Sources */,
 				D75952D0214989310043D7ED /* HandshakeStateTests.swift in Sources */,
 				D77C730E214821F200A3E0EA /* ProtocolTests.swift in Sources */,
@@ -1826,15 +1835,22 @@
 			baseConfigurationReference = D704465F2179D23B00A91DA0 /* NoiseTests.xcconfig */;
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = NO;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 32HNEEH56A;
 				INFOPLIST_FILE = NoiseTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				PRODUCT_BUNDLE_IDENTIFIER = com.outercorner.NoiseTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OBJC_BRIDGING_HEADER = "NoiseTests/NoiseTests-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 			};
@@ -1845,15 +1861,22 @@
 			baseConfigurationReference = D704465F2179D23B00A91DA0 /* NoiseTests.xcconfig */;
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = NO;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 32HNEEH56A;
 				INFOPLIST_FILE = NoiseTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				PRODUCT_BUNDLE_IDENTIFIER = com.outercorner.NoiseTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OBJC_BRIDGING_HEADER = "NoiseTests/NoiseTests-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_VERSION = 4.2;
 			};
