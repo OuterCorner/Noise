@@ -1747,10 +1747,10 @@
 			baseConfigurationReference = D77C6E312142E20300A3E0EA /* Noise.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = 32HNEEH56A;
+				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -1769,6 +1769,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.outercorner.osx.Noise;
 				PRODUCT_NAME = Noise;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 			};
 			name = Debug;
@@ -1778,10 +1779,10 @@
 			baseConfigurationReference = D77C6E312142E20300A3E0EA /* Noise.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = 32HNEEH56A;
+				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -1800,6 +1801,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.outercorner.osx.Noise;
 				PRODUCT_NAME = Noise;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 			};
 			name = Release;
