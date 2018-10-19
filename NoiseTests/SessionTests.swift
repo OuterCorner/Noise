@@ -23,14 +23,9 @@ class SessionTests: XCTestCase {
         XCTAssertNotNil(s3)
         
         let s4 = NoiseSession(protocolName: "Noise_NK_25519_AESGCM_SHA256", role: .initiator) { setup in
-            guard let remotePublicKeyURL = Bundle(for: EchoClientTests.self).url(forResource: "keys/server_key_25519", withExtension: "pub") else {
-                XCTFail("Could not find server public key")
-                return
-            }
-            var keyMaterial = [UInt8](repeating: 0, count: 32)
-            let ret = echo_load_public_key(remotePublicKeyURL.path.cString(using: .utf8), &keyMaterial, 32)
-            XCTAssertEqual(ret, 1)
-            setup.remotePublicKey = NoiseKey(material: Data(keyMaterial), role: NoiseKeyRole.public, algo: NoiseKeyAlgo.curve25519)
+            let keyPair = NoiseKeyGenerator.shared.generateKeyPair(.curve25519)
+            let pubKey = keyPair.publicKey;
+            setup.remotePublicKey = pubKey
         }
         XCTAssertNotNil(s4)
         XCTAssertTrue(s4!.isReady)
@@ -104,13 +99,13 @@ class SessionTests: XCTestCase {
         
         expectation(for: p, evaluatedWith: session.sendingHandle ?? NSNull(), handler: nil)
         
-        waitForExpectations(timeout: 1.0, handler: nil)
+        waitForExpectations(timeout: 2.0, handler: nil)
         
         delegate.didStopExpectation = expectation(description: "DidStop")
         keyValueObservingExpectation(for: session, keyPath: #keyPath(NoiseSession.state), expectedValue: NoiseSessionState.stopped.rawValue)
         session.stop()
         
-        waitForExpectations(timeout: 1.0, handler: nil)
+        waitForExpectations(timeout: 2.0, handler: nil)
     }
 
 }
