@@ -50,7 +50,10 @@ class HandshakeStateTests: XCTestCase {
         handshake = NoiseHandshakeState(with: p, role: .initiator)
         XCTAssertTrue(handshake.localKeyPairMissing)
         
-        let keyPair = NoiseKeyGenerator.shared.generateKeyPair(.curve25519)
+        guard let keyPair = NoiseKeyGenerator.shared.generateKeyPair(.curve25519) else {
+            XCTFail("Failed to generate \(NoiseKeyAlgo.curve25519) key pair")
+            return
+        }
         handshake.localKeyPair = keyPair;
         XCTAssertFalse(handshake.localKeyPairMissing)
         
@@ -71,7 +74,10 @@ class HandshakeStateTests: XCTestCase {
         handshake = NoiseHandshakeState(with: p, role: .initiator)
         XCTAssertTrue(handshake.remotePublicKeyMissing)
         
-        let keyPair = NoiseKeyGenerator.shared.generateKeyPair(.curve25519)
+        guard let keyPair = NoiseKeyGenerator.shared.generateKeyPair(.curve25519) else {
+            XCTFail("Failed to generate \(NoiseKeyAlgo.curve25519) key pair")
+            return
+        }
         let pubKey = keyPair.publicKey;
         handshake.remotePublicKey = pubKey;
         XCTAssertFalse(handshake.remotePublicKeyMissing)

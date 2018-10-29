@@ -13,8 +13,10 @@ class KeyTests: XCTestCase {
 
     func testPublicKeyGenerator() {
         func testGeneratingKeys(for keyAlgo: NoiseKeyAlgo, length: Int) {
-            let key = NoiseKeyGenerator.shared.generateKeyPair(keyAlgo)
-            XCTAssertNotNil(key)
+            guard let key = NoiseKeyGenerator.shared.generateKeyPair(keyAlgo) else {
+                XCTFail("Failed to generate \(keyAlgo) key pair")
+                return
+            }
             
             XCTAssertEqual(key.publicKey.keyRole, NoiseKeyRole.public)
             XCTAssertEqual(key.publicKey.keyAlgo, keyAlgo)
@@ -40,7 +42,10 @@ class KeyTests: XCTestCase {
     }
 
     func testKeySerialization() throws {
-        let key = NoiseKeyGenerator.shared.generateKeyPair(.curve448)
+        guard let key = NoiseKeyGenerator.shared.generateKeyPair(.curve448) else {
+            XCTFail("Failed to generate \(NoiseKeyAlgo.curve448) key pair")
+            return
+        }
         
         let data = try NSKeyedArchiver.archivedData(withRootObject: key, requiringSecureCoding: true)
         

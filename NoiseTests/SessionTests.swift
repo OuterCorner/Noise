@@ -23,7 +23,10 @@ class SessionTests: XCTestCase {
         XCTAssertNotNil(s3)
         
         let s4 = NoiseSession(protocolName: "Noise_NK_25519_AESGCM_SHA256", role: .initiator) { setup in
-            let keyPair = NoiseKeyGenerator.shared.generateKeyPair(.curve25519)
+            guard let keyPair = NoiseKeyGenerator.shared.generateKeyPair(.curve25519) else {
+                XCTFail("Failed to generate \(NoiseKeyAlgo.curve25519) key pair")
+                return
+            }
             let pubKey = keyPair.publicKey;
             setup.remotePublicKey = pubKey
         }
@@ -38,7 +41,10 @@ class SessionTests: XCTestCase {
         XCTAssertFalse(ready)
         
         ready = session.setup { (setup) in
-            let keyPair = NoiseKeyGenerator.shared.generateKeyPair(.curve25519)
+            guard let keyPair = NoiseKeyGenerator.shared.generateKeyPair(.curve25519) else {
+                XCTFail("Failed to generate \(NoiseKeyAlgo.curve25519) key pair")
+                return
+            }
             let pubKey = keyPair.publicKey;
             setup.remotePublicKey = pubKey;
         }
@@ -68,7 +74,10 @@ class SessionTests: XCTestCase {
         }
         
         session.setup { (setup) in
-            let keyPair = NoiseKeyGenerator.shared.generateKeyPair(.curve25519)
+            guard let keyPair = NoiseKeyGenerator.shared.generateKeyPair(.curve25519) else {
+                XCTFail("Failed to generate \(NoiseKeyAlgo.curve25519) key pair")
+                return
+            }
             let pubKey = keyPair.publicKey;
             setup.remotePublicKey = pubKey;
         }
