@@ -52,7 +52,7 @@
     return [self initWithNoiseCCipherState:cipher maxMessageSize:maxMessageSize];
 }
     
-- (NSData *)encrypt:(NSData *)data error:(NSError * _Nullable __autoreleasing *)error
+- (NSData *__nullable)encrypt:(NSData *)data error:(NSError * _Nullable __autoreleasing *)error
 {
     NoiseBuffer noise_buffer;
     NSUInteger dataLength = [data length];
@@ -71,7 +71,7 @@
     return [NSData dataWithBytes:_buffer length:noise_buffer.size];
 }
 
-- (NSData *)decrypt:(NSData *)data error:(NSError * _Nullable __autoreleasing *)error
+- (NSData *__nullable)decrypt:(NSData *)data error:(NSError * _Nullable __autoreleasing *)error
 {
     NoiseBuffer noise_buffer;
     NSUInteger dataLength = [data length];

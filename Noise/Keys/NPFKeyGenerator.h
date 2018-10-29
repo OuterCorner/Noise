@@ -30,7 +30,7 @@ NS_SWIFT_NAME(NoiseKeyGenerator)
  @param keyAlgo the algorithm to generate keys for
  @return a new keypair or nil if key algo is not supported
  */
-- (NPFKeyPair *)generateKeyPair:(NPFKeyAlgo)keyAlgo;
+- (NPFKeyPair *__nullable)generateKeyPair:(NPFKeyAlgo)keyAlgo;
 
 - (NPFKey *)generateSymmetricKey:(NSUInteger)sizeInBytes;
 

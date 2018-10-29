@@ -13,8 +13,8 @@ NS_ASSUME_NONNULL_BEGIN
 NS_SWIFT_NAME(NoiseCipherState)
 @interface NPFCipherState : NSObject
 
-- (NSData *)encrypt:(NSData *)data error:(NSError * _Nullable __autoreleasing *)error;
-- (NSData *)decrypt:(NSData *)data error:(NSError * _Nullable __autoreleasing *)error;
+- (NSData *__nullable)encrypt:(NSData *)data error:(NSError * _Nullable __autoreleasing *)error;
+- (NSData *__nullable)decrypt:(NSData *)data error:(NSError * _Nullable __autoreleasing *)error;
 
 - (NSUInteger)macLength;
 

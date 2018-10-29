@@ -23,7 +23,7 @@
     return _sharedGenerator;
 }
 
-- (NPFKeyPair *)generateKeyPair:(NPFKeyAlgo)keyAlgo
+- (NPFKeyPair *__nullable)generateKeyPair:(NPFKeyAlgo)keyAlgo
 {
     NoiseDHState *dh;
     const char *key_type = [keyAlgo UTF8String];
