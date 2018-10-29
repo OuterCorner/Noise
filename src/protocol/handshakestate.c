@@ -714,7 +714,7 @@ int noise_handshakestate_needs_remote_public_key(const NoiseHandshakeState *stat
         return 0;
     if ((state->requirements & NOISE_REQ_REMOTE_REQUIRED) == 0)
         return 0;
-    return !noise_dhstate_has_keypair(state->dh_remote_static);
+    return !noise_dhstate_has_public_key(state->dh_remote_static);
 }
 
 /**
@@ -1407,12 +1407,8 @@ int noise_handshakestate_write_message
  *
  * \param state The HandshakeState object.
  * \param message Points to the incoming handshake message to be unpacked.
- * \param message_size The length of the incoming handshake message in bytes.
  * \param payload Points to the buffer to fill with the message payload.
  * This can be NULL if the application does not need the message payload.
- * \param payload_size On exit, set to the number of bytes that were actually
- * written to \a payload.
- * \param max_size Maximum payload size that can be written to \a payload.
  *
  * \sa noise_handshakestate_read_message()
  */
@@ -1777,6 +1773,101 @@ int noise_handshakestate_get_handshake_hash
         memcpy(hash, state->symmetric->h, max_len);
     }
     return NOISE_ERROR_NONE;
+}
+
+
+int noise_handshakestate_get_action_pattern
+(const NoiseHandshakeState *state, char *pattern, size_t max_len)
+{
+    uint8_t token = 0;
+    int err = NOISE_ERROR_NONE;
+    int p = 0;
+    int t = 0;
+    
+    for (;;) {
+        token = *(state->tokens + t);
+        if (token == NOISE_TOKEN_END) {
+            break;
+        } else if (token == NOISE_TOKEN_FLIP_DIR) {
+            break;
+        }
+        if (p != 0) {
+            if (max_len - p > 1) {
+                pattern[p++] = ',';
+            }
+        }
+        
+        /* Process the token */
+        switch (token) {
+            case NOISE_TOKEN_E:
+                if (max_len - p > 1) {
+                    pattern[p++] = 'e';
+                }
+                break;
+            case NOISE_TOKEN_S:
+                if (max_len - p > 1) {
+                    pattern[p++] = 's';
+                }
+                break;
+            case NOISE_TOKEN_EE:
+                if (max_len - p > 1) {
+                    pattern[p++] = 'e';
+                }
+                if (max_len - p > 1) {
+                    pattern[p++] = 'e';
+                }
+                break;
+            case NOISE_TOKEN_ES:
+                if (max_len - p > 1) {
+                    pattern[p++] = 'e';
+                }
+                if (max_len - p > 1) {
+                    pattern[p++] = 's';
+                }
+                break;
+            case NOISE_TOKEN_SE:
+                if (max_len - p > 1) {
+                    pattern[p++] = 's';
+                }
+                if (max_len - p > 1) {
+                    pattern[p++] = 'e';
+                }
+                break;
+            case NOISE_TOKEN_SS:
+                if (max_len - p > 1) {
+                    pattern[p++] = 's';
+                }
+                if (max_len - p > 1) {
+                    pattern[p++] = 's';
+                }
+                break;
+            case NOISE_TOKEN_F:
+                if (max_len - p > 1) {
+                    pattern[p++] = 'f';
+                }
+                break;
+            case NOISE_TOKEN_FF:
+                if (max_len - p > 1) {
+                    pattern[p++] = 'f';
+                }
+                if (max_len - p > 1) {
+                    pattern[p++] = 'f';
+                }
+                break;
+            default:
+                err = NOISE_ERROR_INVALID_STATE;
+                break;
+        }
+        if (err != NOISE_ERROR_NONE) {
+            return err;
+        }
+        t++;
+    }
+
+    if (max_len - p > 0) {
+        pattern[p++] = '\0';
+    }
+    return err;
 }
 
 /**@}*/
