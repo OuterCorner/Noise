@@ -213,6 +213,55 @@ class SessionTests: XCTestCase {
         testSending(data: randomData(of: 247), expectedMessageCount: 4)
     }
     
+    func testSessionHandshakeHash() {
+        
+        // setup client & server session
+        let clientSession = NoiseSession(protocolName: "Noise_NN_25519_AESGCM_SHA256", role: .initiator)!
+        let serverSession = NoiseSession(protocolName: "Noise_NN_25519_AESGCM_SHA256", role: .responder)!
+        
+        clientSession.setup { (setup) in
+            // nothing
+        }
+        
+        serverSession.setup { (setup) in
+            // nothing
+        }
+        
+        // establish connection
+        let serverSessionDelegate = NoiseSessionStubDelegate()
+        serverSession.delegate = serverSessionDelegate
+        let clientSessionDelegate = NoiseSessionStubDelegate()
+        clientSession.delegate = clientSessionDelegate
+        
+        let establishedExpectation = keyValueObservingExpectation(for: clientSession, keyPath: "state") { (object, change) -> Bool in
+            return clientSession.state == NoiseSessionState.established
+        }
+        
+        XCTAssertNoThrow(try clientSession.start())
+        XCTAssertNoThrow(try serverSession.start())
+        
+        XCTAssertNotNil(clientSession.sendingHandle)
+        XCTAssertNotNil(clientSession.receivingHandle)
+        XCTAssertNotNil(serverSession.sendingHandle)
+        XCTAssertNotNil(serverSession.receivingHandle)
+        
+        clientSession.sendingHandle!.readabilityHandler = { fh in
+            serverSession.receivingHandle!.write(fh.availableData)
+        }
+        serverSession.sendingHandle!.readabilityHandler = { fh in
+            clientSession.receivingHandle!.write(fh.availableData)
+        }
+        
+        wait(for: [establishedExpectation], timeout: 1.0)
+        
+        // compare both handshake hashes
+        guard let clientSessionHash = clientSessionDelegate.completedHandshakeState?.handshakeHash,
+            let serverSessionHash = serverSessionDelegate.completedHandshakeState?.handshakeHash else {
+                XCTFail("Handshake hash is nil")
+                return
+        }
+        XCTAssertEqual(clientSessionHash, serverSessionHash)
+    }
 }
 
 fileprivate class NoiseSessionStubDelegate: NSObject, NoiseSessionDelegate {
@@ -236,6 +285,14 @@ fileprivate class NoiseSessionStubDelegate: NSObject, NoiseSessionDelegate {
         }
         
         return nil
+    }
+    
+    static let didCompleteHandshakeNotificationName = Notification.Name("NoiseSessionDelegateDidCompleteHandshake")
+    static let handshakeStateNotificationKey = "HanshakeState"
+    var completedHandshakeState: NoiseHandshakeState?
+    func session(_ session: NoiseSession, handshakeComplete handshakeState: NoiseHandshakeState) {
+        NotificationCenter.default.post(name: NoiseSessionStubDelegate.didCompleteHandshakeNotificationName, object: self, userInfo: [NoiseSessionStubDelegate.handshakeStateNotificationKey: handshakeState])
+        completedHandshakeState = handshakeState
     }
     
     var didStopExpectation: XCTestExpectation?

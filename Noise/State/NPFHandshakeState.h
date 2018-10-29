@@ -35,6 +35,13 @@ NS_SWIFT_NAME(NoiseHandshakeState)
 /** The associated session. */
 @property (nullable, weak, readonly) NPFSession *session;
 
+
+/**
+ A hash value that can be used for channel binding.
+ This is nil if the handhshake is not complete yet.
+ */
+@property (nullable, strong, readonly) NSData *handshakeHash;
+
 @end
 
 NS_ASSUME_NONNULL_END

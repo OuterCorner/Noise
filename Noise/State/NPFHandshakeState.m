@@ -182,6 +182,21 @@
     return noise_handshakestate_needs_remote_public_key(_handshakeState);
 }
 
+- (NSData *__nullable)handshakeHash
+{
+    NSUInteger hashLength = [self.protocol hashLength];
+    uint8_t *hash = (uint8_t *)malloc(hashLength);
+    
+    int err = noise_handshakestate_get_handshake_hash(_handshakeState, hash, hashLength);
+    if (err != NOISE_ERROR_NONE) {
+        noise_perror("get hanshakeHash", err);
+        free(hash);
+        return nil;
+    }
+
+    return [NSData dataWithBytesNoCopy:hash length:hashLength];
+}
+
 
 #pragma mark - Package private methods
 

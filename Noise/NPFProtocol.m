@@ -93,6 +93,17 @@
     return [[NSString alloc] initWithBytes:name length:strlen(name) encoding:NSASCIIStringEncoding];
 }
 
+- (NSUInteger)hashLength
+{
+    NoiseHashState *state = NULL;
+    noise_hashstate_new_by_id(&state, _protocolId->hash_id);
+    
+    size_t length = noise_hashstate_get_hash_length(state);
+    
+    noise_hashstate_free(state);
+    return length;
+}
+
 - (NSUInteger)dhPublicKeySize
 {
     NoiseDHState *state = NULL;

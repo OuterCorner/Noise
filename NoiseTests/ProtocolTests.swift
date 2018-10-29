@@ -25,6 +25,7 @@ class ProtocolTests: XCTestCase {
             XCTAssertEqual(p.dhFunction, "448")
             XCTAssertEqual(p.cipherFunction, "ChaChaPoly")
             XCTAssertEqual(p.hashFunction, "BLAKE2b")
+            XCTAssertEqual(p.hashLength, 64)
         }
         else {
             XCTFail("Failed to initialize noise protocol")
