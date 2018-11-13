@@ -43,7 +43,7 @@ Start by importing the umbrella header:
 
 ```ObjC
 // Objective-C
-#import <Noise/OpenSSL.h>
+#import <Noise/Noise.h>
 ```
 
 ```Swift
