@@ -346,8 +346,8 @@
 {
     uint16_t size = [data length];
     uint8_t size_buf[2];
-    size_buf[0] = (uint8_t)size >> 8;
-    size_buf[1] = (uint8_t)size;
+    size_buf[0] = (uint8_t)(size >> 8);
+    size_buf[1] = (uint8_t)(size);
     
     NSData *sizeHeader = [NSData dataWithBytes:size_buf length:2];
     NSFileHandle *writingHandle = [self.outPipe fileHandleForWriting];
