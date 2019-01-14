@@ -252,13 +252,13 @@
     self.sendingCipherState = sendCipher;
     self.receivingCipherState = recvCipher;
     
+    [self transitionToState:NPFSessionStateEstablished];
+    
     dispatch_sync(dispatch_get_main_queue(), ^{
         if ([self.delegate respondsToSelector:@selector(session:handshakeComplete:)]) {
             [self.delegate session:self handshakeComplete:self.handshakeState];
         }
     });
-    
-    [self transitionToState:NPFSessionStateEstablished];
 }
 
 
