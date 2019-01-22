@@ -324,6 +324,58 @@ class SessionTests: XCTestCase {
         testSending(data: randomData(of: 500), expectedMessageCount: 1)
     }
     
+    func testIncorrectPSK() {
+        // setup client & server session
+        let clientSession = NoiseSession(protocolName: "NoisePSK_NN_25519_ChaChaPoly_SHA256", role: .initiator)!
+        let serverSession = NoiseSession(protocolName: "NoisePSK_NN_25519_ChaChaPoly_SHA256", role: .responder)!
+        
+        clientSession.setup { (setup) in
+            setup.setPreSharedKey(NoiseKeyGenerator().generateSymmetricKey(32))
+        }
+        
+        serverSession.setup { (setup) in
+            setup.setPreSharedKey(NoiseKeyGenerator().generateSymmetricKey(32))
+        }
+        
+        // establish connection
+        let serverSessionDelegate = NoiseSessionStubDelegate()
+        serverSession.delegate = serverSessionDelegate
+        let clientSessionDelegate = NoiseSessionStubDelegate()
+        clientSession.delegate = clientSessionDelegate
+        
+        let serverFailedExpectation = keyValueObservingExpectation(for: serverSession, keyPath: "state") { (object, change) -> Bool in
+            clientSession.receivingHandle?.closeFile()
+            return serverSession.state == NoiseSessionState.error
+        }
+        let clientFailedExpectation = keyValueObservingExpectation(for: clientSession, keyPath: "state") { (object, change) -> Bool in
+            return clientSession.state == NoiseSessionState.error
+        }
+        
+        XCTAssertNoThrow(try clientSession.start())
+        XCTAssertNoThrow(try serverSession.start())
+        
+        XCTAssertNotNil(clientSession.sendingHandle)
+        XCTAssertNotNil(clientSession.receivingHandle)
+        XCTAssertNotNil(serverSession.sendingHandle)
+        XCTAssertNotNil(serverSession.receivingHandle)
+        
+        clientSession.sendingHandle!.readabilityHandler = { fh in
+            if let rcvHandle = serverSession.receivingHandle {
+                rcvHandle.write(fh.availableData)
+            }
+        }
+        serverSession.sendingHandle!.readabilityHandler = { fh in
+            if let rcvHandle = clientSession.receivingHandle {
+                rcvHandle.write(fh.availableData)
+            }
+        }
+        
+        wait(for: [serverFailedExpectation, clientFailedExpectation], timeout: 1.0)
+        
+    }
+    
+    
+    
     // MARK: private
     
     func randomData(of size: Int) -> Data {

@@ -149,7 +149,9 @@
         NSData *sizeHeader = [handle readDataOfLength:2];
         if ([sizeHeader length] != 2) {
             dispatch_async(dispatch_get_main_queue(), ^{
-                [wSelf abort:[NSError errorWithDomain:NPFErrorDomain code:fileHandleReadFailedError userInfo:nil]];
+                [wSelf abort:[NSError errorWithDomain:NPFErrorDomain
+                                                 code:(sizeHeader != nil && [sizeHeader length] == 0) ? fileHandleEOFError : fileHandleReadFailedError
+                                             userInfo:nil]];
             });
             return;
         }
@@ -160,7 +162,9 @@
         NSData *message = [handle readDataOfLength:(NSUInteger)size];
         if ([message length] != size) {
             dispatch_async(dispatch_get_main_queue(), ^{
-                [wSelf abort:[NSError errorWithDomain:NPFErrorDomain code:fileHandleReadFailedError userInfo:nil]];
+                [wSelf abort:[NSError errorWithDomain:NPFErrorDomain
+                                                 code:(message != nil && [message length] == 0) ? fileHandleEOFError : fileHandleReadFailedError
+                                             userInfo:nil]];
             });
             return;
         }
@@ -279,7 +283,9 @@
         case NPFSessionStateStopped:
         case NPFSessionStateError:
             self.handshakeState = nil;
+            [self.sendingHandle closeFile];
             self.sendingHandle = nil;
+            [self.receivingHandle closeFile];
             self.receivingHandle = nil;
             self.inPipe = nil;
             self.outPipe = nil;
