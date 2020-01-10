@@ -9,7 +9,7 @@
 import Foundation
 import CNoise
 
-public enum NoiseProtocolError: Error {
+private enum NoiseProtocolError: Error {
     case invalidProtocol
     case unsuportedProtocol
 }
@@ -21,7 +21,7 @@ Represents a specific noise protocol.
 @objc(NPFProtocol)
 public class NoiseProtocol: NSObject {
     
-    public let protocolId: UnsafePointer<NoiseProtocolId>
+    let protocolId: UnsafePointer<NoiseProtocolId>
     
     /// You create an instance of this class by passing in the name of the desired protocol
     /// has specified in the Noise Protocol Framework.

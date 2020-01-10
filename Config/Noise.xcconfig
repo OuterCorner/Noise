@@ -14,8 +14,11 @@ FRAMEWORK_SEARCH_PATHS[sdk=macosx*] = $(PROJECT_DIR)/Carthage/Build/Mac
 FRAMEWORK_SEARCH_PATHS[sdk=iphoneos*] = $(PROJECT_DIR)/Carthage/Build/iOS
 FRAMEWORK_SEARCH_PATHS[sdk=iphonesimulator*] = $(PROJECT_DIR)/Carthage/Build/iOS
 
+LIBRARY_SEARCH_PATHS[sdk=macosx*] = $(SYMROOT)/../../SourcePackages/checkouts/CSodium/Libs/macos
+LIBRARY_SEARCH_PATHS[sdk=iphoneos*] = $(SYMROOT)/../../SourcePackages/checkouts/CSodium/Libs/ios
+LIBRARY_SEARCH_PATHS[sdk=iphonesimulator*] = $(SYMROOT)/../../SourcePackages/checkouts/CSodium/Libs/ios
 
-OTHER_LDFLAGS = -framework OpenSSL
+OTHER_LDFLAGS = -framework OpenSSL -lsodium
 
 
 HUMAN_VERSION = 0.9.5

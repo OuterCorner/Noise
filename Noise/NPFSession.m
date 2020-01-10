@@ -6,8 +6,8 @@
 // Copyright © 2018 Outer Corner. All rights reserved.
 //
 
+#import <Noise/Noise-Swift.h>
 #import "NPFSession+Package.h"
-#import "NPFProtocol+Package.h"
 #import "NPFHandshakeState+Package.h"
 #import "NPFCipherState+Package.h"
 #import "NPFErrors.h"

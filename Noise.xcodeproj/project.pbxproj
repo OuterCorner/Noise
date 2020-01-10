@@ -85,9 +85,6 @@
 		D76C0E9D21791C6500BC534D /* echo-common.c in Sources */ = {isa = PBXBuildFile; fileRef = D72E164C214C662C00839C9D /* echo-common.c */; settings = {COMPILER_FLAGS = "-w"; }; };
 		D77C6E1A2142E09100A3E0EA /* Noise.h in Headers */ = {isa = PBXBuildFile; fileRef = D77C6E182142E09100A3E0EA /* Noise.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D77C72DF2143162600A3E0EA /* libnoiseprotocol.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D77C6E3C2142EEDB00A3E0EA /* libnoiseprotocol.a */; };
-		D77C72F4214813F800A3E0EA /* NPFProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = D77C72F2214813F800A3E0EA /* NPFProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D77C72F6214813F800A3E0EA /* NPFProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = D77C72F3214813F800A3E0EA /* NPFProtocol.m */; };
-		D77C72FA214819F900A3E0EA /* NPFProtocol+Package.h in Headers */ = {isa = PBXBuildFile; fileRef = D77C72F8214819F900A3E0EA /* NPFProtocol+Package.h */; };
 		D77C7307214821D100A3E0EA /* Noise.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D77C6E152142E09100A3E0EA /* Noise.framework */; };
 		D77C730E214821F200A3E0EA /* ProtocolTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77C730D214821F200A3E0EA /* ProtocolTests.swift */; };
 		D77C73112148484600A3E0EA /* NPFUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = D77C730F2148484600A3E0EA /* NPFUtil.h */; };
@@ -420,9 +417,6 @@
 		D77C725C2142F04200A3E0EA /* certificate.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = certificate.c; sourceTree = "<group>"; };
 		D77C725D2142F04200A3E0EA /* Makefile.am */ = {isa = PBXFileReference; lastKnownFileType = text; path = Makefile.am; sourceTree = "<group>"; };
 		D77C726E214310D400A3E0EA /* noise-c.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "noise-c.xcconfig"; sourceTree = "<group>"; };
-		D77C72F2214813F800A3E0EA /* NPFProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NPFProtocol.h; sourceTree = "<group>"; };
-		D77C72F3214813F800A3E0EA /* NPFProtocol.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NPFProtocol.m; sourceTree = "<group>"; };
-		D77C72F8214819F900A3E0EA /* NPFProtocol+Package.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NPFProtocol+Package.h"; sourceTree = "<group>"; };
 		D77C7302214821D100A3E0EA /* NoiseTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NoiseTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D77C7306214821D100A3E0EA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D77C730D214821F200A3E0EA /* ProtocolTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtocolTests.swift; sourceTree = "<group>"; };
@@ -596,9 +590,6 @@
 				D75952C0214952B10043D7ED /* NPFSession.m */,
 				D72E169421515C6400839C9D /* NPFSession+Package.h */,
 				D765346623C778C100C1BFEB /* NoiseProtocol.swift */,
-				D77C72F2214813F800A3E0EA /* NPFProtocol.h */,
-				D77C72F3214813F800A3E0EA /* NPFProtocol.m */,
-				D77C72F8214819F900A3E0EA /* NPFProtocol+Package.h */,
 				D75952C6214958540043D7ED /* State */,
 				D77C731E2148492F00A3E0EA /* Keys */,
 				D77C730F2148484600A3E0EA /* NPFUtil.h */,
@@ -1148,7 +1139,6 @@
 				D72E1690215156E300839C9D /* NPFCipherState+Package.h in Headers */,
 				D72E168A215155E600839C9D /* NPFCipherState.h in Headers */,
 				D77C73192148490800A3E0EA /* NPFKey.h in Headers */,
-				D77C72F4214813F800A3E0EA /* NPFProtocol.h in Headers */,
 				D72E169621515C6400839C9D /* NPFSession+Package.h in Headers */,
 				D77C73212148494500A3E0EA /* NPFKeyPair.h in Headers */,
 				D72E162B214BF24600839C9D /* NPFHandshakeState+Package.h in Headers */,
@@ -1156,7 +1146,6 @@
 				D77C73112148484600A3E0EA /* NPFUtil.h in Headers */,
 				D72E1631214BFF3500839C9D /* NPFErrors+Package.h in Headers */,
 				D75952C92149587C0043D7ED /* NPFHandshakeState.h in Headers */,
-				D77C72FA214819F900A3E0EA /* NPFProtocol+Package.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1401,7 +1390,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				D77C731B2148490800A3E0EA /* NPFKey.m in Sources */,
-				D77C72F6214813F800A3E0EA /* NPFProtocol.m in Sources */,
 				D765346723C778C100C1BFEB /* NoiseProtocol.swift in Sources */,
 				D77C73132148484600A3E0EA /* NPFUtil.m in Sources */,
 				D72E168C215155E600839C9D /* NPFCipherState.m in Sources */,

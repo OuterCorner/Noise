@@ -8,7 +8,6 @@
 
 #import <Foundation/Foundation.h>
 #import "NPFSession.h"
-#import "NPFProtocol.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
