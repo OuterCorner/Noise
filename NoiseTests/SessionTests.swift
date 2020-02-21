@@ -377,14 +377,32 @@ class SessionTests: XCTestCase {
         
     }
     
+    func testEOF() throws {
+        let session = NoiseSession(protocolName: "Noise_NN_25519_AESGCM_SHA256", role: .initiator) { (setup) in
+            // nothing
+        }!
+        
+        try session.start()
+        
+        let eofExpectation = expectation(description: "EOF")
+        session.sendingHandle!.readabilityHandler = { fh in
+            let data = fh.availableData
+            if data.isEmpty {
+                eofExpectation.fulfill()
+                fh.readabilityHandler = nil
+            }
+        }
+        session.stop()
+        wait(for: [eofExpectation], timeout: 1.0)
+    }
     
     
     // MARK: private
     
     func randomData(of size: Int) -> Data {
         var data = Data(count: size)
-        let res = data.withUnsafeMutableBytes { (bytes) -> OSStatus in
-            return SecRandomCopyBytes(kSecRandomDefault, size, bytes)
+        let res: OSStatus = data.withUnsafeMutableBytes { (bytes) -> OSStatus in
+            return SecRandomCopyBytes(kSecRandomDefault, size, bytes.baseAddress!)
         }
         XCTAssertEqual(res, errSecSuccess)
         return data

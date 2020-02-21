@@ -282,13 +282,11 @@
             break;
         case NPFSessionStateStopped:
         case NPFSessionStateError:
+            [self.outPipe.fileHandleForWriting closeFile];
+            [self.inPipe.fileHandleForWriting closeFile];
             self.handshakeState = nil;
-            [self.sendingHandle closeFile];
             self.sendingHandle = nil;
-            [self.receivingHandle closeFile];
             self.receivingHandle = nil;
-            self.inPipe = nil;
-            self.outPipe = nil;
             self.sendingCipherState = nil;
             self.receivingCipherState = nil;
             break;
