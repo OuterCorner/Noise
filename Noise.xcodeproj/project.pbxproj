@@ -1284,7 +1284,7 @@
 			attributes = {
 				CLASSPREFIX = NPF;
 				LastSwiftUpdateCheck = 1000;
-				LastUpgradeCheck = 1010;
+				LastUpgradeCheck = 1120;
 				ORGANIZATIONNAME = "Outer Corner";
 				TargetAttributes = {
 					D72E1659214C667900839C9D = {
@@ -1304,7 +1304,7 @@
 					};
 					D77C7301214821D100A3E0EA = {
 						CreatedOnToolsVersion = 10.0;
-						LastSwiftMigration = 1000;
+						LastSwiftMigration = 1120;
 					};
 				};
 			};
@@ -1314,6 +1314,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = D77C6E0B2142E09100A3E0EA;
 			productRefGroup = D77C6E162142E09100A3E0EA /* Products */;
@@ -1509,6 +1510,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D76C0E7B2178BC0300BC534D /* echo.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 32HNEEH56A;
 				LD_RUNPATH_SEARCH_PATHS = "$(SRCROOT)/Carthage/Build/Mac";
@@ -1524,6 +1526,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D76C0E7B2178BC0300BC534D /* echo.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 32HNEEH56A;
 				LD_RUNPATH_SEARCH_PATHS = "$(SRCROOT)/Carthage/Build/Mac";
@@ -1539,6 +1542,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D76C0E7B2178BC0300BC534D /* echo.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 32HNEEH56A;
 				"FRAMEWORK_SEARCH_PATHS[sdk=iphoneos*]" = "$(PROJECT_DIR)/Carthage/Build/iOS";
@@ -1561,6 +1565,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D76C0E7B2178BC0300BC534D /* echo.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 32HNEEH56A;
 				"FRAMEWORK_SEARCH_PATHS[sdk=iphoneos*]" = "$(PROJECT_DIR)/Carthage/Build/iOS";
@@ -1855,7 +1860,7 @@
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OBJC_BRIDGING_HEADER = "NoiseTests/NoiseTests-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -1881,7 +1886,7 @@
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OBJC_BRIDGING_HEADER = "NoiseTests/NoiseTests-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
