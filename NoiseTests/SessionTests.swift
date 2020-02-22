@@ -381,7 +381,8 @@ class SessionTests: XCTestCase {
         let session = NoiseSession(protocolName: "Noise_NN_25519_AESGCM_SHA256", role: .initiator) { (setup) in
             // nothing
         }!
-        
+        let delegate = NoiseSessionStubDelegate()
+        session.delegate = delegate
         try session.start()
         
         let eofExpectation = expectation(description: "EOF")
@@ -392,8 +393,12 @@ class SessionTests: XCTestCase {
                 fh.readabilityHandler = nil
             }
         }
+        
+        let didStopExpectation = expectation(description: "Session Delegate did stop")
+        delegate.didStopExpectation = didStopExpectation
         session.stop()
-        wait(for: [eofExpectation], timeout: 1.0)
+        wait(for: [eofExpectation, didStopExpectation], timeout: 1.0)
+        XCTAssertNil(delegate.didStopError)
     }
     
     
@@ -441,7 +446,9 @@ fileprivate class NoiseSessionStubDelegate: NSObject, NoiseSessionDelegate {
     }
     
     var didStopExpectation: XCTestExpectation?
+    var didStopError: Error?
     func sessionDidStop(_ session: NoiseSession, error: Error?) {
+        didStopError = error
         didStopExpectation?.fulfill()
     }
     

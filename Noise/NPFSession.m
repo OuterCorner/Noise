@@ -282,8 +282,8 @@
             break;
         case NPFSessionStateStopped:
         case NPFSessionStateError:
+            self.inPipe.fileHandleForReading.readabilityHandler = nil;
             [self.outPipe.fileHandleForWriting closeFile];
-            [self.inPipe.fileHandleForWriting closeFile];
             self.handshakeState = nil;
             self.sendingHandle = nil;
             self.receivingHandle = nil;
