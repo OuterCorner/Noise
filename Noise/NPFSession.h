@@ -131,6 +131,7 @@ NS_SWIFT_NAME(NoiseSession)
 /**
  This is your endpoint to send application data to the peer.
  Multiple noise messages are sent if data doesn't fit in one.
+ If the session isn't established, this method doesn't do anything.
  @param data application data to send
  */
 - (void)sendData:(NSData *)data;

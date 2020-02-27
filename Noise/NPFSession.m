@@ -194,34 +194,24 @@
 
 - (void)sendData:(NSData *)data
 {
-    if (self.state == NPFSessionStateHandshaking) {
-
-        if ([data length] > NOISE_MAX_PAYLOAD_LEN - 2) {
-            NSError *error = [NSError errorWithDomain:NPFErrorDomain
-                                                 code:handshakeMessageToBigError
-                                             userInfo:nil];
+    if (self.state != NPFSessionStateEstablished) {
+        return;
+    }
+    NSUInteger minSize = 2 + [self.sendingCipherState macLength];
+    NSUInteger remaining = [data length];
+    NSUInteger loc = 0;
+    NSData *subData = nil;
+    while ((void)(subData = [data subdataWithRange:NSMakeRange(loc, MIN(remaining, self.maxMessageSize - minSize))]), [subData length] > 0) {
+        NSError *error = nil;
+        NSData *cipherText = [self.sendingCipherState encrypt:subData error:&error];
+        if (!cipherText) {
             [self abort:error];
+            return;
         }
         
-        [self writePacketWithPayload:data];
-    }
-    else if (self.state == NPFSessionStateEstablished) {
-        NSUInteger minSize = 2 + [self.sendingCipherState macLength];
-        NSUInteger remaining = [data length];
-        NSUInteger loc = 0;
-        NSData *subData = nil;
-        while ((void)(subData = [data subdataWithRange:NSMakeRange(loc, MIN(remaining, self.maxMessageSize - minSize))]), [subData length] > 0) {
-            NSError *error = nil;
-            NSData *cipherText = [self.sendingCipherState encrypt:subData error:&error];
-            if (!cipherText) {
-                [self abort:error];
-                return;
-            }
-            
-            [self writePacketWithPayload:cipherText];
-            loc += [subData length];
-            remaining -= [subData length];
-        }
+        [self writePacketWithPayload:cipherText];
+        loc += [subData length];
+        remaining -= [subData length];
     }
 }
 
@@ -249,6 +239,27 @@
     
 #pragma mark - Package
 
+- (void)sendHandshakeData:(NSData *)data
+{
+    if (self.state != NPFSessionStateHandshaking) {
+        NSString *errorMessage = @"Attempt to send handshake data while not in a handshaking state";
+        NSError *error = [NSError errorWithDomain:NPFErrorDomain
+                                             code:internalError
+                                         userInfo:@{NPFInternalErrorMessageKey: errorMessage}];
+        [self abort:error];
+        return;
+    }
+
+    if ([data length] > NOISE_MAX_PAYLOAD_LEN - 2) {
+        NSError *error = [NSError errorWithDomain:NPFErrorDomain
+                                             code:handshakeMessageToBigError
+                                         userInfo:nil];
+        [self abort:error];
+    }
+    [self writePacketWithPayload:data];
+}
+
+
 - (void)establishWithSendingCipher:(NPFCipherState *)sendCipher receivingCipher:(NPFCipherState *)recvCipher
 {
     NSAssert([NSOperationQueue currentQueue] == self.sessionQueue, @"This should be called in the session queue");
@@ -256,13 +267,15 @@
     self.sendingCipherState = sendCipher;
     self.receivingCipherState = recvCipher;
     
-    dispatch_sync(dispatch_get_main_queue(), ^{
-        if ([self.delegate respondsToSelector:@selector(session:handshakeComplete:)]) {
-            [self.delegate session:self handshakeComplete:self.handshakeState];
-        }
-    });
+    NPFHandshakeState *handshakeState = self.handshakeState;
     
     [self transitionToState:NPFSessionStateEstablished];
+    
+    dispatch_sync(dispatch_get_main_queue(), ^{
+        if ([self.delegate respondsToSelector:@selector(session:handshakeComplete:)]) {
+            [self.delegate session:self handshakeComplete:handshakeState];
+        }
+    });
 }
 
 

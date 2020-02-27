@@ -13,6 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface NPFSession (Package)
 
+- (void)sendHandshakeData:(NSData *)data;
 - (void)establishWithSendingCipher:(NPFCipherState *)sendCipher receivingCipher:(NPFCipherState *)recvCipher;
 
 @end

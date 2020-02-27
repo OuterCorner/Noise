@@ -296,7 +296,7 @@
             
             NSData *messageData = [[NSData alloc] initWithBytesNoCopy:buffer length:message_buffer.size];
             
-            [self.session sendData:messageData];
+            [self.session sendHandshakeData:messageData];
         }
         else if (action == NOISE_ACTION_SPLIT) { // handshake finished
             NoiseCipherState *send_cipher = NULL;

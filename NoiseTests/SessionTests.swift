@@ -231,6 +231,11 @@ class SessionTests: XCTestCase {
         let serverEstablishedExpectation = keyValueObservingExpectation(for: serverSession, keyPath: "state") { (object, change) -> Bool in
             return serverSession.state == NoiseSessionState.established
         }
+        let handshakeNotifications = expectation(forNotification: NoiseSessionStubDelegate.didCompleteHandshakeNotificationName, object: nil) { (note) -> Bool in
+            return true
+        }
+        handshakeNotifications.expectedFulfillmentCount = 2
+
         
         XCTAssertNoThrow(try clientSession.start())
         XCTAssertNoThrow(try serverSession.start())
@@ -247,7 +252,7 @@ class SessionTests: XCTestCase {
             clientSession.receivingHandle!.write(fh.availableData)
         }
         
-        wait(for: [clientEstablishedExpectation, serverEstablishedExpectation], timeout: 1.0)
+        wait(for: [clientEstablishedExpectation, serverEstablishedExpectation, handshakeNotifications], timeout: 1.0)
         
         // compare both handshake hashes
         guard let clientSessionHash = clientSessionDelegate.completedHandshakeState?.handshakeHash,
