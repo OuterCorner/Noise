@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "OpenSSL",
+        "repositoryURL": "https://github.com/OuterCorner/OpenSSL.git",
+        "state": {
+          "branch": null,
+          "revision": "9de2366c06754865c25bcd717907be3403959c30",
+          "version": "1.1.1+201014.0"
+        }
+      }
+    ]
+  },
+  "version": 1
+}

@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		27C5C39B2537278A0059758E /* OpenSSL in Frameworks */ = {isa = PBXBuildFile; productRef = 27C5C39A2537278A0059758E /* OpenSSL */; };
 		D704465D2179CE3B00A91DA0 /* echo-server in Copy Executables */ = {isa = PBXBuildFile; fileRef = D72E165A214C667900839C9D /* echo-server */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		D704465E2179CE3B00A91DA0 /* echo-client in Copy Executables */ = {isa = PBXBuildFile; fileRef = D72E166A214C67D700839C9D /* echo-client */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		D71EAEE12179DC06004C4D36 /* ObjC.m in Sources */ = {isa = PBXBuildFile; fileRef = D71EAEE02179DC06004C4D36 /* ObjC.m */; };
@@ -184,6 +185,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		27C5C398253726BD0059758E /* create-xcframework.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = "create-xcframework.sh"; sourceTree = "<group>"; };
 		D704465F2179D23B00A91DA0 /* NoiseTests.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = NoiseTests.xcconfig; sourceTree = "<group>"; };
 		D70446602179D37300A91DA0 /* EchoTests.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = EchoTests.xcconfig; sourceTree = "<group>"; };
 		D70446642179D49D00A91DA0 /* EchoTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "EchoTests-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -463,6 +465,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D77C72DF2143162600A3E0EA /* libnoiseprotocol.a in Frameworks */,
+				27C5C39B2537278A0059758E /* OpenSSL in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -484,6 +487,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		27C5C397253726BD0059758E /* Scripts */ = {
+			isa = PBXGroup;
+			children = (
+				27C5C398253726BD0059758E /* create-xcframework.sh */,
+			);
+			path = Scripts;
+			sourceTree = "<group>";
+		};
 		D72E1646214C662C00839C9D /* echo */ = {
 			isa = PBXGroup;
 			children = (
@@ -561,6 +572,7 @@
 			isa = PBXGroup;
 			children = (
 				D77C6E302142E1DA00A3E0EA /* Config */,
+				27C5C397253726BD0059758E /* Scripts */,
 				D77C6FD62142EF3D00A3E0EA /* Noise-C */,
 				D76C0E832178FBBF00BC534D /* Compat */,
 				D77C6E172142E09100A3E0EA /* Noise */,
@@ -1237,6 +1249,9 @@
 				D77C72DD2143161800A3E0EA /* PBXTargetDependency */,
 			);
 			name = Noise;
+			packageProductDependencies = (
+				27C5C39A2537278A0059758E /* OpenSSL */,
+			);
 			productName = Noise;
 			productReference = D77C6E152142E09100A3E0EA /* Noise.framework */;
 			productType = "com.apple.product-type.framework";
@@ -1245,6 +1260,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D77C6E3D2142EEDB00A3E0EA /* Build configuration list for PBXNativeTarget "noiseprotocol" */;
 			buildPhases = (
+				2729B6F72537290900A319CC /* Create header symlink */,
 				D77C6E382142EEDB00A3E0EA /* Headers */,
 				D77C6E392142EEDB00A3E0EA /* Sources */,
 				D77C6E3A2142EEDB00A3E0EA /* Frameworks */,
@@ -1252,6 +1268,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				27C5C3A3253728EF0059758E /* PBXTargetDependency */,
 			);
 			name = noiseprotocol;
 			productName = noise;
@@ -1317,6 +1334,9 @@
 				Base,
 			);
 			mainGroup = D77C6E0B2142E09100A3E0EA;
+			packageReferences = (
+				27C5C3992537278A0059758E /* XCRemoteSwiftPackageReference "OpenSSL" */,
+			);
 			productRefGroup = D77C6E162142E09100A3E0EA /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -1355,6 +1375,27 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2729B6F72537290900A319CC /* Create header symlink */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Create header symlink";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nmkdir -p \"$TARGET_BUILD_DIR\"/include \nln -fs \"$TARGET_BUILD_DIR\"/OpenSSL.framework/Headers \"$TARGET_BUILD_DIR\"/include/openssl \n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		D72E1656214C667900839C9D /* Sources */ = {
@@ -1468,6 +1509,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		27C5C3A3253728EF0059758E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			productRef = 27C5C3A2253728EF0059758E /* OpenSSL */;
+		};
 		D72E1664214C66A200839C9D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = D77C6E3B2142EEDB00A3E0EA /* noiseprotocol */;
@@ -1957,6 +2002,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		27C5C3992537278A0059758E /* XCRemoteSwiftPackageReference "OpenSSL" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/OuterCorner/OpenSSL.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.1.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		27C5C39A2537278A0059758E /* OpenSSL */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 27C5C3992537278A0059758E /* XCRemoteSwiftPackageReference "OpenSSL" */;
+			productName = OpenSSL;
+		};
+		27C5C3A2253728EF0059758E /* OpenSSL */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 27C5C3992537278A0059758E /* XCRemoteSwiftPackageReference "OpenSSL" */;
+			productName = OpenSSL;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = D77C6E0C2142E09100A3E0EA /* Project object */;
 }
