@@ -534,6 +534,11 @@ int noise_cipherstate_set_nonce(NoiseCipherState *state, uint64_t nonce)
     return NOISE_ERROR_NONE;
 }
 
+uint64_t noise_cipherstate_get_nonce(const NoiseCipherState *state)
+{
+    return state ? state->n : 0;
+}
+
 /**
  * \brief Gets the maximum key length for the supported algorithms.
  *
