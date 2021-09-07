@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -1300,7 +1300,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = NPF;
-				LastSwiftUpdateCheck = 1000;
+				LastSwiftUpdateCheck = 1300;
 				LastUpgradeCheck = 1120;
 				ORGANIZATIONNAME = "Outer Corner";
 				TargetAttributes = {
@@ -1709,6 +1709,7 @@
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_BITCODE = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -1773,6 +1774,7 @@
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_BITCODE = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -1797,6 +1799,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D77C6E312142E20300A3E0EA /* Noise.xcconfig */;
 			buildSettings = {
+				BITCODE_GENERATION_MODE = bitcode;
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -1818,10 +1822,10 @@
 					"@executable_path/../Frameworks",
 					"@loader_path/Frameworks",
 				);
+				OTHER_CFLAGS = "-fembed-bitcode";
 				PRODUCT_BUNDLE_IDENTIFIER = com.outercorner.osx.Noise;
 				PRODUCT_NAME = Noise;
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SKIP_INSTALL = YES;
 			};
 			name = Debug;
 		};
@@ -1829,6 +1833,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D77C6E312142E20300A3E0EA /* Noise.xcconfig */;
 			buildSettings = {
+				BITCODE_GENERATION_MODE = bitcode;
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -1850,10 +1856,10 @@
 					"@executable_path/../Frameworks",
 					"@loader_path/Frameworks",
 				);
+				OTHER_CFLAGS = "-fembed-bitcode";
 				PRODUCT_BUNDLE_IDENTIFIER = com.outercorner.osx.Noise;
 				PRODUCT_NAME = Noise;
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SKIP_INSTALL = YES;
 			};
 			name = Release;
 		};
@@ -1861,12 +1867,13 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D77C726E214310D400A3E0EA /* noise-c.xcconfig */;
 			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 32HNEEH56A;
 				EXECUTABLE_PREFIX = lib;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = NO;
+				OTHER_CFLAGS = "-fembed-bitcode";
 				PRODUCT_NAME = noiseprotocol;
-				SKIP_INSTALL = YES;
 			};
 			name = Debug;
 		};
@@ -1874,12 +1881,13 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D77C726E214310D400A3E0EA /* noise-c.xcconfig */;
 			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 32HNEEH56A;
 				EXECUTABLE_PREFIX = lib;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = NO;
+				OTHER_CFLAGS = "-fembed-bitcode";
 				PRODUCT_NAME = noiseprotocol;
-				SKIP_INSTALL = YES;
 			};
 			name = Release;
 		};

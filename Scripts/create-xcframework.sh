@@ -5,9 +5,9 @@ PROJ_DIR="$SCRIPTS_DIR/.."
 
 XCBUILD="xcrun xcodebuild"
 
-# $XCBUILD build -project "$PROJ_DIR/Noise.xcodeproj" -scheme 'Noise' -configuration Release -destination 'generic/platform=iOS'
-# $XCBUILD build -project "$PROJ_DIR/Noise.xcodeproj" -scheme 'Noise' -configuration Release -destination 'generic/platform=iOS Simulator'
-# $XCBUILD build -project "$PROJ_DIR/Noise.xcodeproj" -scheme 'Noise' -configuration Release -destination'generic/platform=macOS'
+$XCBUILD build -project "$PROJ_DIR/Noise.xcodeproj" -scheme 'Noise' -configuration Release -destination 'generic/platform=iOS' -ENABLE_BITCODE=YES
+$XCBUILD build -project "$PROJ_DIR/Noise.xcodeproj" -scheme 'Noise' -configuration Release -destination 'generic/platform=iOS Simulator' -ENABLE_BITCODE=YES
+$XCBUILD build -project "$PROJ_DIR/Noise.xcodeproj" -scheme 'Noise' -configuration Release -destination'generic/platform=macOS'
 
 BUILD_DIR="$(xcodebuild -project "$PROJ_DIR/Noise.xcodeproj" -scheme 'Noise' -configuration Release -showBuildSettings | grep " BUILD_DIR " | cut -d '=' -f2 | xargs)"
 
