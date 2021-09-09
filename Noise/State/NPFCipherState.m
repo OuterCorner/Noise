@@ -95,4 +95,9 @@
     return noise_cipherstate_get_mac_length(_cipherState);
 }
 
+- (int64_t)nonce
+{
+    return noise_cipherstate_get_nonce(_cipherState);
+}
+
 @end

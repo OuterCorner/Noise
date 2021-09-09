@@ -17,6 +17,7 @@ NS_SWIFT_NAME(NoiseCipherState)
 - (NSData *__nullable)decrypt:(NSData *)data error:(NSError * _Nullable __autoreleasing *)error;
 
 - (NSUInteger)macLength;
+- (int64_t)nonce;
 
 @end
 
