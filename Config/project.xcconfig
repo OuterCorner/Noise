@@ -10,3 +10,6 @@
 // https://help.apple.com/xcode/#/dev745c5c974
 
 SUPPORTED_PLATFORMS = macosx iphoneos iphonesimulator
+
+ENABLE_BITCODE = YES
+BITCODE_GENERATION_MODE = bitcode

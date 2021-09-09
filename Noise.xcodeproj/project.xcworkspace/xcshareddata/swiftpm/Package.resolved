@@ -6,8 +6,8 @@
         "repositoryURL": "https://github.com/OuterCorner/OpenSSL.git",
         "state": {
           "branch": null,
-          "revision": "9de2366c06754865c25bcd717907be3403959c30",
-          "version": "1.1.1+201014.0"
+          "revision": "908525e016f453d65f053116b4a169452341aca0",
+          "version": "1.1.1+210909.0"
         }
       }
     ]
