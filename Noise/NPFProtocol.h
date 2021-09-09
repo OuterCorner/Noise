@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "NPFKey.h"
+#import <Noise/NPFKey.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
