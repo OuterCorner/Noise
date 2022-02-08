@@ -3,11 +3,49 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		27C5C39B2537278A0059758E /* OpenSSL in Frameworks */ = {isa = PBXBuildFile; productRef = 27C5C39A2537278A0059758E /* OpenSSL */; };
+		27633F5B27B17CC5006C5A8D /* cipherstate.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C72522142F04200A3E0EA /* cipherstate.c */; };
+		27633F5C27B17CCC006C5A8D /* dhstate.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C724B2142F04200A3E0EA /* dhstate.c */; };
+		27633F5D27B17CD2006C5A8D /* errors.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C72542142F04200A3E0EA /* errors.c */; };
+		27633F5E27B17CDA006C5A8D /* handshakestate.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C724D2142F04200A3E0EA /* handshakestate.c */; };
+		27633F5F27B17CE4006C5A8D /* hashstate.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C72512142F04200A3E0EA /* hashstate.c */; };
+		27633F6027B17CEB006C5A8D /* internal.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C724F2142F04200A3E0EA /* internal.c */; };
+		27633F6127B17CF2006C5A8D /* names.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C72462142F04200A3E0EA /* names.c */; };
+		27633F6227B17CF8006C5A8D /* patterns.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C72502142F04200A3E0EA /* patterns.c */; };
+		27633F6327B17D00006C5A8D /* randstate.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C724C2142F04200A3E0EA /* randstate.c */; };
+		27633F6427B17D05006C5A8D /* signstate.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C72532142F04200A3E0EA /* signstate.c */; };
+		27633F6527B17D0C006C5A8D /* symmetricstate.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C72552142F04200A3E0EA /* symmetricstate.c */; };
+		27633F6627B17D14006C5A8D /* util.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C724A2142F04200A3E0EA /* util.c */; };
+		27633F6727B17D22006C5A8D /* dh-curve448.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C72392142F04200A3E0EA /* dh-curve448.c */; };
+		27633F6827B17D26006C5A8D /* dh-newhope.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C72312142F04200A3E0EA /* dh-newhope.c */; };
+		27633F6927B17D31006C5A8D /* hash-blake2s.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C72372142F04200A3E0EA /* hash-blake2s.c */; };
+		27633F6A27B17D44006C5A8D /* blake2s.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C71802142F04200A3E0EA /* blake2s.c */; };
+		27633F6B27B17D4F006C5A8D /* curve448.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C722A2142F04200A3E0EA /* curve448.c */; };
+		27633F6C27B17D6D006C5A8D /* p448.c in Sources */ = {isa = PBXBuildFile; fileRef = D76C0E842178FBE400BC534D /* p448.c */; };
+		27633F6D27B17D80006C5A8D /* batcher.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C71862142F04200A3E0EA /* batcher.c */; };
+		27633F6E27B17D8A006C5A8D /* error_correction.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C71992142F04200A3E0EA /* error_correction.c */; };
+		27633F6F27B17D94006C5A8D /* fips202.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C71942142F04200A3E0EA /* fips202.c */; };
+		27633F7027B17DA6006C5A8D /* newhope.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C719B2142F04200A3E0EA /* newhope.c */; };
+		27633F7127B17DAF006C5A8D /* ntt.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C71882142F04200A3E0EA /* ntt.c */; };
+		27633F7227B17DB1006C5A8D /* poly.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C71892142F04200A3E0EA /* poly.c */; };
+		27633F7327B17DC3006C5A8D /* precomp.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C71972142F04200A3E0EA /* precomp.c */; };
+		27633F7427B17DC7006C5A8D /* randombytes.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C71982142F04200A3E0EA /* randombytes.c */; };
+		27633F7627B17DCF006C5A8D /* reduce.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C718F2142F04200A3E0EA /* reduce.c */; };
+		27633F7727B17DDF006C5A8D /* cipher-aesgcm.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C72442142F04200A3E0EA /* cipher-aesgcm.c */; };
+		27633F7827B17E09006C5A8D /* sign-ed25519.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C723D2142F04200A3E0EA /* sign-ed25519.c */; };
+		27633F7927B17E09006C5A8D /* cipher-chachapoly.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C723F2142F04200A3E0EA /* cipher-chachapoly.c */; };
+		27633F7A27B17E09006C5A8D /* dh-curve25519.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C723C2142F04200A3E0EA /* dh-curve25519.c */; };
+		27633F7C27B17E09006C5A8D /* hash-sha256.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C72412142F04200A3E0EA /* hash-sha256.c */; };
+		27633F7D27B17E09006C5A8D /* hash-blake2b.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C72422142F04200A3E0EA /* hash-blake2b.c */; };
+		27633F7E27B17E09006C5A8D /* hash-sha512.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C72402142F04200A3E0EA /* hash-sha512.c */; };
+		27633F7F27B17F25006C5A8D /* rand_os.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C72472142F04200A3E0EA /* rand_os.c */; };
+		27633F8027B17F5C006C5A8D /* sha256.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C71792142F04200A3E0EA /* sha256.c */; };
+		27633F8127B18BAD006C5A8D /* cipher-aesgcm.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C723E2142F04200A3E0EA /* cipher-aesgcm.c */; };
+		27633F8B27B29AB3006C5A8D /* Sodium in Frameworks */ = {isa = PBXBuildFile; productRef = 27633F8A27B29AB3006C5A8D /* Sodium */; };
+		27633F8E27B29ACC006C5A8D /* OpenSSL in Frameworks */ = {isa = PBXBuildFile; productRef = 27633F8D27B29ACC006C5A8D /* OpenSSL */; };
 		D704465D2179CE3B00A91DA0 /* echo-server in Copy Executables */ = {isa = PBXBuildFile; fileRef = D72E165A214C667900839C9D /* echo-server */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		D704465E2179CE3B00A91DA0 /* echo-client in Copy Executables */ = {isa = PBXBuildFile; fileRef = D72E166A214C67D700839C9D /* echo-client */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		D71EAEE12179DC06004C4D36 /* ObjC.m in Sources */ = {isa = PBXBuildFile; fileRef = D71EAEE02179DC06004C4D36 /* ObjC.m */; };
@@ -26,57 +64,12 @@
 		D72E168C215155E600839C9D /* NPFCipherState.m in Sources */ = {isa = PBXBuildFile; fileRef = D72E1689215155E600839C9D /* NPFCipherState.m */; };
 		D72E1690215156E300839C9D /* NPFCipherState+Package.h in Headers */ = {isa = PBXBuildFile; fileRef = D72E168E215156E300839C9D /* NPFCipherState+Package.h */; };
 		D72E169621515C6400839C9D /* NPFSession+Package.h in Headers */ = {isa = PBXBuildFile; fileRef = D72E169421515C6400839C9D /* NPFSession+Package.h */; };
-		D72E16BC2153012500839C9D /* cipherstate.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C72522142F04200A3E0EA /* cipherstate.c */; };
-		D72E16BE2153012E00839C9D /* dhstate.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C724B2142F04200A3E0EA /* dhstate.c */; };
-		D72E16C02153013600839C9D /* errors.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C72542142F04200A3E0EA /* errors.c */; };
-		D72E16C22153014500839C9D /* handshakestate.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C724D2142F04200A3E0EA /* handshakestate.c */; };
-		D72E16C42153014E00839C9D /* hashstate.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C72512142F04200A3E0EA /* hashstate.c */; };
-		D72E16C62153015600839C9D /* internal.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C724F2142F04200A3E0EA /* internal.c */; };
-		D72E16C82153015D00839C9D /* names.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C72462142F04200A3E0EA /* names.c */; };
-		D72E16CA2153016400839C9D /* patterns.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C72502142F04200A3E0EA /* patterns.c */; };
-		D72E16CC2153016C00839C9D /* randstate.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C724C2142F04200A3E0EA /* randstate.c */; };
-		D72E16CE2153017300839C9D /* signstate.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C72532142F04200A3E0EA /* signstate.c */; };
-		D72E16D02153017A00839C9D /* symmetricstate.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C72552142F04200A3E0EA /* symmetricstate.c */; };
-		D72E16D22153018100839C9D /* util.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C724A2142F04200A3E0EA /* util.c */; };
-		D72E16D42153018A00839C9D /* dh-curve448.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C72392142F04200A3E0EA /* dh-curve448.c */; };
-		D72E16D62153019600839C9D /* dh-newhope.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C72312142F04200A3E0EA /* dh-newhope.c */; };
-		D72E16D8215301A800839C9D /* hash-blake2s.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C72372142F04200A3E0EA /* hash-blake2s.c */; };
-		D72E16DA215301C100839C9D /* blake2s.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C71802142F04200A3E0EA /* blake2s.c */; };
-		D72E16DC215301CB00839C9D /* curve448.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C722A2142F04200A3E0EA /* curve448.c */; };
-		D72E16E0215301ED00839C9D /* batcher.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C71862142F04200A3E0EA /* batcher.c */; };
-		D72E16E2215301FC00839C9D /* error_correction.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C71992142F04200A3E0EA /* error_correction.c */; };
-		D72E16E42153020600839C9D /* fips202.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C71942142F04200A3E0EA /* fips202.c */; };
-		D72E16E62153021100839C9D /* newhope.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C719B2142F04200A3E0EA /* newhope.c */; };
-		D72E16E82153021E00839C9D /* ntt.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C71882142F04200A3E0EA /* ntt.c */; };
-		D72E16EA2153022900839C9D /* poly.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C71892142F04200A3E0EA /* poly.c */; };
-		D72E16EC2153023000839C9D /* precomp.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C71972142F04200A3E0EA /* precomp.c */; };
-		D72E16EE2153023F00839C9D /* reduce.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C718F2142F04200A3E0EA /* reduce.c */; };
-		D72E16F02153024D00839C9D /* cipher-aesgcm.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C72442142F04200A3E0EA /* cipher-aesgcm.c */; };
-		D72E16F42153025E00839C9D /* cipher-aesgcm.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C72342142F04200A3E0EA /* cipher-aesgcm.c */; };
-		D72E16F62153026900839C9D /* rand_sodium.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C72492142F04200A3E0EA /* rand_sodium.c */; };
-		D72E1704215302B100839C9D /* rand_os.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C72472142F04200A3E0EA /* rand_os.c */; };
-		D72E1706215302C100839C9D /* cipher-chachapoly.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C72352142F04200A3E0EA /* cipher-chachapoly.c */; };
-		D72E1708215302CB00839C9D /* dh-curve25519.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C72322142F04200A3E0EA /* dh-curve25519.c */; };
-		D72E170A215302D400839C9D /* hash-blake2b.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C723A2142F04200A3E0EA /* hash-blake2b.c */; };
-		D72E170C215302D900839C9D /* hash-sha256.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C72382142F04200A3E0EA /* hash-sha256.c */; };
-		D72E170E215302DF00839C9D /* hash-sha512.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C72362142F04200A3E0EA /* hash-sha512.c */; };
-		D72E1710215302E600839C9D /* sign-ed25519.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C72332142F04200A3E0EA /* sign-ed25519.c */; };
-		D72E1712215302F300839C9D /* rijndael-alg-fst.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C722D2142F04200A3E0EA /* rijndael-alg-fst.c */; };
-		D72E1714215302FD00839C9D /* blake2b.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C717F2142F04200A3E0EA /* blake2b.c */; };
-		D72E17162153030400839C9D /* chacha.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C71832142F04200A3E0EA /* chacha.c */; };
-		D72E17182153030E00839C9D /* poly1305-donna.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C71742142F04200A3E0EA /* poly1305-donna.c */; };
-		D72E171A2153031900839C9D /* ghash.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C71FD2142F04200A3E0EA /* ghash.c */; };
-		D72E171C2153032700839C9D /* crypto_stream_chacha20.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C718E2142F04200A3E0EA /* crypto_stream_chacha20.c */; };
-		D72E171F2153033400839C9D /* sha256.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C71792142F04200A3E0EA /* sha256.c */; };
-		D72E17212153033C00839C9D /* sha512.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C717A2142F04200A3E0EA /* sha512.c */; };
-		D72E17232153034600839C9D /* ed25519.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C72052142F04200A3E0EA /* ed25519.c */; };
 		D75952BE214947DA0043D7ED /* KeyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D75952BD214947DA0043D7ED /* KeyTests.swift */; };
 		D75952C1214952B10043D7ED /* NPFSession.h in Headers */ = {isa = PBXBuildFile; fileRef = D75952BF214952B10043D7ED /* NPFSession.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D75952C3214952B10043D7ED /* NPFSession.m in Sources */ = {isa = PBXBuildFile; fileRef = D75952C0214952B10043D7ED /* NPFSession.m */; };
 		D75952C92149587C0043D7ED /* NPFHandshakeState.h in Headers */ = {isa = PBXBuildFile; fileRef = D75952C72149587C0043D7ED /* NPFHandshakeState.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D75952CB2149587C0043D7ED /* NPFHandshakeState.m in Sources */ = {isa = PBXBuildFile; fileRef = D75952C82149587C0043D7ED /* NPFHandshakeState.m */; };
 		D75952D0214989310043D7ED /* HandshakeStateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D75952CF214989310043D7ED /* HandshakeStateTests.swift */; };
-		D76C0E852178FBE400BC534D /* p448.c in Sources */ = {isa = PBXBuildFile; fileRef = D76C0E842178FBE400BC534D /* p448.c */; };
 		D76C0E9021791A6600BC534D /* Noise.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D77C6E152142E09100A3E0EA /* Noise.framework */; };
 		D76C0E9621791A7200BC534D /* EchoServerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D71A74FC21593D1F0040F0DA /* EchoServerTests.swift */; };
 		D76C0E9721791A7200BC534D /* EchoClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D72E1676214C692B00839C9D /* EchoClientTests.swift */; };
@@ -464,8 +457,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				27633F8E27B29ACC006C5A8D /* OpenSSL in Frameworks */,
 				D77C72DF2143162600A3E0EA /* libnoiseprotocol.a in Frameworks */,
-				27C5C39B2537278A0059758E /* OpenSSL in Frameworks */,
+				27633F8B27B29AB3006C5A8D /* Sodium in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1250,7 +1244,8 @@
 			);
 			name = Noise;
 			packageProductDependencies = (
-				27C5C39A2537278A0059758E /* OpenSSL */,
+				27633F8A27B29AB3006C5A8D /* Sodium */,
+				27633F8D27B29ACC006C5A8D /* OpenSSL */,
 			);
 			productName = Noise;
 			productReference = D77C6E152142E09100A3E0EA /* Noise.framework */;
@@ -1268,7 +1263,8 @@
 			buildRules = (
 			);
 			dependencies = (
-				27C5C3A3253728EF0059758E /* PBXTargetDependency */,
+				27633F9427B29F89006C5A8D /* PBXTargetDependency */,
+				27633F9227B29F85006C5A8D /* PBXTargetDependency */,
 			);
 			name = noiseprotocol;
 			productName = noise;
@@ -1301,7 +1297,7 @@
 			attributes = {
 				CLASSPREFIX = NPF;
 				LastSwiftUpdateCheck = 1000;
-				LastUpgradeCheck = 1230;
+				LastUpgradeCheck = 1310;
 				ORGANIZATIONNAME = "Outer Corner";
 				TargetAttributes = {
 					D72E1659214C667900839C9D = {
@@ -1335,7 +1331,8 @@
 			);
 			mainGroup = D77C6E0B2142E09100A3E0EA;
 			packageReferences = (
-				27C5C3992537278A0059758E /* XCRemoteSwiftPackageReference "OpenSSL" */,
+				27633F8927B29AB3006C5A8D /* XCRemoteSwiftPackageReference "Sodium" */,
+				27633F8C27B29ACC006C5A8D /* XCRemoteSwiftPackageReference "OpenSSL" */,
 			);
 			productRefGroup = D77C6E162142E09100A3E0EA /* Products */;
 			projectDirPath = "";
@@ -1379,6 +1376,7 @@
 /* Begin PBXShellScriptBuildPhase section */
 		2729B6F72537290900A319CC /* Create header symlink */ = {
 			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
 			buildActionMask = 2147483647;
 			files = (
 			);
@@ -1392,8 +1390,8 @@
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nmkdir -p \"$TARGET_BUILD_DIR\"/include \nln -fs \"$TARGET_BUILD_DIR\"/OpenSSL.framework/Headers \"$TARGET_BUILD_DIR\"/include/openssl \n";
+			shellPath = /bin/zsh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nset -x\nsleep 1 # this is stupid, but on clean builds the frameworks are not in when this script is ran\nmkdir -p \"$TARGET_BUILD_DIR/include\" \nln -f \"$TARGET_BUILD_DIR/Sodium.framework/Headers/Sodium.h\" \"$TARGET_BUILD_DIR/include/sodium.h\"\nln -fs \"$TARGET_BUILD_DIR/OpenSSL.framework/Headers\" \"$TARGET_BUILD_DIR/include/openssl\" \n\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -1446,51 +1444,43 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D72E16C42153014E00839C9D /* hashstate.c in Sources */,
-				D72E16E82153021E00839C9D /* ntt.c in Sources */,
-				D72E171A2153031900839C9D /* ghash.c in Sources */,
-				D72E16C82153015D00839C9D /* names.c in Sources */,
-				D72E1710215302E600839C9D /* sign-ed25519.c in Sources */,
-				D72E16BC2153012500839C9D /* cipherstate.c in Sources */,
-				D72E16F62153026900839C9D /* rand_sodium.c in Sources */,
-				D72E16D02153017A00839C9D /* symmetricstate.c in Sources */,
-				D72E16D42153018A00839C9D /* dh-curve448.c in Sources */,
-				D72E16DC215301CB00839C9D /* curve448.c in Sources */,
-				D72E16EE2153023F00839C9D /* reduce.c in Sources */,
-				D72E16F42153025E00839C9D /* cipher-aesgcm.c in Sources */,
-				D72E16CC2153016C00839C9D /* randstate.c in Sources */,
-				D72E170E215302DF00839C9D /* hash-sha512.c in Sources */,
-				D72E1712215302F300839C9D /* rijndael-alg-fst.c in Sources */,
-				D76C0E852178FBE400BC534D /* p448.c in Sources */,
-				D72E16D62153019600839C9D /* dh-newhope.c in Sources */,
-				D72E17182153030E00839C9D /* poly1305-donna.c in Sources */,
-				D72E16E2215301FC00839C9D /* error_correction.c in Sources */,
-				D72E16D22153018100839C9D /* util.c in Sources */,
-				D72E171C2153032700839C9D /* crypto_stream_chacha20.c in Sources */,
-				D72E17212153033C00839C9D /* sha512.c in Sources */,
-				D72E1704215302B100839C9D /* rand_os.c in Sources */,
-				D72E16C62153015600839C9D /* internal.c in Sources */,
-				D72E16CA2153016400839C9D /* patterns.c in Sources */,
-				D72E170A215302D400839C9D /* hash-blake2b.c in Sources */,
-				D72E16F02153024D00839C9D /* cipher-aesgcm.c in Sources */,
-				D72E16E0215301ED00839C9D /* batcher.c in Sources */,
-				D72E16C22153014500839C9D /* handshakestate.c in Sources */,
-				D72E16C02153013600839C9D /* errors.c in Sources */,
-				D72E16E42153020600839C9D /* fips202.c in Sources */,
-				D72E170C215302D900839C9D /* hash-sha256.c in Sources */,
-				D72E1706215302C100839C9D /* cipher-chachapoly.c in Sources */,
-				D72E16CE2153017300839C9D /* signstate.c in Sources */,
-				D72E16BE2153012E00839C9D /* dhstate.c in Sources */,
-				D72E16EA2153022900839C9D /* poly.c in Sources */,
-				D72E171F2153033400839C9D /* sha256.c in Sources */,
-				D72E16DA215301C100839C9D /* blake2s.c in Sources */,
-				D72E1714215302FD00839C9D /* blake2b.c in Sources */,
-				D72E16E62153021100839C9D /* newhope.c in Sources */,
-				D72E16EC2153023000839C9D /* precomp.c in Sources */,
-				D72E16D8215301A800839C9D /* hash-blake2s.c in Sources */,
-				D72E17162153030400839C9D /* chacha.c in Sources */,
-				D72E17232153034600839C9D /* ed25519.c in Sources */,
-				D72E1708215302CB00839C9D /* dh-curve25519.c in Sources */,
+				27633F7927B17E09006C5A8D /* cipher-chachapoly.c in Sources */,
+				27633F7727B17DDF006C5A8D /* cipher-aesgcm.c in Sources */,
+				27633F5F27B17CE4006C5A8D /* hashstate.c in Sources */,
+				27633F8127B18BAD006C5A8D /* cipher-aesgcm.c in Sources */,
+				27633F7127B17DAF006C5A8D /* ntt.c in Sources */,
+				27633F7C27B17E09006C5A8D /* hash-sha256.c in Sources */,
+				27633F6127B17CF2006C5A8D /* names.c in Sources */,
+				27633F5B27B17CC5006C5A8D /* cipherstate.c in Sources */,
+				27633F7D27B17E09006C5A8D /* hash-blake2b.c in Sources */,
+				27633F7827B17E09006C5A8D /* sign-ed25519.c in Sources */,
+				27633F6527B17D0C006C5A8D /* symmetricstate.c in Sources */,
+				27633F6727B17D22006C5A8D /* dh-curve448.c in Sources */,
+				27633F6B27B17D4F006C5A8D /* curve448.c in Sources */,
+				27633F6327B17D00006C5A8D /* randstate.c in Sources */,
+				27633F6827B17D26006C5A8D /* dh-newhope.c in Sources */,
+				27633F6E27B17D8A006C5A8D /* error_correction.c in Sources */,
+				27633F6627B17D14006C5A8D /* util.c in Sources */,
+				27633F8027B17F5C006C5A8D /* sha256.c in Sources */,
+				27633F6027B17CEB006C5A8D /* internal.c in Sources */,
+				27633F6227B17CF8006C5A8D /* patterns.c in Sources */,
+				27633F6D27B17D80006C5A8D /* batcher.c in Sources */,
+				27633F5E27B17CDA006C5A8D /* handshakestate.c in Sources */,
+				27633F5D27B17CD2006C5A8D /* errors.c in Sources */,
+				27633F6F27B17D94006C5A8D /* fips202.c in Sources */,
+				27633F6427B17D05006C5A8D /* signstate.c in Sources */,
+				27633F7627B17DCF006C5A8D /* reduce.c in Sources */,
+				27633F7427B17DC7006C5A8D /* randombytes.c in Sources */,
+				27633F5C27B17CCC006C5A8D /* dhstate.c in Sources */,
+				27633F7227B17DB1006C5A8D /* poly.c in Sources */,
+				27633F7F27B17F25006C5A8D /* rand_os.c in Sources */,
+				27633F6C27B17D6D006C5A8D /* p448.c in Sources */,
+				27633F6A27B17D44006C5A8D /* blake2s.c in Sources */,
+				27633F7027B17DA6006C5A8D /* newhope.c in Sources */,
+				27633F7A27B17E09006C5A8D /* dh-curve25519.c in Sources */,
+				27633F7327B17DC3006C5A8D /* precomp.c in Sources */,
+				27633F6927B17D31006C5A8D /* hash-blake2s.c in Sources */,
+				27633F7E27B17E09006C5A8D /* hash-sha512.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1509,9 +1499,13 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		27C5C3A3253728EF0059758E /* PBXTargetDependency */ = {
+		27633F9227B29F85006C5A8D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			productRef = 27C5C3A2253728EF0059758E /* OpenSSL */;
+			productRef = 27633F9127B29F85006C5A8D /* Sodium */;
+		};
+		27633F9427B29F89006C5A8D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			productRef = 27633F9327B29F89006C5A8D /* OpenSSL */;
 		};
 		D72E1664214C66A200839C9D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -1726,7 +1720,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -1785,7 +1779,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -1887,7 +1881,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 32HNEEH56A;
 				INFOPLIST_FILE = NoiseTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1913,7 +1907,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 32HNEEH56A;
 				INFOPLIST_FILE = NoiseTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1998,25 +1992,43 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		27C5C3992537278A0059758E /* XCRemoteSwiftPackageReference "OpenSSL" */ = {
+		27633F8927B29AB3006C5A8D /* XCRemoteSwiftPackageReference "Sodium" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/OuterCorner/OpenSSL.git";
+			repositoryURL = "https://github.com/OuterCorner/Sodium";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.1.1;
+				kind = upToNextMinorVersion;
+				minimumVersion = 1.1.0;
+			};
+		};
+		27633F8C27B29ACC006C5A8D /* XCRemoteSwiftPackageReference "OpenSSL" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/OuterCorner/OpenSSL";
+			requirement = {
+				kind = upToNextMinorVersion;
+				minimumVersion = 1.2.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		27C5C39A2537278A0059758E /* OpenSSL */ = {
+		27633F8A27B29AB3006C5A8D /* Sodium */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 27C5C3992537278A0059758E /* XCRemoteSwiftPackageReference "OpenSSL" */;
+			package = 27633F8927B29AB3006C5A8D /* XCRemoteSwiftPackageReference "Sodium" */;
+			productName = Sodium;
+		};
+		27633F8D27B29ACC006C5A8D /* OpenSSL */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 27633F8C27B29ACC006C5A8D /* XCRemoteSwiftPackageReference "OpenSSL" */;
 			productName = OpenSSL;
 		};
-		27C5C3A2253728EF0059758E /* OpenSSL */ = {
+		27633F9127B29F85006C5A8D /* Sodium */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 27C5C3992537278A0059758E /* XCRemoteSwiftPackageReference "OpenSSL" */;
+			package = 27633F8927B29AB3006C5A8D /* XCRemoteSwiftPackageReference "Sodium" */;
+			productName = Sodium;
+		};
+		27633F9327B29F89006C5A8D /* OpenSSL */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 27633F8C27B29ACC006C5A8D /* XCRemoteSwiftPackageReference "OpenSSL" */;
 			productName = OpenSSL;
 		};
 /* End XCSwiftPackageProductDependency section */
