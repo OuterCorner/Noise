@@ -1391,7 +1391,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/zsh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nset -x\nsleep 1 # this is stupid, but on clean builds the frameworks are not in when this script is ran\nmkdir -p \"$TARGET_BUILD_DIR/include\" \nln -f \"$TARGET_BUILD_DIR/Sodium.framework/Headers/Sodium.h\" \"$TARGET_BUILD_DIR/include/sodium.h\"\nln -fs \"$TARGET_BUILD_DIR/OpenSSL.framework/Headers\" \"$TARGET_BUILD_DIR/include/openssl\" \n\n";
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nset -x\nsleep 1 # this is stupid, but on clean builds the frameworks are not in when this script is ran\nmkdir -p \"$BUILT_PRODUCTS_DIR/include\" \nln -f \"$BUILT_PRODUCTS_DIR/Sodium.framework/Headers/Sodium.h\" \"$BUILT_PRODUCTS_DIR/include/sodium.h\"\nln -fs \"$BUILT_PRODUCTS_DIR/OpenSSL.framework/Headers\" \"$BUILT_PRODUCTS_DIR/include/openssl\" \n\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
