@@ -7,8 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "NPFSession.h"
-#import "NPFProtocol.h"
+#import <Noise/NPFSession.h>
+#import <Noise/NPFProtocol.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
