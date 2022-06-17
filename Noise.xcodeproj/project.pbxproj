@@ -32,7 +32,6 @@
 		27633F7127B17DAF006C5A8D /* ntt.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C71882142F04200A3E0EA /* ntt.c */; };
 		27633F7227B17DB1006C5A8D /* poly.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C71892142F04200A3E0EA /* poly.c */; };
 		27633F7327B17DC3006C5A8D /* precomp.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C71972142F04200A3E0EA /* precomp.c */; };
-		27633F7427B17DC7006C5A8D /* randombytes.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C71982142F04200A3E0EA /* randombytes.c */; };
 		27633F7627B17DCF006C5A8D /* reduce.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C718F2142F04200A3E0EA /* reduce.c */; };
 		27633F7727B17DDF006C5A8D /* cipher-aesgcm.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C72442142F04200A3E0EA /* cipher-aesgcm.c */; };
 		27633F7827B17E09006C5A8D /* sign-ed25519.c in Sources */ = {isa = PBXBuildFile; fileRef = D77C723D2142F04200A3E0EA /* sign-ed25519.c */; };
@@ -1470,7 +1469,6 @@
 				27633F6F27B17D94006C5A8D /* fips202.c in Sources */,
 				27633F6427B17D05006C5A8D /* signstate.c in Sources */,
 				27633F7627B17DCF006C5A8D /* reduce.c in Sources */,
-				27633F7427B17DC7006C5A8D /* randombytes.c in Sources */,
 				27633F5C27B17CCC006C5A8D /* dhstate.c in Sources */,
 				27633F7227B17DB1006C5A8D /* poly.c in Sources */,
 				27633F7F27B17F25006C5A8D /* rand_os.c in Sources */,
