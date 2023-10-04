@@ -20,4 +20,5 @@ typedef NS_ERROR_ENUM(NPFErrorDomain, NPFError) {
     handshakeMessageToBigError,
     internalError,
     handshakeFailedError,
+    packetWriteFailedError,
 };

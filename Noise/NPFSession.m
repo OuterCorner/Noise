@@ -310,7 +310,7 @@
 - (void)performNextHandshakeActionIfNeeded
 {
     [self.sessionQueue addOperationWithBlock:^{
-        if ([self.handshakeState needsPerformAction]) {
+        if (self.state == NPFSessionStateHandshaking && [self.handshakeState needsPerformAction]) {
             NSError *error = nil;
             if (![self.handshakeState performNextAction:&error]) {
                 [self abort:error];
@@ -368,8 +368,13 @@
     
     NSData *sizeHeader = [NSData dataWithBytes:size_buf length:2];
     NSFileHandle *writingHandle = [self.outPipe fileHandleForWriting];
-    [writingHandle writeData:sizeHeader];
-    [writingHandle writeData:data];
+    @try {
+        [writingHandle writeData:sizeHeader];
+        [writingHandle writeData:data];
+    } @catch (NSException *exception) {
+        NSLog(@"Caugth exception while trying write packet to outPipe: %@, %@", exception, exception.userInfo);
+        [self abort:[NSError errorWithDomain:NPFErrorDomain code:packetWriteFailedError userInfo:nil]];
+    }    
 }
 
 @end
