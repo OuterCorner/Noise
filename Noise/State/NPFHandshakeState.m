@@ -249,9 +249,9 @@
     
     NSData *payload = [NSData dataWithBytes:buffer length:payload_buffer.size];
     free(buffer);
-    if ([session.delegate respondsToSelector:@selector(session:didReceiveHandshakeMessage:payload:)]) {
-        [session.delegate session:session didReceiveHandshakeMessage:pattern payload:payload];
-    }
+    [session tryDelegateCall:@selector(session:didReceiveHandshakeMessage:payload:) block:^(id<NPFSessionDelegate>  _Nonnull delegate) {
+        [delegate session:session didReceiveHandshakeMessage:pattern payload:payload];
+    }];
     
     return [self performNextAction:error];
 }
@@ -272,11 +272,11 @@
 
         if (action == NOISE_ACTION_WRITE_MESSAGE) {
             NSString *pattern = [self currentActionPattern];
-            NSData *payload = nil;
-            if ([session.delegate respondsToSelector:@selector(session:willSendHandshakeMessagePattern:)]) {
-                payload = [session.delegate session:session
+            __block NSData *payload = nil;
+            [session tryDelegateCall:@selector(session:willSendHandshakeMessagePattern:) block:^(id<NPFSessionDelegate>  _Nonnull delegate) {
+                payload = [delegate session:session
                     willSendHandshakeMessagePattern:pattern];
-            }
+            }];
             
             size_t max_buffer_size = 4096 + [payload length];
             uint8_t *buffer = (uint8_t *)malloc(max_buffer_size);

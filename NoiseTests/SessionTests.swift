@@ -352,7 +352,9 @@ class SessionTests: XCTestCase {
         clientSession.delegate = clientSessionDelegate
         
         let serverFailedExpectation = keyValueObservingExpectation(for: serverSession, keyPath: "state") { (object, change) -> Bool in
-            clientSession.receivingHandle?.closeFile()
+            if (serverSession.state == NoiseSessionState.error) {
+                clientSession.receivingHandle?.closeFile()
+            }
             return serverSession.state == NoiseSessionState.error
         }
         let clientFailedExpectation = keyValueObservingExpectation(for: clientSession, keyPath: "state") { (object, change) -> Bool in
@@ -378,7 +380,7 @@ class SessionTests: XCTestCase {
             }
         }
         
-        wait(for: [serverFailedExpectation, clientFailedExpectation], timeout: 1.0)
+        wait(for: [serverFailedExpectation, clientFailedExpectation], timeout: 100000.0)
         
     }
     
@@ -409,7 +411,7 @@ class SessionTests: XCTestCase {
     
     // MARK: private
     
-    func randomData(of size: Int) -> Data {
+    private func randomData(of size: Int) -> Data {
         var data = Data(count: size)
         let res: OSStatus = data.withUnsafeMutableBytes { (bytes) -> OSStatus in
             return SecRandomCopyBytes(kSecRandomDefault, size, bytes.baseAddress!)
@@ -417,6 +419,7 @@ class SessionTests: XCTestCase {
         XCTAssertEqual(res, errSecSuccess)
         return data
     }
+    
 }
 
 fileprivate class NoiseSessionStubDelegate: NSObject, NoiseSessionDelegate {

@@ -65,12 +65,15 @@ NS_SWIFT_NAME(NoiseSession)
 /** The role for this session. */
 @property (readonly) NPFSessionRole role;
 
-/** The current state of this session. This is KVO-compatible. */
+/** The current state of this session. This is KVO-compatible. Note KVO notifications will be sent from an internal queue. */
 @property (readonly) NPFSessionState state;
 
 
 /** An optional delegate for this session */
 @property (nullable, weak) id<NPFSessionDelegate> delegate;
+
+/** The queue where delegate calls will be made. Defaults to the main queue.  */
+@property (nullable, strong) NSOperationQueue *delegateQueue;
 
 /**
  You should call this method before starting a session to setup all the required data for the

@@ -15,6 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)sendHandshakeData:(NSData *)data;
 - (void)establishWithSendingCipher:(NPFCipherState *)sendCipher receivingCipher:(NPFCipherState *)recvCipher;
+- (void)tryDelegateCall:(SEL)selector block:(void(^)(id<NPFSessionDelegate> delegate))callBlock;
 
 @end
 

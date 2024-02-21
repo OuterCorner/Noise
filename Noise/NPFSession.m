@@ -28,6 +28,7 @@
 @property (nullable, strong, readwrite) NSFileHandle *receivingHandle;
 
 @property (nonatomic, strong) NSOperationQueue *sessionQueue;
+
 @end
 
 @implementation NPFSession
@@ -71,6 +72,7 @@
         _state = NPFSessionStateInitializing;
         _maxMessageSize = NOISE_MAX_PAYLOAD_LEN;
         _sessionQueue = [[NSOperationQueue alloc] init];
+        _sessionQueue.name = @"Internal NPFSession queue";
         _sessionQueue.maxConcurrentOperationCount = 1;
     }
     return self;
@@ -126,11 +128,10 @@
     }
     
     
-    
-    if ([self.delegate respondsToSelector:@selector(sessionWillStart:)]) {
-        [self.delegate sessionWillStart:self];
-    }
-    
+    [self tryDelegateCall:@selector(sessionWillStart:) block:^(id<NPFSessionDelegate> delegate) {
+        [delegate sessionWillStart:self];
+    }];
+        
     // start handshake
     if (![self.handshakeState startForSession:self error:error]) {
         return NO;
@@ -143,16 +144,19 @@
     self.sendingHandle = [self.outPipe fileHandleForReading];
     self.receivingHandle = [self.inPipe fileHandleForWriting];
     
+
+    NSOperationQueue *sessionQueue = self.sessionQueue;
     __weak NPFSession *wSelf = self;
+    void(^abort)(NSError *) = ^(NSError *error){
+        [sessionQueue addOperationWithBlock:^{ [wSelf abort:error]; }];
+    };
+    
     self.inPipe.fileHandleForReading.readabilityHandler = ^(NSFileHandle * _Nonnull handle) {
-        
         NSData *sizeHeader = [handle readDataOfLength:2];
         if ([sizeHeader length] != 2) {
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [wSelf abort:[NSError errorWithDomain:NPFErrorDomain
-                                                 code:(sizeHeader != nil && [sizeHeader length] == 0) ? fileHandleEOFError : fileHandleReadFailedError
-                                             userInfo:nil]];
-            });
+            abort([NSError errorWithDomain:NPFErrorDomain
+                                      code:(sizeHeader != nil && [sizeHeader length] == 0) ? fileHandleEOFError : fileHandleReadFailedError
+                                  userInfo:nil]);
             return;
         }
         
@@ -161,35 +165,38 @@
         
         NSData *message = [handle readDataOfLength:(NSUInteger)size];
         if ([message length] != size) {
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [wSelf abort:[NSError errorWithDomain:NPFErrorDomain
-                                                 code:(message != nil && [message length] == 0) ? fileHandleEOFError : fileHandleReadFailedError
-                                             userInfo:nil]];
-            });
+            abort([NSError errorWithDomain:NPFErrorDomain
+                                      code:(message != nil && [message length] == 0) ? fileHandleEOFError : fileHandleReadFailedError
+                                  userInfo:nil]);
             return;
         }
-        
-        [wSelf receivedData:message];
-        
+        [sessionQueue addOperationWithBlock:^{
+            [wSelf receivedData:message];
+        }];
     };
     
-    // change state
-    [self transitionToState:NPFSessionStateHandshaking];
+    [sessionQueue addOperationWithBlock:^{
+        // change state
+        [self transitionToState:NPFSessionStateHandshaking];
+        
+        [self tryDelegateCall:@selector(sessionDidStart:) block:^(id<NPFSessionDelegate> delegate) {
+            [self.delegate sessionDidStart:self];
+        }];
+        
+        [self performNextHandshakeActionIfNeeded];
+    }];
     
-    if ([self.delegate respondsToSelector:@selector(sessionDidStart:)]) {
-        [self.delegate sessionDidStart:self];
-    }
-    
-    [self performNextHandshakeActionIfNeeded];
     return YES;
 }
 
 - (void)stop
 {
-    [self transitionToState:NPFSessionStateStopped];
-    if ([self.delegate respondsToSelector:@selector(sessionDidStop:error:)]) {
-        [self.delegate sessionDidStop:self error:nil];
-    }
+    [self.sessionQueue addOperationWithBlock:^{
+        [self transitionToState:NPFSessionStateStopped];
+        [self tryDelegateCall:@selector(sessionDidStop:error:) block:^(id<NPFSessionDelegate> delegate) {
+            [delegate sessionDidStop:self error:nil];
+        }];
+    }];
 }
 
 - (void)sendData:(NSData *)data
@@ -197,22 +204,25 @@
     if (self.state != NPFSessionStateEstablished) {
         return;
     }
-    NSUInteger minSize = 2 + [self.sendingCipherState macLength];
-    NSUInteger remaining = [data length];
-    NSUInteger loc = 0;
-    NSData *subData = nil;
-    while ((void)(subData = [data subdataWithRange:NSMakeRange(loc, MIN(remaining, self.maxMessageSize - minSize))]), [subData length] > 0) {
-        NSError *error = nil;
-        NSData *cipherText = [self.sendingCipherState encrypt:subData error:&error];
-        if (!cipherText) {
-            [self abort:error];
-            return;
+    
+    [self.sessionQueue addOperationWithBlock:^{
+        NSUInteger minSize = 2 + [self.sendingCipherState macLength];
+        NSUInteger remaining = [data length];
+        NSUInteger loc = 0;
+        NSData *subData = nil;
+        while ((void)(subData = [data subdataWithRange:NSMakeRange(loc, MIN(remaining, self.maxMessageSize - minSize))]), [subData length] > 0) {
+            NSError *error = nil;
+            NSData *cipherText = [self.sendingCipherState encrypt:subData error:&error];
+            if (!cipherText) {
+                [self abort:error];
+                return;
+            }
+            
+            [self writePacketWithPayload:cipherText];
+            loc += [subData length];
+            remaining -= [subData length];
         }
-        
-        [self writePacketWithPayload:cipherText];
-        loc += [subData length];
-        remaining -= [subData length];
-    }
+    }];
 }
 
 #pragma mark - Properties
@@ -241,6 +251,8 @@
 
 - (void)sendHandshakeData:(NSData *)data
 {
+    NSAssert([NSOperationQueue currentQueue] == self.sessionQueue, @"%@ should be called in the session queue", NSStringFromSelector(_cmd));
+    
     if (self.state != NPFSessionStateHandshaking) {
         NSString *errorMessage = @"Attempt to send handshake data while not in a handshaking state";
         NSError *error = [NSError errorWithDomain:NPFErrorDomain
@@ -262,7 +274,7 @@
 
 - (void)establishWithSendingCipher:(NPFCipherState *)sendCipher receivingCipher:(NPFCipherState *)recvCipher
 {
-    NSAssert([NSOperationQueue currentQueue] == self.sessionQueue, @"This should be called in the session queue");
+    NSAssert([NSOperationQueue currentQueue] == self.sessionQueue, @"%@ should be called in the session queue", NSStringFromSelector(_cmd));
     
     self.sendingCipherState = sendCipher;
     self.receivingCipherState = recvCipher;
@@ -271,18 +283,31 @@
     
     [self transitionToState:NPFSessionStateEstablished];
     
-    dispatch_sync(dispatch_get_main_queue(), ^{
-        if ([self.delegate respondsToSelector:@selector(session:handshakeComplete:)]) {
-            [self.delegate session:self handshakeComplete:handshakeState];
-        }
-    });
+    [self tryDelegateCall:@selector(session:handshakeComplete:) block:^(id<NPFSessionDelegate> delegate) {
+        [delegate session:self handshakeComplete:handshakeState];
+    }];
 }
 
+- (void)tryDelegateCall:(SEL)selector block:(void(^)(id<NPFSessionDelegate> delegate))callBlock
+{
+    id delegate = self.delegate;
+    if (![delegate respondsToSelector:selector]) { return; }
+    
+    NSOperationQueue *queue = self.delegateQueue ?: [NSOperationQueue mainQueue];
+    if (queue == [NSOperationQueue currentQueue]) {
+        callBlock(delegate);
+    } else {
+        dispatch_sync(queue.underlyingQueue, ^{
+            callBlock(delegate);
+        });
+    }
+}
 
 #pragma mark - Private
 
 - (void)transitionToState:(NPFSessionState)state
 {
+    NSAssert([NSOperationQueue currentQueue] == self.sessionQueue, @"%@ should be called in the session queue", NSStringFromSelector(_cmd));
     self.state = state;
     
     switch (state) {
@@ -335,32 +360,40 @@
                 [self abort:error];
                 return;
             }
-            if ([self.delegate respondsToSelector:@selector(session:didReceiveData:)]) {
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    [self.delegate session:self didReceiveData:plaintext];
-                    
-                });
-            }
+            [self tryDelegateCall:@selector(session:didReceiveData:) block:^(id<NPFSessionDelegate> delegate) {
+                [self.delegate session:self didReceiveData:plaintext];
+            }];
         }
     }];
 }
 
 - (void)abort:(NSError *)error
 {
-    if (![NSThread isMainThread]) {
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [self abort:error];
-        });
-        return;
+    NSAssert([NSOperationQueue currentQueue] == self.sessionQueue, @"%@ should be called in the session queue", NSStringFromSelector(_cmd));
+    
+    switch (self.state) {
+        case NPFSessionStateInitializing:
+        case NPFSessionStateHandshaking:
+        case NPFSessionStateEstablished:
+            break;
+        case NPFSessionStateStopped:
+            // session is already stopped. Ignore.
+            return;
+        case NPFSessionStateError:
+            // session is already in an error state. Ignore.
+            return;
     }
+    
     [self transitionToState:NPFSessionStateError];
-    if ([self.delegate respondsToSelector:@selector(sessionDidStop:error:)]) {
-        [self.delegate sessionDidStop:self error:error];
-    }
+    [self tryDelegateCall:@selector(sessionDidStop:error:) block:^(id<NPFSessionDelegate> delegate) {
+        [delegate sessionDidStop:self error:error];
+    }];
 }
 
 - (void)writePacketWithPayload:(NSData *)data
 {
+    NSAssert([NSOperationQueue currentQueue] == self.sessionQueue, @"%@ should be called in the session queue", NSStringFromSelector(_cmd));
+    
     uint16_t size = [data length];
     uint8_t size_buf[2];
     size_buf[0] = (uint8_t)(size >> 8);
@@ -377,4 +410,6 @@
     }    
 }
 
+
+                      
 @end
